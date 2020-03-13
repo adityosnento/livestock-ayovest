@@ -1,0 +1,8 @@
+@import '~antd/dist/antd.css';
+
+body {
+    overflow: hidden;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    font-family: "Poppins", sans-serif;
+}
