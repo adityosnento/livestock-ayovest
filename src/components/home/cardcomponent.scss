@@ -1,0 +1,24 @@
+.investment-title {
+  text-align: center;
+  padding-bottom: 3rem;
+}
+
+.card-item {
+  margin: 3rem 0;
+  cursor: pointer;
+}
+
+.card-item-single {
+  box-shadow: 0.5rem 0.5rem#e7e7e7;
+  border-radius: 2%;
+}
+
+.card-item-single img {
+  border-radius: 2%;
+  max-width: 100%;
+}
+
+.card-footer-text i,
+.card-footer-text span {
+  margin-left: 1rem;
+}
