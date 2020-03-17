@@ -1,5 +1,8 @@
-@import "~antd/dist/antd.css";
+@import '~antd/dist/antd.css';
 
-.navbar-color {
-  background: blue;
+body {
+    overflow: hidden;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    font-family: "Poppins", sans-serif;
 }
