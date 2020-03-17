@@ -1,29 +1,28 @@
 import React from "react";
-import { connect } from "react-redux";
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import "./App.css";
-import Header from "./components/Header/Header2";
-// import Footer from './components/Footer/Footer'
-import Login from "./components/Auth/Login/Login";
-import Register from "./components/Auth/Register/Register";
-import Routes from "./components/Routes/Routes";
+import "bootstrap/dist/css/bootstrap.min.css";
+import TopBar from "./components/TopBar";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import "./asset/style.css";
+import FooterComponent from "./components/FooterComponent";
 
-const App = () => {
+import Detail from "./pages/Detail";
+import LiveeStock from "./pages/LiveeStock";
+
+function App() {
   return (
-    <Router>
-      <Header />
-      <Routes />
-      {/* <Footer/> */}
-
-      <Route path="/login">
-        <Login />
-      </Route>
-
-      <Route path="/register">
-        <Register />
-      </Route>
-    </Router>
+    <div className="App">
+      <TopBar />
+      <Router>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/detail" component={Detail} />
+          <Route path="/livestock" component={LiveeStock} />
+        </Switch>
+      </Router>
+      <FooterComponent />
+    </div>
   );
-};
+}
 
-export default connect()(App);
+export default App;
