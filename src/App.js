@@ -11,6 +11,7 @@ import Detail from "./pages/Detail";
 import LiveeStock from "./pages/LiveeStock";
 import Profile from "./pages/Profile";
 import "react-toastify/dist/ReactToastify.min.css";
+import Payments from "./pages/Payments";
 
 function App() {
   return (
@@ -21,7 +22,8 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route path="/detail/:id" component={Detail} />
           <Route path="/livestock" component={LiveeStock} />
-          <Route path="/profile/:id" component={Profile} />
+          <Route path="/profile" component={Profile} />
+          <Route path="/payment" component={Payments} />
         </Switch>
       </Router>
       <FooterComponent />

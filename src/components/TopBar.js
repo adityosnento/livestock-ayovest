@@ -20,7 +20,7 @@ import "../asset/style.css";
 import "./topbar.scss";
 
 const TopBar = props => {
-  const [isOpen, setIsOpen, isModalVisble, setIsModalVisible] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
 
@@ -56,17 +56,6 @@ const TopBar = props => {
                 <DropdownItem>Reset</DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown> */}
-          </Nav>
-          <Nav>
-            <UncontrolledDropdown nav inNavbar>
-              <DropdownToggle nav caret>
-                EN
-              </DropdownToggle>
-              <DropdownMenu right>
-                <DropdownItem>EN</DropdownItem>
-                <DropdownItem>ID</DropdownItem>
-              </DropdownMenu>
-            </UncontrolledDropdown>
           </Nav>
           <ModalComponent buttonLabel="Sign In" />
         </Collapse>

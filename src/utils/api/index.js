@@ -1,6 +1,13 @@
 import axios from "axios";
 
 const url = "https://ayo-vest.herokuapp.com/api/v1/";
+const userId = localStorage.getItem("id");
+
+// Default base url
+axios.defaults.baseURL = url;
+axios.defaults.headers.common["Authorization"] = localStorage.getItem("token");
+axios.defaults.headers.post["Content-Type"] =
+  "application/x-www-form-urlencoded";
 
 /**
  *
@@ -12,7 +19,7 @@ export const investorSignUp = data => {
   return axios({
     method: "POST",
     data: data,
-    url: url + "investors"
+    url: "investors"
   });
 };
 
@@ -26,7 +33,7 @@ export const investorLogin = data => {
   return axios({
     method: "POST",
     data: data,
-    url: url + "investors/auth"
+    url: "investors/auth"
   });
 };
 
@@ -36,7 +43,17 @@ export const investorLogin = data => {
 export const liveStockGetAll = () => {
   return axios({
     method: "GET",
-    url: url + "livestocks/getall"
+    url: "livestocks/getall"
+  });
+};
+
+/**
+ * Get all livestock page n
+ */
+export const liveStockGetAllPage = page => {
+  return axios({
+    method: "GET",
+    url: "livestocks/getall?page=" + page
   });
 };
 
@@ -47,7 +64,7 @@ export const liveStockGetAll = () => {
 export const loginwithgoogle = () => {
   return axios({
     method: "POST",
-    url: url + "investors/auth/google"
+    url: "investors/auth/google"
   });
 };
 
@@ -58,6 +75,16 @@ export const loginwithgoogle = () => {
 export const livestockGetOne = id => {
   return axios({
     method: "GET",
-    url: url + "livestocks/getone?id=" + id
+    url: "livestocks/getone?id=" + id
+  });
+};
+
+/**
+ * edit user profile (get current-user)
+ */
+export const profileCurrentUser = () => {
+  return axios({
+    method: "GET",
+    url: "investors/current-user?&id=" + userId
   });
 };

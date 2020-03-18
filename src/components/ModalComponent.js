@@ -12,14 +12,11 @@ import {
 } from "reactstrap";
 import { investorSignUp, investorLogin, loginwithgoogle } from "../utils/api";
 import { toast, ToastContainer } from "react-toastify";
+import { logout } from "../utils/functions/page-behaviour";
 
 class ModalComponent extends Component {
   constructor(props) {
     super(props);
-
-    const token = localStorage.getItem("token");
-    const fullname = localStorage.getItem("fullname");
-    const id = localStorage.getItem("id");
 
     this.state = {
       modal: false,
@@ -31,10 +28,22 @@ class ModalComponent extends Component {
       signUpConfirmationPassword: "",
       SigninEmail: "",
       SigninPassword: "",
-      isLoggedin: token ? true : false,
-      fullname: fullname ? fullname : "",
-      id: id ? id : ""
+      isLoggedin: false,
+      fullname: "",
+      id: ""
     };
+  }
+
+  componentWillMount(props) {
+    const token = localStorage.getItem("token");
+    const fullname = localStorage.getItem("fullname");
+    const id = localStorage.getItem("id");
+
+    this.setState({
+      id,
+      fullname,
+      isLoggedin: token && true
+    });
   }
 
   goToProfile = () => {
@@ -83,7 +92,7 @@ class ModalComponent extends Component {
       .then(res => {
         toast.success("login berhasil");
         console.log("login", res);
-        const token = res.data.data.token;
+        const token = res.data.data.jwt_token;
         const fullname = res.data.data.fullname;
         const id = res.data.data.id;
 
@@ -92,7 +101,9 @@ class ModalComponent extends Component {
         localStorage.setItem("token", token);
 
         this.setState({
-          isLoggedin: true
+          isLoggedin: true,
+          id: id,
+          fullname: fullname
         });
 
         setTimeout(() => {
@@ -133,6 +144,17 @@ class ModalComponent extends Component {
         {this.state.isLoggedin && (
           <Button color="link" onClick={this.goToProfile}>
             {this.state.fullname}
+          </Button>
+        )}
+
+        {this.state.isLoggedin && (
+          <Button
+            style={{ color: "white" }}
+            color="link"
+            title="logout"
+            onClick={logout}
+          >
+            <i className="fa fa-sign-out"></i>
           </Button>
         )}
         <Modal isOpen={this.state.modal} toggle={this.toggle}>

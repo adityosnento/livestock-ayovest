@@ -11,19 +11,23 @@ export default class Detail extends Component {
   constructor(props) {
     super(props);
 
-    this.id = this.props.match.params.id;
     this.state = {
       livestock: []
     };
+
+    this.id = this.props.match.params.id;
+  }
+
+  componentDidMount(props) {
+    // Get one livestock based on ID
     livestockGetOne(this.id).then(res => {
       const livestock = res.data.data;
       this.setState({
         livestock: livestock
       });
-
-      console.log(this.state);
     });
   }
+
   render() {
     return (
       <div className="page-container">

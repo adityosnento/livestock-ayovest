@@ -4,7 +4,6 @@ import AboutComponent from "../components/home/AboutComponent";
 import InvestmentComponent from "../components/home/InvestmentComponent";
 import CardComponent from "../components/home/CardComponent";
 import ButtonLink from "../components/home/ButtonLink";
-import PaginationComponent from "../components/PaginationComponent";
 import InvestasiTerpopler from "../components/InvestasiTerpopler";
 
 export default class Home extends Component {
@@ -17,7 +16,6 @@ export default class Home extends Component {
         <ButtonLink title="Lihat Investasi" />
         <InvestasiTerpopler />
         <CardComponent />
-        <PaginationComponent />
         <ButtonLink title="Lihat Lebih Banyak" />
       </div>
     );
