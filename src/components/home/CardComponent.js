@@ -3,23 +3,26 @@ import { Container, Row, Col, Card, CardBody, CardFooter } from "reactstrap";
 
 import "./cardcomponent.scss";
 import { liveStockGetAll } from "../../utils/api";
+import { toast, ToastContainer } from "react-toastify";
 
 export default class CardComponent extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      livestocks: []
+      livestocks: [],
+      totalPages:1
     };
 
     liveStockGetAll()
       .then(res => {
         this.setState({
-          livestocks: res.data.data.docs
+          livestocks: res.data.data.docs,
+          totalPages: res.data.data.totalPages
         });
       })
       .catch(err => {
-        console.log(err);
+        toast.error("Failed to get livestocks data");
       });
   }
 
@@ -37,6 +40,7 @@ export default class CardComponent extends Component {
           md="4"
           className="card-item"
         >
+          <ToastContainer/>
           <Card className="card-item-single">
             <img src={data.image} alt="sapi" />
             <CardBody>
