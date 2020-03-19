@@ -11,12 +11,8 @@ export default class CardComponent extends Component {
 
     this.state = {
       livestocks: [],
-      totalPages: 1
+      totalPages:1
     };
-  }
-
-  componentWillMount(props) {
-    // Get all livestocks and put into state
 
     liveStockGetAll()
       .then(res => {
@@ -44,13 +40,13 @@ export default class CardComponent extends Component {
           md="4"
           className="card-item"
         >
-          <ToastContainer />
+          <ToastContainer/>
           <Card className="card-item-single">
             <img src={data.image} alt="sapi" />
             <CardBody>
               {data.description}
               <h3 style={{ color: "blue", textAlign: "center" }}>
-                Rp. {data.priceUnit}
+                $ {data.priceUnit}
               </h3>
             </CardBody>
             <CardFooter className="card-footer-text">

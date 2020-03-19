@@ -8,11 +8,17 @@ export default class FooterComponent extends Component {
     return (
       <Container className="footer-container" fluid>
         <Row className="footer">
-          <Col xs="12" md="3">
+          <Col xs="12" md="4">
             <span>Monggovest</span>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <i class="fa fa-google"></i>
+            <i class="fa fa-twitter"></i>
+            <i class="fa fa-youtube"></i>
+            <i class="fa fa-instagram"></i>
           </Col>
           <Col xs="12" md="2">
-            <ul className="footer-link">
+            <ul className="footer-important">
+              <h5>Important Links</h5>
               <li>Investasi</li>
               <li>Cara Kerja</li>
               <li>Tentang Kami</li>
@@ -20,22 +26,16 @@ export default class FooterComponent extends Component {
           </Col>
           <Col xs="12" md="2">
             <ul className="footer-link">
+            <h5>Useful Links</h5>
               <li>Bantuan</li>
               <li>Hubungi Kami</li>
             </ul>
           </Col>
-          <Col xs="12" md="5">
-            <h3 style={{ textAlign: "center" }}>
-              Download Aplikasi Smartphone
-            </h3>
-            <Row>
-              <Col className="footer-download-icon">
-                <i className="fa fa-apple" title="Apple store"></i>
-              </Col>
-              <Col className="footer-download-icon">
-                <i className="fa fa-google" title="Google play"></i>
-              </Col>
-            </Row>
+          <Col xs="12" md="4">
+            <h4 style={{ textAlign: "center" }}>
+              Subscribe Now
+            </h4>
+            <p>Lorem ipsum dolor sit ame consecte adipisicing elit, sed do eiusm</p>
           </Col>
         </Row>
         <Row>

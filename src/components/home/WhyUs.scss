@@ -1,0 +1,65 @@
+.whyus__container {
+    padding: 100px 100px 0px 100px;
+    display: flex;
+    
+    .whyus__containerleft{
+        width: 50%;
+
+        .whyus__containertop {
+            h5 {
+                font-weight: 600;
+                font-size: 16px;
+                
+            }
+            
+            h2 {
+                font-weight: 900;
+                letter-spacing: 0.09rem;
+            }
+
+            p {
+                color: #949494
+            }
+        }
+
+        .whyus__containerbottom {
+            display: flex;
+            flex-wrap: wrap;
+            
+            .whyus__content {
+                width: 50%;
+
+                img {
+                    padding: 20px 0px 30px 0px;
+                }
+
+                h3 {
+                    font-size: 20px;
+                    font-weight: 600;
+                    width: 90%;
+                    letter-spacing: 0.09rem;
+                    &:hover {
+                        opacity: 0.5;
+                    }
+                }
+
+                p {
+                    font-size: 14px;
+                    width: 90%;
+                    color: #949494;
+                    
+                }
+
+            }
+        }
+    }
+
+    .whyus__containerright {
+        padding: 175px 100px;
+        background-image:url ();
+
+        img {
+            width: 115%;
+        }
+    }
+}

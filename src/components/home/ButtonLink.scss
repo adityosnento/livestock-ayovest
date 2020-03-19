@@ -1,0 +1,17 @@
+.button-play {
+    background-color: #4da974;
+    padding: 10px;
+    border-color: white;
+
+    &:hover {
+        opacity: 0.6;
+        background-color: #4da974;
+        border-color: white;
+    }
+
+    &:active {
+        opacity: 0.6;
+        background-color: #4da974;
+        border-color: white;
+    }
+}

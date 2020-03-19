@@ -88,3 +88,14 @@ export const profileCurrentUser = () => {
     url: "investors/current-user?&id=" + userId
   });
 };
+
+/**
+ * updating User data
+ */
+export const updateUserDataInvestor = data => {
+  return axios({
+    method: "PUT",
+    data: data,
+    url: "investors"
+  });
+};

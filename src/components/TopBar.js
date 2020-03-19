@@ -20,14 +20,14 @@ import "../asset/style.css";
 import "./topbar.scss";
 
 const TopBar = props => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen, isModalVisble, setIsModalVisible] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
 
   return (
     <div>
       <Navbar className="navbar-color" dark expand="md" fixed="top">
-        <NavbarBrand href="/">monggovest</NavbarBrand>
+        <NavbarBrand href="/">Ayovest</NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
@@ -45,17 +45,6 @@ const TopBar = props => {
             <NavItem>
               <NavLink href="/components/">Bantuan</NavLink>
             </NavItem>
-            {/* <UncontrolledDropdown nav inNavbar>
-              <DropdownToggle nav caret>
-                Options
-              </DropdownToggle>
-              <DropdownMenu right>
-                <DropdownItem>Option 1</DropdownItem>
-                <DropdownItem>Option 2</DropdownItem>
-                <DropdownItem divider />
-                <DropdownItem>Reset</DropdownItem>
-              </DropdownMenu>
-            </UncontrolledDropdown> */}
           </Nav>
           <ModalComponent buttonLabel="Sign In" />
         </Collapse>

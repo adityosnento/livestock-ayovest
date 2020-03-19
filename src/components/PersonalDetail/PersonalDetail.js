@@ -1,7 +1,7 @@
 import React from "react";
 import { Col, Row, Button, Form, FormGroup, Label, Input } from "reactstrap";
 import "../../components/PersonalDetail/persoaldetail.scss";
-import { profileCurrentUser } from "../../utils/api";
+import { profileCurrentUser, updateUserDataInvestor } from "../../utils/api";
 
 class PersonalDetail extends React.Component {
   constructor(props) {
@@ -19,13 +19,29 @@ class PersonalDetail extends React.Component {
       zipcode: null,
       address: ""
     };
-
-    this.data = {};
   }
+
+  userData = () => {
+    alert("OK");
+    updateUserDataInvestor(this.state)
+      .then(res => {
+        console.log(res);
+      })
+      .catch(err => {
+        console.log(err);
+        alert("SALAH");
+      });
+  };
+
+  buttonClickedChange = e => {
+    alert("your data has been update");
+    this.setState({
+      [e.target.data]: e.target.value
+    });
+  };
 
   componentWillMount(props) {
     profileCurrentUser().then(res => {
-      this.data = res.data.data;
       this.setState({
         profile_picture: res.data.data.profile_picture,
         fullname: res.data.data.fullname,
@@ -46,7 +62,7 @@ class PersonalDetail extends React.Component {
     return (
       <div className="container__personaldetail">
         <div className="container__left">
-          <img src={this.state.profile_picture} alt="logo" />
+        <img src={require("../../asset/Payment/personal_detail.svg")} alt="logo" />
           <div className="container__content">
             <h5>Personal Detail</h5>
             <p>
@@ -64,7 +80,6 @@ class PersonalDetail extends React.Component {
               name="filename"
               className="input__photo"
             />
-            <input type="submit" className="input__photosubmit" />
           </form>
           <Form>
             <h4>Personal Information</h4>
@@ -76,7 +91,7 @@ class PersonalDetail extends React.Component {
                 id="exampleName"
                 placeholder="Vicky Hermawan"
                 onChange={e => this.handleFormChange(e)}
-                defaultValue={this.data.fullname}
+                defaultValue={this.state.fullname}
               />
             </FormGroup>
             <FormGroup>
@@ -111,6 +126,8 @@ class PersonalDetail extends React.Component {
                       name="text"
                       id="Country"
                       placeholder="Indonesia"
+                      onChange={e => this.handleFormChange(e)}
+                      defaultValue={this.state.country}
                     />
                   </FormGroup>
                 </Col>
@@ -122,6 +139,8 @@ class PersonalDetail extends React.Component {
                       name="text"
                       id="Province"
                       placeholder="Jekadaahh"
+                      onChange={e => this.handleFormChange(e)}
+                      defaultValue={this.state.province}
                     />
                   </FormGroup>
                 </Col>
@@ -135,6 +154,8 @@ class PersonalDetail extends React.Component {
                       name="text"
                       id="City"
                       placeholder="Jekadahh Timur"
+                      onChange={e => this.handleFormChange(e)}
+                      defaultValue={this.state.city}
                     />
                   </FormGroup>
                 </Col>
@@ -146,6 +167,8 @@ class PersonalDetail extends React.Component {
                       name="text"
                       id="zipcode"
                       placeholder="96113"
+                      onChange={e => this.handleFormChange(e)}
+                      defaultValue={this.state.zipcode}
                     />
                   </FormGroup>
                 </Col>
@@ -159,12 +182,14 @@ class PersonalDetail extends React.Component {
                       name="text"
                       id="City"
                       placeholder="Layangan Putus Street"
+                      onChange={e => this.handleFormChange(e)}
+                      defaultValue={this.state.Address}
                     />
                   </FormGroup>
                 </Col>
               </Row>
             </div>
-            <Button>Submit</Button>
+            <Button onClick={() => this.userData()}>Submit</Button>
           </Form>
         </div>
       </div>

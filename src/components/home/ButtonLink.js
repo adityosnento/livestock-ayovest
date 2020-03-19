@@ -1,21 +1,14 @@
 import React, { Component } from "react";
 import { Button, Container, Row, Col } from "reactstrap";
+import '../home/ButtonLink.scss'
 
 export default class ButtonLink extends Component {
   render() {
     return (
-      <Container style={{ marginBottom: "3rem" }}>
+      <Container>
         <Row>
           <Col style={{ textAlign: "center" }}>
-            <Button
-              color="primary"
-              size="lg"
-              style={{
-                borderRadius: "10% 10% 10% 10%",
-                border: "none",
-                textTransform: "uppercase"
-              }}
-            >
+            <Button className="button-play">
               {this.props.title}
             </Button>
           </Col>
