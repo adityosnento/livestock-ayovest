@@ -17,7 +17,7 @@ class PersonalDetail extends React.Component {
       uploaded_profile_picture: "",
       fullname: "",
       identity_number: "",
-      phone_number: "",
+      phone_number: null,
       country: "",
       province: "",
       city: "",
@@ -93,6 +93,19 @@ class PersonalDetail extends React.Component {
     this.setState({
       uploaded_profile_picture: file[0],
       profile_picture: URL.createObjectURL(file[0])
+    });
+  };
+
+  clearData = () => {
+    this.setState({
+      fullname: "",
+      identity_number: "",
+      phone_number: null,
+      country: "",
+      province: "",
+      city: "",
+      zipcode: null,
+      address: ""
     });
   };
 
@@ -231,9 +244,27 @@ class PersonalDetail extends React.Component {
                 </Col>
               </Row>
             </div>
-            <Button onClick={() => this.userData()} color="success" block>
-              <i className="fa fa-paper-plane"></i> &nbsp; Submit
-            </Button>
+            <Row>
+              <Col>
+                <Button onClick={() => this.userData()} color="success" block>
+                  <i className="fa fa-paper-plane"></i> &nbsp; Submit
+                </Button>
+              </Col>
+              <Col>
+                <Button onClick={() => this.clearData()} color="danger" block>
+                  <i className="fa fa-times"></i> &nbsp; Clear
+                </Button>
+              </Col>
+              <Col md="1">
+                <Button title="Refresh page">
+                  <i
+                    className="fa fa-refresh"
+                    block
+                    onClick={() => window.location.reload(false)}
+                  ></i>
+                </Button>
+              </Col>
+            </Row>
           </Form>
         </div>
       </div>
