@@ -37,6 +37,7 @@ class ModalComponent extends Component {
       isLoggedin: false,
       fullname: "",
       id: "",
+      role: "",
       isLoading: false
     };
   }
@@ -112,9 +113,6 @@ class ModalComponent extends Component {
 
     investorLogin(data)
       .then(res => {
-        this.doneLoading();
-
-        toast.success(res.data.data.message);
         console.log("login", res);
         const token = res.data.data.jwt_token;
         const fullname = res.data.data.fullname;
@@ -127,13 +125,16 @@ class ModalComponent extends Component {
         this.setState({
           isLoggedin: true,
           id: id,
+          role: res.data.data.role,
           fullname: fullname
         });
 
-        window.location.href = "/";
-
+        toast.dismiss();
+        toast.success("Logged in");
         setTimeout(() => {
+          this.doneLoading();
           this.toggle();
+          window.location.href = "/";
         }, 1000);
       })
       .catch(err => {
@@ -372,7 +373,7 @@ class ModalComponent extends Component {
             </ModalFooter>
           </Modal>
         )}
-        <style jsx={true}>
+        <style jsx="true">
           {`
             .loader-div {
               display: flex;

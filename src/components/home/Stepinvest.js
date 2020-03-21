@@ -5,7 +5,7 @@ export default function Stepinvest() {
   return (
     <div className="container__stepinvest">
       <div className="container__stepinvest__left">
-      <h5>Monggovest</h5>
+        <h5>Monggovest</h5>
         <h1>How to Invest</h1>
         <p>
           Hasil bersih adalah hasil keuntungan produksi komoditas sejenis yang
@@ -14,11 +14,11 @@ export default function Stepinvest() {
           ke pengelola peternakan.
         </p>
         <div id="container__button">
-          <button class="learn-more">
-            <span class="circle" aria-hidden="true">
-              <span class="icon arrow"></span>
+          <button className="learn-more">
+            <span className="circle" aria-hidden="true">
+              <span className="icon arrow"></span>
             </span>
-            <span class="button-text">Learn More</span>
+            <span className="button-text">Learn More</span>
           </button>
         </div>
       </div>
@@ -30,7 +30,6 @@ export default function Stepinvest() {
               <h1>Instrument Investation</h1>
               <p>
                 Hasil bersih adalah hasil keuntungan produksi komoditas sejenis
-              
               </p>
             </div>
           </div>
@@ -45,23 +44,23 @@ export default function Stepinvest() {
           </div>
         </div>
         <div className="container__stepinvest__content">
-            <img src={require("../../asset/Service/3.svg")} alt="logo" />
-            <div className="container__stepinvest__content__padding">
-              <h1>Capital to Breeder</h1>
-              <p>
-                Hasil bersih adalah hasil keuntungan produksi komoditas sejenis
-              </p>
-            </div>
+          <img src={require("../../asset/Service/3.svg")} alt="logo" />
+          <div className="container__stepinvest__content__padding">
+            <h1>Capital to Breeder</h1>
+            <p>
+              Hasil bersih adalah hasil keuntungan produksi komoditas sejenis
+            </p>
           </div>
-          <div className="container__stepinvest__content">
-            <img src={require("../../asset/Service/4.svg")} alt="logo" />
-            <div className="container__stepinvest__content__padding">
-              <h1>Investment Return</h1>
-              <p>
-                Hasil bersih adalah hasil keuntungan produksi komoditas sejenis
-              </p>
-            </div>
+        </div>
+        <div className="container__stepinvest__content">
+          <img src={require("../../asset/Service/4.svg")} alt="logo" />
+          <div className="container__stepinvest__content__padding">
+            <h1>Investment Return</h1>
+            <p>
+              Hasil bersih adalah hasil keuntungan produksi komoditas sejenis
+            </p>
           </div>
+        </div>
       </div>
     </div>
   );
