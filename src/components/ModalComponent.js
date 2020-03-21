@@ -65,9 +65,13 @@ class ModalComponent extends Component {
   };
 
   logingoogle = () => {
-    loginwithgoogle().then(res => {
-      console.log(res);
-    });
+    loginwithgoogle()
+      .then(res => {
+        toast.success("Logged in");
+      })
+      .then(err => {
+        toast.error("failed to log in with Google");
+      });
   };
 
   toggle = () => {
@@ -136,7 +140,6 @@ class ModalComponent extends Component {
         this.doneLoading();
 
         toast.error("Failed to log in", "Error!");
-
         this.setState({
           signUp: true
         });
