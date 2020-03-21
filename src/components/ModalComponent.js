@@ -372,7 +372,7 @@ class ModalComponent extends Component {
             </ModalFooter>
           </Modal>
         )}
-        <style jsx={true}>
+        <style jsx="true">
           {`
             .loader-div {
               display: flex;

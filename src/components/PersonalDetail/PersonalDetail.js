@@ -2,6 +2,11 @@ import React from "react";
 import { Col, Row, Button, Form, FormGroup, Label, Input } from "reactstrap";
 import "../../components/PersonalDetail/persoaldetail.scss";
 import { profileCurrentUser, updateUserDataInvestor } from "../../utils/api";
+import { toast, ToastContainer } from "react-toastify";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+
+const MySwal = withReactContent(Swal);
 
 class PersonalDetail extends React.Component {
   constructor(props) {
@@ -14,7 +19,7 @@ class PersonalDetail extends React.Component {
       identity_number: "",
       phone_number: "",
       country: "",
-      provice: "",
+      province: "",
       city: "",
       zipcode: null,
       address: ""
@@ -22,9 +27,29 @@ class PersonalDetail extends React.Component {
   }
 
   userData = () => {
-    alert("OK");
-    updateUserDataInvestor(this.state)
+    toast.info("Updating data");
+
+    let formdata = new FormData();
+
+    formdata.append("fullname", this.state.fullname);
+    formdata.append("phone_number", this.state.phone_number);
+    formdata.append("identity_number", this.state.identity_number);
+    formdata.append("photo_profile", this.state.uploaded_profile_picture);
+    formdata.append("country", this.state.country);
+    formdata.append("city", this.state.city);
+    formdata.append("province", this.state.province);
+    formdata.append("postal_code", this.state.zipcode);
+    formdata.append("address", this.state.address);
+
+    updateUserDataInvestor(formdata)
       .then(res => {
+        toast.dismiss();
+
+        MySwal.fire(
+          "Success",
+          "updated user data for: " + this.state.fullname,
+          "success"
+        );
         console.log(res);
       })
       .catch(err => {
@@ -46,7 +71,11 @@ class PersonalDetail extends React.Component {
         profile_picture: res.data.data.profile_picture,
         fullname: res.data.data.fullname,
         phone_number: res.data.data.phone_number,
-        uploaded_profile_picture: res.data.data.profile_picture
+        country: res.data.data.country,
+        province: res.data.data.province,
+        city: res.data.data.city,
+        zipcode: res.data.data.postal_code,
+        address: res.data.data.address
       });
     });
   }
@@ -58,11 +87,21 @@ class PersonalDetail extends React.Component {
     });
   };
 
+  handleProfilePicture = e => {
+    const file = e.target.files;
+
+    this.setState({
+      uploaded_profile_picture: file[0],
+      profile_picture: URL.createObjectURL(file[0])
+    });
+  };
+
   render() {
     return (
       <div className="container__personaldetail">
+        <ToastContainer />
         <div className="container__left">
-        <img src={require("../../asset/Payment/personal_detail.svg")} alt="logo" />
+          <img src={this.state.profile_picture} alt="logo" />
           <div className="container__content">
             <h5>Personal Detail</h5>
             <p>
@@ -73,12 +112,13 @@ class PersonalDetail extends React.Component {
         </div>
         <div className="container__right">
           <form action="/action_page.php">
-            <img src={this.state.uploaded_profile_picture} alt="logo" />
+            <img src={this.state.profile_picture} alt="logo" />
             <input
               type="file"
               id="myFile"
               name="filename"
               className="input__photo"
+              onChange={e => this.handleProfilePicture(e)}
             />
           </form>
           <Form>
@@ -89,22 +129,24 @@ class PersonalDetail extends React.Component {
                 type="text"
                 name="fullname"
                 id="exampleName"
-                placeholder="Vicky Hermawan"
+                placeholder="Name"
                 onChange={e => this.handleFormChange(e)}
                 defaultValue={this.state.fullname}
               />
             </FormGroup>
-            <FormGroup>
-              <Label for="exampleIdentity">Identity Number</Label>
+            {/* <FormGroup>
+              <Label for="identity_number">Identity Number</Label>
               <Input
                 type="text"
-                name="identity"
-                id="identity"
+                name="identity_number"
+                id="identity_number"
                 placeholder="757 000 000 616 0001"
+                onChange={e => this.handleFormChange(e)}
+                defaultValue={this.state.identity_number}
               />
-            </FormGroup>
+            </FormGroup> */}
             <FormGroup>
-              <Label for="exampleIdentity">Phone Number</Label>
+              <Label for="phone_number">Phone Number</Label>
               <Input
                 type="tel"
                 name="phone_number"
@@ -120,10 +162,10 @@ class PersonalDetail extends React.Component {
               <Row form>
                 <Col md={6}>
                   <FormGroup>
-                    <Label for="exampleCountry">Country</Label>
+                    <Label for="country">Country</Label>
                     <Input
                       type="text"
-                      name="text"
+                      name="country"
                       id="Country"
                       placeholder="Indonesia"
                       onChange={e => this.handleFormChange(e)}
@@ -136,7 +178,7 @@ class PersonalDetail extends React.Component {
                     <Label for="Province">Province</Label>
                     <Input
                       type="text"
-                      name="text"
+                      name="province"
                       id="Province"
                       placeholder="Jekadaahh"
                       onChange={e => this.handleFormChange(e)}
@@ -151,7 +193,7 @@ class PersonalDetail extends React.Component {
                     <Label for="City">City</Label>
                     <Input
                       type="text"
-                      name="text"
+                      name="city"
                       id="City"
                       placeholder="Jekadahh Timur"
                       onChange={e => this.handleFormChange(e)}
@@ -164,7 +206,7 @@ class PersonalDetail extends React.Component {
                     <Label for="">Zipcode</Label>
                     <Input
                       type="text"
-                      name="text"
+                      name="zipcode"
                       id="zipcode"
                       placeholder="96113"
                       onChange={e => this.handleFormChange(e)}
@@ -179,17 +221,19 @@ class PersonalDetail extends React.Component {
                     <Label for="Address">Address</Label>
                     <Input
                       type="text"
-                      name="text"
+                      name="address"
                       id="City"
                       placeholder="Layangan Putus Street"
                       onChange={e => this.handleFormChange(e)}
-                      defaultValue={this.state.Address}
+                      defaultValue={this.state.address}
                     />
                   </FormGroup>
                 </Col>
               </Row>
             </div>
-            <Button onClick={() => this.userData()}>Submit</Button>
+            <Button onClick={() => this.userData()} color="success" block>
+              <i className="fa fa-paper-plane"></i> &nbsp; Submit
+            </Button>
           </Form>
         </div>
       </div>
