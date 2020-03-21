@@ -132,7 +132,6 @@ class ModalComponent extends Component {
       .catch(err => toast.error("Sign up failed"));
   };
 
-
   render() {
     return (
       <div>
@@ -142,13 +141,13 @@ class ModalComponent extends Component {
           </Button>
         )}
 
-{this.state.isLoggedin && (
+        {this.state.isLoggedin && (
           <Button color="link" onClick={this.goToProfile}>
             {this.state.fullname}
           </Button>
         )}
 
-{this.state.isLoggedin && (
+        {this.state.isLoggedin && (
           <Button
             style={{ color: "white" }}
             color="link"
