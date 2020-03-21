@@ -114,7 +114,7 @@ class ModalComponent extends Component {
       .then(res => {
         this.doneLoading();
 
-        toast.success("login berhasil");
+        toast.success(res.data.data.message);
         console.log("login", res);
         const token = res.data.data.jwt_token;
         const fullname = res.data.data.fullname;
@@ -187,7 +187,11 @@ class ModalComponent extends Component {
         )}
 
         {this.state.isLoggedin && (
-          <Button color="link" onClick={this.goToProfile}>
+          <Button
+            color="link"
+            className="text-success"
+            onClick={this.goToProfile}
+          >
             {this.state.fullname}
           </Button>
         )}
