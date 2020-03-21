@@ -6,12 +6,13 @@ import Home from "./pages/Home";
 import "./asset/style.css";
 import FooterComponent from "./components/FooterComponent";
 import "react-toastify/dist/ReactToastify.min.css";
-import Payment from "./pages/Payment"
+import Payment from "./pages/Payment";
 
 import Detail from "./pages/Detail";
 import LiveeStock from "./pages/LiveeStock";
 import Profile from "./pages/Profile";
 import "react-toastify/dist/ReactToastify.min.css";
+import Breeders from "./pages/Breeders";
 
 function App() {
   return (
@@ -23,7 +24,8 @@ function App() {
           <Route path="/detail/:id" component={Detail} />
           <Route path="/livestock" component={LiveeStock} />
           <Route path="/profile/:id" component={Profile} />
-          <Route path="/payment" component={Payment}/>
+          <Route path="/payment" component={Payment} />
+          <Route path="/breeder" component={Breeders} />
         </Switch>
       </Router>
       <FooterComponent />
