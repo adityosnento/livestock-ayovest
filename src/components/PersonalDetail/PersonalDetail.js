@@ -246,22 +246,30 @@ class PersonalDetail extends React.Component {
             </div>
             <Row>
               <Col>
-                <Button onClick={() => this.userData()} color="success" block>
+                <Button
+                  onClick={() => this.userData()}
+                  color="success"
+                  className="btn-block"
+                >
                   <i className="fa fa-paper-plane"></i> &nbsp; Submit
                 </Button>
               </Col>
               <Col>
-                <Button onClick={() => this.clearData()} color="danger" block>
+                <Button
+                  onClick={() => this.clearData()}
+                  color="danger"
+                  className="btn-block"
+                >
                   <i className="fa fa-times"></i> &nbsp; Clear
                 </Button>
               </Col>
-              <Col md="1">
-                <Button title="Refresh page">
+              <Col md="2">
+                <Button title="Refresh page" className="btn-block">
                   <i
                     className="fa fa-refresh"
-                    block
                     onClick={() => window.location.reload(false)}
                   ></i>
+                  <span className="d-sm-none"> Reload</span>
                 </Button>
               </Col>
             </Row>
