@@ -4,7 +4,7 @@ const app = express();
 const path = require('path');
 const index = path.resolve(__dirname, 'build', 'index.html');
 const port = process.env.PORT || 9000;
-
+//production
 app.use(express.static('build'));
 app.get('/*', (req, res) => {
     res.sendFile(index);
