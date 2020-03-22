@@ -6,13 +6,11 @@ import {
   NavItem,
   NavLink,
   Card,
-  Button,
-  CardTitle,
-  CardText,
   Row,
   Col
 } from "reactstrap";
 import classnames from "classnames";
+import ButtonLink from "../../components/home/ButtonLink";
 
 import "./tabcomponent.scss";
 
@@ -24,7 +22,20 @@ const TabComponent = props => {
   };
 
   return (
-    <div>
+    <div className="fully__container">
+      <h1>{props.name}</h1>
+      <div className="price__star">
+        <div className="price">
+          <h4>${props.priceUnit}</h4>
+        </div>
+        <div className="star">
+          <i className="fa fa-star"></i>
+          <i className="fa fa-star"></i>
+          <i className="fa fa-star"></i>
+          <i className="fa fa-star"></i>
+          <i className="fa fa-star"></i>
+        </div>
+      </div>
       <Nav tabs className="tab-box">
         <NavItem>
           <NavLink
@@ -34,16 +45,6 @@ const TabComponent = props => {
             }}
           >
             Ringkasan
-          </NavLink>
-        </NavItem>
-        <NavItem>
-          <NavLink
-            className={classnames({ active: activeTab === "2" })}
-            onClick={() => {
-              toggle("2");
-            }}
-          >
-            Rincian
           </NavLink>
         </NavItem>
         <NavItem>
@@ -62,9 +63,17 @@ const TabComponent = props => {
           <Row>
             <Col sm="12">
               <Card className="tab-content">
-                <p>Periode Kontrak : {props.contractPeriod} tahun</p>
-                <p>Return yang didapat : {props.expectedReturn} </p>
-                <p>Periode Bagi Hasil : {props.sharingPeriod}</p>
+                <p>{props.description}</p>
+                <div className="identity">
+                  <p>Periode Kontrak : {props.contractPeriod} tahun</p>
+                  <p>Return yang didapat : {props.expectedReturn} </p>
+                  <p>Periode Bagi Hasil : {props.sharingPeriod}</p>
+                </div>
+                <div className="input-lot">
+                  <span>-</span>
+                  <input></input>
+                  <span>+</span>
+                </div>
               </Card>
             </Col>
           </Row>
@@ -74,19 +83,8 @@ const TabComponent = props => {
             <Col>
               <Card body className="tab-content">
                 {props.description}
-                {/* <Button>Go somewhere</Button> */}
               </Card>
             </Col>
-            {/* <Col sm="6">
-              <Card body>
-                <CardTitle>Special Title Treatment</CardTitle>
-                <CardText>
-                  With supporting text below as a natural lead-in to additional
-                  content.
-                </CardText>
-                <Button>Go somewhere</Button>
-              </Card>
-            </Col> */}
           </Row>
         </TabPane>
         <TabPane tabId="3">
@@ -103,6 +101,10 @@ const TabComponent = props => {
           </Row>
         </TabPane>
       </TabContent>
+      <div className="btn-invest">
+      <button title="Invest Now">
+      Start to Invest</button>
+      </div>
     </div>
   );
 };

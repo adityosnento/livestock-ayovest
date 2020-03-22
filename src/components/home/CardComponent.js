@@ -36,7 +36,7 @@ export default class CardComponent extends Component {
         <Col
           onClick={() => this.cardClicked(data._id)}
           key={data._id}
-          xs="12"
+          xs="11"
           md="4"
           className="card-item"
         >
@@ -44,8 +44,8 @@ export default class CardComponent extends Component {
           <Card className="card-item-single">
             <img src={data.image} alt="sapi" />
             <CardBody>
-              {data.description}
-              <h3 style={{ color: "blue", textAlign: "center" }}>
+              <p>{data.description}</p>
+              <h3 style={{ textAlign: "left" }}>
                 $ {data.priceUnit}
               </h3>
             </CardBody>

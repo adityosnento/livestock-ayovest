@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { Container, Row, Col } from "reactstrap";
+import { Container, Row } from "reactstrap";
+import { Breadcrumb, BreadcrumbItem } from 'reactstrap';
 
 import "./detailcomponent.scss";
 
@@ -8,10 +9,13 @@ export default class DetailComponent extends Component {
     return (
       <Container>
         <Row>
-          <Col className="detail-font">
-            <h1>{this.props.name}</h1>
-            <h3>Rp.{this.props.priceUnit}</h3>
-          </Col>
+        <div> 
+      <Breadcrumb>
+        <BreadcrumbItem><a href="/">Home</a></BreadcrumbItem>
+        <BreadcrumbItem><a href="/detail">Investasi</a></BreadcrumbItem>
+        <BreadcrumbItem active>Detail</BreadcrumbItem>
+      </Breadcrumb>
+    </div>
         </Row>
       </Container>
     );

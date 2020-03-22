@@ -8,7 +8,7 @@ import {
   Button
 } from 'antd';
 import { QuestionCircleOutlined } from '@ant-design/icons';
-import '../Register/Register.scss'
+import './Register.scss'
 
 const { Option } = Select;
 

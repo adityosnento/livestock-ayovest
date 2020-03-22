@@ -6,6 +6,7 @@ import TabComponent from "../components/detail/TabComponent";
 import ButtonLink from "../components/home/ButtonLink";
 import CardComponent from "../components/home/CardComponent";
 import { livestockGetOne } from "../utils/api";
+import './Detail.scss'
 
 export default class Detail extends Component {
   constructor(props) {
@@ -26,7 +27,7 @@ export default class Detail extends Component {
   }
   render() {
     return (
-      <div className="page-container">
+      <div className="detail-container">
         <Container>
           <Row>
             <DetailComponent
@@ -40,6 +41,8 @@ export default class Detail extends Component {
             </Col>
             <Col>
               <TabComponent
+               name={this.state.livestock.name}
+               priceUnit={this.state.livestock.priceUnit}
                 contractPeriod={this.state.livestock.contractPeriod}
                 expectedReturn={this.state.livestock.expectedReturn}
                 sharingPeriod={this.state.livestock.sharingPeriod}
@@ -47,7 +50,6 @@ export default class Detail extends Component {
               />
             </Col>
           </Row>
-          <ButtonLink title="lakukan investasi" />
           <CardComponent />
         </Container>
       </div>

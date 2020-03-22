@@ -1,94 +1,25 @@
-.container__payment {
-    padding: 150px 100px 0px 100px;
-    display: flex;
-
-    .container__left {
-        width: 70%;
-        padding: 30px 100px 100px 100px;
-        box-shadow: 0 1px 4px 0 rgba(0,0,0,.5);
-        padding: 24px 24px 8px;
-
-        h1 {
-            margin-bottom: 20px;
-            letter-spacing: 4px;
+.breeder__container {
+    
+    .breeder__cover {
+        text-align: center;
+        
+        .photo__cover {
+            width: 100%;
+            height: 50vh;
+            object-fit: cover;
         }
 
-        h6 {
-            letter-spacing: 0.7rem;
-            font-size: 12px;
-            font-weight: 900;
-            background-image: linear-gradient(to right top, #217d38, #268f40, #2aa148, #2fb451, #34c759);
-            width: 25%;
-            padding: 6px;
-            text-align: center;
-            color: white;
-        }
-
-        .total__payment {
-            display: flex;
-
-            .payment__history {
-                
-
-                h4 {
-                    margin-top: 20px;
-                }
-            }
-
-            .payment__value {
-                padding-left: 120px;
-                h4 {
-                    margin-top: 20px;
-                }
-            }
-        }
-      
-
-        .payment__flex {
-            display: flex;
-            border-bottom: 2px solid black;
-
-            .payment__value {
-                padding-left: 120px;
-            }
-        }
-
-        .container__content {
-            width: 90%;
-            h5 {
-                margin-bottom: 25px;
-                text-align: center;
-                background-color: #54CCB5;
-                color:white;
-                padding:8px;
-                border-radius: 15px;
-                width: 60%;
-                text-align: center;
-                margin-left: 60px;
-                margin-top: 25px;
-            }
-
-            p {
-                font-size: 13px;
-                line-height: 25px;
-            }
-        }
-
-        img {
-            width: 80%;
+        .photo__user {
+            width: 10%;
+            border-radius: 100%;
+            position: relative;
+            margin-top: -70px;
         }
     }
 
-    .container__right {
-        box-shadow: 0 1px 4px 0 rgba(0,0,0,.5);
-        padding: 24px 24px 8px;
-        width: 50%;
+    .form__breeder {
+        padding: 40px 200px 10px 200px;
 
-        .btn-payment {
-            width: 100%;
-            text-align: center;
-        }
-        
         .wrapper {
             max-width: 800px;
             margin: 30px auto;
@@ -150,7 +81,7 @@
             width: 45px;
             height: 45px;
             border-radius: 50%;
-            background-image: linear-gradient(to right top, #217d38, #268f40, #2aa148, #2fb451, #34c759);
+            background: cadetblue;
             pointer-events: none;
         
             &:after {
@@ -225,6 +156,43 @@
                 display: inline-block;
             }
         }
-     
+        
     }
+
+    .form__personalinformation {
+        background-color: rgb(255, 255, 255);
+        box-shadow: 0 1px 4px 0 rgba(0,0,0,.4);
+    padding: 24px 24px 8px;
+
+        h4 {
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+    }
+
+    .contact__information {
+        margin-top: 30px;
+        box-shadow: 0 1px 4px 0 rgba(0,0,0,.4);
+        padding: 24px 24px 8px;
+        h4 {
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+    }
+
+    .Livestock__information {
+        margin-top: 30px;
+        box-shadow: 0 1px 4px 0 rgba(0,0,0,.4);
+        padding: 24px 24px 8px;
+        h4 {
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+    }
+
+    .btn-submit {
+        margin-top: 30px;
+    }
+
+    
 }

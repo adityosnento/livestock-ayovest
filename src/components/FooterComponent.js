@@ -9,7 +9,7 @@ export default class FooterComponent extends Component {
       <Container className="footer-container" fluid>
         <Row className="footer">
           <Col xs="12" md="4">
-            <span>Monggovest</span>
+            <span>Ayovest</span>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             <i class="fa fa-google"></i>
             <i class="fa fa-twitter"></i>
