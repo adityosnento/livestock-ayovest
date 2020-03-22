@@ -1,0 +1,28 @@
+stages:
+    - build
+    - deploy
+  
+  build-image-to-production:
+      image: docker:latest
+      services:
+          - docker:dind
+      stage: build
+      script:
+          - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD docker.io
+          - docker build -t $DOCKER_IMAGE_NAME:stable .
+          - docker push $DOCKER_IMAGE_NAME:stable
+      only:
+          - production
+      
+  deploy-to-production:
+      stage: deploy
+      script:
+          - 'which ssh-agent || (apt-get update && apt-get install ssh-agent -y)'
+          - eval $(ssh-agent -s)
+          - ssh-add <(echo "$PRIVATE_KEY_DEPLOY")
+          - mkdir -p ~/.ssh
+          - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
+          - ssh root@167.71.193.0 bash --login "./app/frontend/deploy.sh"
+      only:
+          - production
+  
