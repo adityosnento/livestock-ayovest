@@ -9,24 +9,12 @@ export default class FooterComponent extends Component {
       <Container className="footer-container" fluid>
         <Row className="footer">
           <Col xs="12" md="4">
-<<<<<<< HEAD
             <span>Ayovest</span>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
             <i class="fa fa-google"></i>
             <i class="fa fa-twitter"></i>
             <i class="fa fa-youtube"></i>
             <i class="fa fa-instagram"></i>
-=======
-            <span>Monggovest</span>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </p>
-            <i className="fa fa-google"></i>
-            <i className="fa fa-twitter"></i>
-            <i className="fa fa-youtube"></i>
-            <i className="fa fa-instagram"></i>
->>>>>>> 37322a496db2ad6e0678c3a4155d9a9e38012f6a
           </Col>
           <Col xs="12" md="2">
             <ul className="footer-important">
