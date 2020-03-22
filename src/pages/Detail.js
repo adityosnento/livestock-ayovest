@@ -50,6 +50,7 @@ export default class Detail extends Component {
               />
             </Col>
           </Row>
+          
           <CardComponent />
         </Container>
       </div>
