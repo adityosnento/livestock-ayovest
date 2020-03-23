@@ -7,7 +7,9 @@ import "./asset/style.css";
 import FooterComponent from "./components/FooterComponent";
 import "react-toastify/dist/ReactToastify.min.css";
 import Payment from "./pages/Payment";
+import Breeder from "./pages/Breeder";
 
+import Loginbreeder from "./pages/LoginBreeder";
 import Detail from "./pages/Detail";
 import LiveeStock from "./pages/LiveeStock";
 import Profile from "./pages/Profile";
@@ -25,7 +27,8 @@ function App() {
           <Route path="/livestock" component={LiveeStock} />
           <Route path="/profile/:id" component={Profile} />
           <Route path="/payment" component={Payment} />
-          <Route path="/breeder" component={Breeders} />
+          <Route path="/breeder" component={Breeder} />
+          <Route path="/loginbreeder" component={Loginbreeder} />
         </Switch>
       </Router>
       <FooterComponent />

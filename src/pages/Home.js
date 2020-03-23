@@ -17,7 +17,7 @@ export default class Home extends Component {
 
         <Sliders/>
         <WhyUs/>
-        <Aboutus/>
+        {/* <Aboutus/> */}
         <StepInvest/>      
         <InvestasiTerpopler />
         <CardComponent />

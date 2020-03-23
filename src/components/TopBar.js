@@ -6,13 +6,7 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  Button,
-  Modal
+  NavLink
 } from "reactstrap";
 import ModalComponent from "../components/ModalComponent";
 

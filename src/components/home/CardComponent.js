@@ -16,6 +16,7 @@ export default class CardComponent extends Component {
 
     liveStockGetAll()
       .then(res => {
+        console.log(res);
         this.setState({
           livestocks: res.data.data.docs,
           totalPages: res.data.data.totalPages
@@ -36,7 +37,7 @@ export default class CardComponent extends Component {
         <Col
           onClick={() => this.cardClicked(data._id)}
           key={data._id}
-          xs="12"
+          xs="11"
           md="4"
           className="card-item"
         >

@@ -1,0 +1,198 @@
+.breeder__container {
+    
+    .breeder__cover {
+        text-align: center;
+        
+        .photo__cover {
+            width: 100%;
+            height: 50vh;
+            object-fit: cover;
+        }
+
+        .photo__user {
+            width: 10%;
+            border-radius: 100%;
+            position: relative;
+            margin-top: -70px;
+        }
+    }
+
+    .form__breeder {
+        padding: 40px 200px 10px 200px;
+
+        .wrapper {
+            max-width: 800px;
+            margin: 30px auto;
+        }
+        
+        .photo_submit-container {
+            display: flex;
+            max-width: 800px;
+            margin: 0 auto;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            padding: 0;
+        }
+        
+        .photo_submit {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items:center;
+            justify-content: center;
+            width: 150px;
+            height: 150px;
+            background: #f8f8f8;
+            border-radius: 8px;
+        
+            &:hover {
+                cursor: pointer;
+                background: darken(#f8f8f8, 5%);
+            }
+        
+            &:nth-child(2),
+            &:nth-child(4){
+                margin-left: 1rem;
+            }
+        
+            &:nth-child(3),
+            &:nth-child(4){
+                margin-top: 1rem;
+            }
+        
+            &--image {
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center;
+        
+                &:hover {
+                    cursor: default;
+                }
+            }
+        }
+        
+        .photo_submit-input {
+            display: none;
+        }
+        
+        .photo_submit-plus {
+            position: relative;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: cadetblue;
+            pointer-events: none;
+        
+            &:after {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-46%, -52%);
+                content: '+';
+                font-size: 36px;
+                color: #fff;
+            }
+        
+            .photo_submit--image & {
+                display: none;
+            }
+        }
+        
+        .photo_submit-uploadLabel {
+            margin-top: 1rem;
+            font-size: 16px;
+            color: cadetblue;
+            letter-spacing: 0.03em;
+            pointer-events: none;
+        
+            .photo_submit--image & {
+                display: none;
+            }
+        }
+        
+        .photo_submit-delete {
+            display: none;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        
+            width: 24px;
+            height: 24px;
+        
+            background: #f8f8f8;
+        
+            border-radius: 50%;
+        
+            text-indent: -9999px;
+            cursor: pointer;
+        
+            &:before,
+            &:after {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 2px;
+                height: 12px;
+        
+                background-color: cadetblue;
+        
+                content: '';
+            }
+        
+            &:before {
+                transform: translate(-50%, -50%) rotate(45deg);
+            }
+        
+            &:after {
+                transform: translate(-50%, -50%) rotate(-45deg);
+            }
+        
+            &:hover {
+                background: #ccc;
+            }
+        
+            .photo_submit--image & {
+                display: inline-block;
+            }
+        }
+        
+    }
+
+    .form__personalinformation {
+        background-color: rgb(255, 255, 255);
+        box-shadow: 0 1px 4px 0 rgba(0,0,0,.4);
+    padding: 24px 24px 8px;
+
+        h4 {
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+    }
+
+    .contact__information {
+        margin-top: 30px;
+        box-shadow: 0 1px 4px 0 rgba(0,0,0,.4);
+        padding: 24px 24px 8px;
+        h4 {
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+    }
+
+    .Livestock__information {
+        margin-top: 30px;
+        box-shadow: 0 1px 4px 0 rgba(0,0,0,.4);
+        padding: 24px 24px 8px;
+        h4 {
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+    }
+
+    .btn-submit {
+        margin-top: 30px;
+    }
+
+    
+}
