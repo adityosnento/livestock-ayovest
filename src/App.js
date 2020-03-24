@@ -15,6 +15,7 @@ import LiveeStock from "./pages/LiveeStock";
 import Profile from "./pages/Profile";
 import "react-toastify/dist/ReactToastify.min.css";
 import Breeders from "./pages/Breeders";
+import Payments from "./components/payment/Payments";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
           <Route path="/payment" component={Payment} />
           <Route path="/breeder" component={Breeder} />
           <Route path="/loginbreeder" component={Loginbreeder} />
+          <Route path="/payments-status" component={Payments} />
         </Switch>
       </Router>
       <FooterComponent />
