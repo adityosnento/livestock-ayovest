@@ -4,7 +4,7 @@ import "./AboutUs.scss";
 export default function LandingPage() {
   return (
     <div className="container__aboutus">
-      <img src={require("../../asset/component/anjing2.jpg")} alt="logo" />
+      <img src={require("../../asset/image/AboutUS.png")} alt="logo" />
       <div className="container__aboutus__content">
         <h5>Ayovest</h5>
         <h1>ABOUT US</h1>
@@ -16,11 +16,11 @@ export default function LandingPage() {
           peternakan.
         </p>
         <div id="container__button">
-          <button class="learn-more">
-            <span class="circle" aria-hidden="true">
-              <span class="icon arrow"></span>
+          <button className="learn-more">
+            <span className="circle" aria-hidden="true">
+              <span className="icon arrow"></span>
             </span>
-            <span class="button-text">Learn More</span>
+            <span className="button-text">Learn More</span>
           </button>
         </div>
       </div>

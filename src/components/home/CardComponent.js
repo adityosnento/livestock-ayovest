@@ -11,11 +11,12 @@ export default class CardComponent extends Component {
 
     this.state = {
       livestocks: [],
-      totalPages:1
+      totalPages: 1
     };
 
     liveStockGetAll()
       .then(res => {
+        console.log(res);
         this.setState({
           livestocks: res.data.data.docs,
           totalPages: res.data.data.totalPages
@@ -36,16 +37,16 @@ export default class CardComponent extends Component {
         <Col
           onClick={() => this.cardClicked(data._id)}
           key={data._id}
-          xs="12"
+          xs="11"
           md="4"
           className="card-item"
         >
-          <ToastContainer/>
+          <ToastContainer />
           <Card className="card-item-single">
             <img src={data.image} alt="sapi" />
             <CardBody>
               {data.description}
-              <h3 style={{ color: "blue", textAlign: "center" }}>
+              <h3 style={{ textAlign: "center" }} className="text-success">
                 $ {data.priceUnit}
               </h3>
             </CardBody>
