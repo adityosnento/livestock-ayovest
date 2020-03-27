@@ -3,7 +3,7 @@ import { Col, Row, Button, Form, FormGroup, Label, Input } from "reactstrap";
 import "../../components/PersonalDetail/persoaldetail.scss";
 import { profileCurrentUser, updateUserDataInvestor } from "../../utils/api";
 import { TabContent, TabPane, Nav, NavItem, NavLink, Card } from "reactstrap";
-import { Breadcrumb, BreadcrumbItem } from 'reactstrap';
+import { Breadcrumb, BreadcrumbItem } from "reactstrap";
 import classnames from "classnames";
 
 class PersonalDetail extends React.Component {
@@ -77,12 +77,11 @@ class PersonalDetail extends React.Component {
   render() {
     return (
       <div>
-
-      {/* HEADER */}
+        {/* HEADER */}
 
         <div class="parallax-container">
           <div class="material-parallax">
-            <img src={require("../../asset/image/invest.webp")} alt="logo" />
+            {/* <img src={require("../../asset/image/invest.webp")} alt="logo" /> */}
           </div>
           <div class="breadcrumbs-custom-body parallax-content context-dark">
             <div class="container">
@@ -91,14 +90,18 @@ class PersonalDetail extends React.Component {
           </div>
         </div>
 
-      {/* SIDEBAR */}
+        {/* SIDEBAR */}
 
         <div className="container__profile">
-        <Breadcrumb>
-        <BreadcrumbItem><a href="/">Home</a></BreadcrumbItem>
-        <BreadcrumbItem><a href="/profile">Profile</a></BreadcrumbItem>
-        <BreadcrumbItem active>Profile Update</BreadcrumbItem>
-      </Breadcrumb>
+          <Breadcrumb>
+            <BreadcrumbItem>
+              <a href="/">Home</a>
+            </BreadcrumbItem>
+            <BreadcrumbItem>
+              <a href="/profile">Profile</a>
+            </BreadcrumbItem>
+            <BreadcrumbItem active>Profile Update</BreadcrumbItem>
+          </Breadcrumb>
           <h3>Settings</h3>
           <Row>
             <Col xs="6" sm="4" md="4">
@@ -136,151 +139,151 @@ class PersonalDetail extends React.Component {
                 </NavItem>
               </Nav>
             </Col>
-           
-           
-            <Col xs="16" sm="8" md="8">
-            <div className="container__contentbar">
-              <TabContent activeTab={this.state.activeTab}>
-                <TabPane tabId="1">
-                  <div className="container__photos">
-                    <h4>Update Photo Profile</h4>
-                    <form action="/action_page.php">
-                      <img
-                        src={this.state.uploaded_profile_picture}
-                        alt="logo"
-                      />
-                      <input
-                        type="file"
-                        id="myFile"
-                        name="filename"
-                        className="input__photo"
-                      />
-                    </form>
-                  </div>
-                  <div className="personal__information">
-                    <h4>Personal Information</h4>
-                    <FormGroup>
-                      <Label for="exampleName">FullName</Label>
-                      <Input
-                        type="text"
-                        name="fullname"
-                        id="exampleName"
-                        placeholder="Vicky Hermawan"
-                        onChange={e => this.handleFormChange(e)}
-                        defaultValue={this.state.fullname}
-                      />
-                    </FormGroup>
-                    <FormGroup>
-                      <Label for="exampleIdentity">Phone Number</Label>
-                      <Input
-                        type="tel"
-                        name="phone_number"
-                        id="phone_number"
-                        placeholder="+6282194281342"
-                        onChange={e => this.handleFormChange(e)}
-                        defaultValue={this.state.phone_number}
-                      />
-                    </FormGroup>
 
-                    <div className="contact__information">
-                <h4>Contact Information</h4>
-                <Row form>
-                  <Col md={6}>
-                    <FormGroup>
-                      <Label for="exampleCountry">Country</Label>
-                      <Input
-                        type="text"
-                        name="text"
-                        id="Country"
-                        placeholder="Indonesia"
-                        onChange={e => this.handleFormChange(e)}
-                        defaultValue={this.state.country}
-                      />
-                    </FormGroup>
-                  </Col>
-                  <Col md={6}>
-                    <FormGroup>
-                      <Label for="Province">Province</Label>
-                      <Input
-                        type="text"
-                        name="text"
-                        id="Province"
-                        placeholder="Jekadaahh"
-                        onChange={e => this.handleFormChange(e)}
-                        defaultValue={this.state.province}
-                      />
-                    </FormGroup>
-                  </Col>
-                </Row>
-                <Row form>
-                  <Col md={6}>
-                    <FormGroup>
-                      <Label for="City">City</Label>
-                      <Input
-                        type="text"
-                        name="text"
-                        id="City"
-                        placeholder="Jekadahh Timur"
-                        onChange={e => this.handleFormChange(e)}
-                        defaultValue={this.state.city}
-                      />
-                    </FormGroup>
-                  </Col>
-                  <Col md={6}>
-                    <FormGroup>
-                      <Label for="">Zipcode</Label>
-                      <Input
-                        type="text"
-                        name="text"
-                        id="zipcode"
-                        placeholder="96113"
-                        onChange={e => this.handleFormChange(e)}
-                        defaultValue={this.state.zipcode}
-                      />
-                    </FormGroup>
-                  </Col>
-                </Row>
-                <Row form>
-                  <Col md={6}>
-                    <FormGroup>
-                      <Label for="Address">Address</Label>
-                      <Input
-                        type="text"
-                        name="text"
-                        id="City"
-                        placeholder="Layangan Putus Street"
-                        onChange={e => this.handleFormChange(e)}
-                        defaultValue={this.state.Address}
-                      />
-                    </FormGroup>
-                    <Button onClick={() => this.userData()}>Submit</Button>
-                  </Col>
-                </Row>
-              </div>
-                  </div>
-                </TabPane>
-                
-              
-                {/*  INVESTMENT STATUS */}
-                
-                <TabPane tabId="2">
-                  <div className="investmentstatus__container">
-                    <div>Product</div>
-                    <div>Payment Amount</div>
-                    <div>Payment Status</div>
-                  </div>
-                  <div className="investmentstatus__content">
-                    <div>Boear Goat</div>
-                    <div>$360</div>
-                    <div className="invest_payoff">Paid off</div>
-                  </div>
-                  <div className="investmentstatus__content">
-                    <div>Boear Goat</div>
-                    <div>$860</div>
-                    <div className="invest_payoffs">Not paid</div>
-                  </div>
-                </TabPane>
-              </TabContent>
+            <Col xs="16" sm="8" md="8">
+              <div className="container__contentbar">
+                <TabContent activeTab={this.state.activeTab}>
+                  <TabPane tabId="1">
+                    <div className="container__photos">
+                      <h4>Update Photo Profile</h4>
+                      <form action="/action_page.php">
+                        <img
+                          src={this.state.uploaded_profile_picture}
+                          alt="logo"
+                        />
+                        <input
+                          type="file"
+                          id="myFile"
+                          name="filename"
+                          className="input__photo"
+                        />
+                      </form>
+                    </div>
+                    <div className="personal__information">
+                      <h4>Personal Information</h4>
+                      <FormGroup>
+                        <Label for="exampleName">FullName</Label>
+                        <Input
+                          type="text"
+                          name="fullname"
+                          id="exampleName"
+                          placeholder="Vicky Hermawan"
+                          onChange={e => this.handleFormChange(e)}
+                          defaultValue={this.state.fullname}
+                        />
+                      </FormGroup>
+                      <FormGroup>
+                        <Label for="exampleIdentity">Phone Number</Label>
+                        <Input
+                          type="tel"
+                          name="phone_number"
+                          id="phone_number"
+                          placeholder="+6282194281342"
+                          onChange={e => this.handleFormChange(e)}
+                          defaultValue={this.state.phone_number}
+                        />
+                      </FormGroup>
+
+                      <div className="contact__information">
+                        <h4>Contact Information</h4>
+                        <Row form>
+                          <Col md={6}>
+                            <FormGroup>
+                              <Label for="exampleCountry">Country</Label>
+                              <Input
+                                type="text"
+                                name="text"
+                                id="Country"
+                                placeholder="Indonesia"
+                                onChange={e => this.handleFormChange(e)}
+                                defaultValue={this.state.country}
+                              />
+                            </FormGroup>
+                          </Col>
+                          <Col md={6}>
+                            <FormGroup>
+                              <Label for="Province">Province</Label>
+                              <Input
+                                type="text"
+                                name="text"
+                                id="Province"
+                                placeholder="Jekadaahh"
+                                onChange={e => this.handleFormChange(e)}
+                                defaultValue={this.state.province}
+                              />
+                            </FormGroup>
+                          </Col>
+                        </Row>
+                        <Row form>
+                          <Col md={6}>
+                            <FormGroup>
+                              <Label for="City">City</Label>
+                              <Input
+                                type="text"
+                                name="text"
+                                id="City"
+                                placeholder="Jekadahh Timur"
+                                onChange={e => this.handleFormChange(e)}
+                                defaultValue={this.state.city}
+                              />
+                            </FormGroup>
+                          </Col>
+                          <Col md={6}>
+                            <FormGroup>
+                              <Label for="">Zipcode</Label>
+                              <Input
+                                type="text"
+                                name="text"
+                                id="zipcode"
+                                placeholder="96113"
+                                onChange={e => this.handleFormChange(e)}
+                                defaultValue={this.state.zipcode}
+                              />
+                            </FormGroup>
+                          </Col>
+                        </Row>
+                        <Row form>
+                          <Col md={6}>
+                            <FormGroup>
+                              <Label for="Address">Address</Label>
+                              <Input
+                                type="text"
+                                name="text"
+                                id="City"
+                                placeholder="Layangan Putus Street"
+                                onChange={e => this.handleFormChange(e)}
+                                defaultValue={this.state.Address}
+                              />
+                            </FormGroup>
+                            <Button onClick={() => this.userData()}>
+                              Submit
+                            </Button>
+                          </Col>
+                        </Row>
+                      </div>
+                    </div>
+                  </TabPane>
+
+                  {/*  INVESTMENT STATUS */}
+
+                  <TabPane tabId="2">
+                    <div className="investmentstatus__container">
+                      <div>Product</div>
+                      <div>Payment Amount</div>
+                      <div>Payment Status</div>
+                    </div>
+                    <div className="investmentstatus__content">
+                      <div>Boear Goat</div>
+                      <div>$360</div>
+                      <div className="invest_payoff">Paid off</div>
+                    </div>
+                    <div className="investmentstatus__content">
+                      <div>Boear Goat</div>
+                      <div>$860</div>
+                      <div className="invest_payoffs">Not paid</div>
+                    </div>
+                  </TabPane>
+                </TabContent>
               </div>
             </Col>
           </Row>
@@ -288,9 +291,7 @@ class PersonalDetail extends React.Component {
 
         <div className="container__personaldetail">
           <div className="container__right">
-            <Form>
-            
-            </Form>
+            <Form></Form>
           </div>
         </div>
       </div>

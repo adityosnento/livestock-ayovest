@@ -17,6 +17,7 @@ export default class Detail extends Component {
     this.state = {
       livestock: []
     };
+
     livestockGetOne(this.id).then(res => {
       const livestock = res.data.data;
       this.setState({
