@@ -1,5 +1,5 @@
 .container__payment {
-    padding: 150px 100px 0px 100px;
+    padding: 0px 100px 0px 100px;
     display: flex;
 
     .container__left {
@@ -227,4 +227,15 @@
         }
      
     }
+}
+
+
+.breadcrumb_payment {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+    padding: 35px 75px 0px 100px;
+    list-style: none;
+    background-color: #ffff;
+    border-radius: .25rem;
 }

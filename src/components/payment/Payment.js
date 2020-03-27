@@ -1,17 +1,30 @@
 import React from "react";
 import {Button} from "reactstrap";
 import "../payment/Payment.scss";
+import { Breadcrumb, BreadcrumbItem } from 'reactstrap';
 
 const FormPayments = props => {
   return (
+    <div className="container__bills">
+      <div className="parallax-container">
+          <div className="material-parallax">
+            <img src={require("../../asset/image/invest.webp")} alt="logo" />
+          </div>
+          <div className="breadcrumbs-custom-body parallax-content context-dark">
+            <div className="container">
+              <h2 className="breadcrumbs-custom-title">PROFILE DETAIL</h2>
+            </div>
+          </div>
+        </div>
+        <div className="breadcrumb_payment">
+        <Breadcrumb>
+        <BreadcrumbItem><a href="/">Home</a></BreadcrumbItem>
+        <BreadcrumbItem><a href="/paymentresume">Payment</a></BreadcrumbItem>
+        <BreadcrumbItem active>Checkout</BreadcrumbItem>
+      </Breadcrumb>
+      </div>
     <div className="container__payment">
       <div className="container__left">
-        {/* <img src={require("../../asset/Payment/payment.svg")}
-        alt="logo" />
-        <div className="container__content">
-        <h5>Payment Method</h5>
-        <p>Whether you are an enterpreneur, businessman, employment, or someone with an interest in farm industry.</p>
-        </div> */}
         <h6>INVOICE</h6>
         <h1>Bills ELLIES</h1>
         <div className="payment__flex">
@@ -59,6 +72,8 @@ const FormPayments = props => {
         </div>
       </div>
     </div>
+    </div>
+   
   );
 };
 

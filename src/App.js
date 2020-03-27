@@ -8,7 +8,10 @@ import FooterComponent from "./components/FooterComponent";
 import "react-toastify/dist/ReactToastify.min.css";
 import Payment from "./pages/Payment"
 import Breeder from './pages/Breeder'
+import PaymentDetail from './pages/Paymentresume'
+import InvestationList from './pages/Investation'
 
+import Registerbreeder from './pages/RegisterBreeder'
 import Loginbreeder from './pages/LoginBreeder'
 import Detail from "./pages/Detail";
 import LiveeStock from "./pages/LiveeStock";
@@ -29,6 +32,9 @@ function App() {
           <Route path="/payment" component={Payment}/>
           <Route path="/breeder" component={Breeder}/>
           <Route path="/loginbreeder" component={Loginbreeder}/>
+          <Route path="/registerbreeder" component={Registerbreeder}/>
+          <Route path="/paymentresume" component={PaymentDetail}/>
+          <Route path="/investationlist" component={InvestationList}/>
         </Switch>
       </Router>
       <FooterComponent />

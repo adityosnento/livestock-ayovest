@@ -6,7 +6,7 @@ import TabComponent from "../components/detail/TabComponent";
 import ButtonLink from "../components/home/ButtonLink";
 import CardComponent from "../components/home/CardComponent";
 import { livestockGetOne } from "../utils/api";
-import './Detail.scss'
+import "./Detail.scss";
 
 export default class Detail extends Component {
   constructor(props) {
@@ -27,31 +27,50 @@ export default class Detail extends Component {
   }
   render() {
     return (
-      <div className="detail-container">
-        <Container>
-          <Row>
-            <DetailComponent
-              name={this.state.livestock.name}
-              priceUnit={this.state.livestock.priceUnit}
-            />
-          </Row>
-          <Row>
-            <Col xs="12" md="6">
-              <DetailCarousel />
-            </Col>
-            <Col>
-              <TabComponent
-               name={this.state.livestock.name}
-               priceUnit={this.state.livestock.priceUnit}
-                contractPeriod={this.state.livestock.contractPeriod}
-                expectedReturn={this.state.livestock.expectedReturn}
-                sharingPeriod={this.state.livestock.sharingPeriod}
-                description={this.state.livestock.description}
+      <div>
+        <div class="parallax-container">
+          <div class="material-parallax">
+            <img src={require("../asset/image/invest.webp")} alt="logo" />
+          </div>
+          <div class="breadcrumbs-custom-body parallax-content context-dark">
+            <div class="container">
+              <h2 class="breadcrumbs-custom-title">INVESTATION DETAIL</h2>
+            </div>
+          </div>
+        </div>
+        <div className="detail-container">
+          <Container>
+            <Row>
+              <DetailComponent
+                name={this.state.livestock.name}
+                priceUnit={this.state.livestock.priceUnit}
               />
-            </Col>
-          </Row>
-          <CardComponent />
-        </Container>
+            </Row>
+            <Row>
+              <Col xs="12" md="6">
+                <DetailCarousel />
+              </Col>
+              <Col>
+                <TabComponent
+                  name={this.state.livestock.name}
+                  priceUnit={this.state.livestock.priceUnit}
+                  contractPeriod={this.state.livestock.contractPeriod}
+                  expectedReturn={this.state.livestock.expectedReturn}
+                  sharingPeriod={this.state.livestock.sharingPeriod}
+                  description={this.state.livestock.description}
+                />
+              </Col>
+            </Row>
+            <div className="title__container">
+              <h5>AYOVEST</h5>
+              <h1>The Most Popular Investment</h1>
+              <p>
+Here are the most sought-after investments by investors, hopefully it can help:
+              </p>
+            </div>
+            <CardComponent />
+          </Container>
+        </div>
       </div>
     );
   }

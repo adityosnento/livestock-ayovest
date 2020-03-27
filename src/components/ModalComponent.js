@@ -13,6 +13,8 @@ import {
 import { investorSignUp, investorLogin, loginwithgoogle } from "../utils/api";
 import { toast, ToastContainer } from "react-toastify";
 import { logout } from "../utils/functions/page-behaviour";
+import { Spinner } from 'reactstrap';
+import './ModalComponent.scss'
 
 class ModalComponent extends Component {
   constructor(props) {
@@ -30,6 +32,7 @@ class ModalComponent extends Component {
       SigninPassword: "",
       isLoggedin: false,
       fullname: "",
+      profile_picture:"",
       id: ""
     };
   }
@@ -144,13 +147,14 @@ class ModalComponent extends Component {
 
 {this.state.isLoggedin && (
           <Button color="link" onClick={this.goToProfile}>
+             {this.state.profile_picture}
             {this.state.fullname}
           </Button>
         )}
 
 {this.state.isLoggedin && (
           <Button
-            style={{ color: "white" }}
+            style={{ color: "black" }}
             color="link"
             title="logout"
             onClick={logout}
@@ -160,16 +164,27 @@ class ModalComponent extends Component {
         )}
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
           <ToastContainer />
+          
 
           <ModalHeader toggle={this.toggle}>
-            {!this.state.signUp ? "Sign in to Ayovest!" : "Welcome to Ayovest!"}
+            {!this.state.signUp ? <div className="signin__logo">
+              <img src={require("../asset/image/logo.png")} alt="logo" />
+              <p>Welcome to AYOvest!</p>
+            </div>
+            : 
+            <div className="signin__logo">
+              <img src={require("../asset/image/logo.png")} alt="logo" />
+              <p>Welcome to AYOvest!</p>
+            </div>}
           </ModalHeader>
+          
+          
           <ModalBody>
             {!this.state.signUp && (
               <Form>
                 <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-                  <Label for="exampleEmail" className="mr-sm-2">
-                    Email
+                  <Label for="exampleEmail" className="mr-sm-2" id="input_label">
+                    Email <sup className="text-danger">*</sup>
                   </Label>
                   <Input
                     type="email"
@@ -180,8 +195,8 @@ class ModalComponent extends Component {
                   />
                 </FormGroup>
                 <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-                  <Label for="examplePassword" className="mr-sm-2">
-                    Password
+                  <Label for="examplePassword" className="mr-sm-2" id="input_labelpassword">
+                    Password <sup className="text-danger">*</sup>
                   </Label>
                   <Input
                     type="password"
@@ -197,8 +212,8 @@ class ModalComponent extends Component {
             {this.state.signUp && (
               <Form>
                 <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-                  <Label for="Fullname" className="mr-sm-2">
-                    Full Name
+                  <Label for="Fullname" className="mr-sm-2" id="input_fullname">
+                    Full Name <sup className="text-danger">*</sup>
                   </Label>
                   <Input
                     type="text"
@@ -209,32 +224,35 @@ class ModalComponent extends Component {
                   />
                 </FormGroup>
                 <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-                  <Label for="exampleEmail" className="mr-sm-2">
-                    Email
+                  <Label for="exampleEmail" className="mr-sm-2" id="input_email">
+                    Email <sup className="text-danger">*</sup>
                   </Label>
                   <Input
                     type="email"
                     name="signUpEmail"
                     id="exampleEmail"
-                    placeholder="something@idk.cool"
+                    placeholder="Your Active Email"
                     onChange={this.handleSignUpChange}
                   />
                 </FormGroup>
                 <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-                  <Label for="phoneNumber" className="mr-sm-2">
-                    Phone Number
+                  <Label for="phoneNumber" className="mr-sm-2" id="input_phonenumber">
+                    Phone Number <sup className="text-danger">*</sup>
                   </Label>
                   <Input
                     type="tel"
                     name="SignUpPhoneNumber"
                     id="phoneNumber"
-                    placeholder="08123856"
+                    placeholder="Your Phone Number"
                     onChange={this.handleSignUpChange}
                   />
                 </FormGroup>
+                
+                <div className="password_container">
+                <div className="registration_password">
                 <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-                  <Label for="examplePassword" className="mr-sm-2">
-                    Password
+                  <Label for="examplePassword" className="mr-sm-2" id="input_pwd">
+                    Password <sup className="text-danger">*</sup>
                   </Label>
                   <Input
                     type="password"
@@ -244,8 +262,11 @@ class ModalComponent extends Component {
                     onChange={this.handleSignUpChange}
                   />
                 </FormGroup>
+                </div>
+
+                <div className="registration_passwordconfirmation">
                 <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-                  <Label for="signUpConfirmationPassword" className="mr-sm-2">
+                  <Label for="signUpConfirmationPassword" className="mr-sm-2" id="input_pwdconfirm">
                     Password Confirmation<sup className="text-danger">*</sup>
                   </Label>
                   <Input
@@ -256,14 +277,19 @@ class ModalComponent extends Component {
                     onChange={this.handleSignUpChange}
                   />
                 </FormGroup>
+                </div>
+               
+                </div>
+                
               </Form>
             )}
+             <Button color="secondary" onClick={this.logingoogle} id="btn__google">
+              <i className="fa fa-google"></i>
+              <p>Sign In with Google</p>
+            </Button>
           </ModalBody>
           <ModalFooter>
-            <Button color="link" onClick={this.showSignUp}>
-              {this.state.signUp && "Sign In"}
-              {!this.state.signUp && "Sign Up"}
-            </Button>
+            <div className="btn__flex">
             {!this.state.signUp ? (
               <Button color="primary" onClick={this.handleSigninSubmit}>
                 Sign In
@@ -273,13 +299,12 @@ class ModalComponent extends Component {
                 Sign Up
               </Button>
             )}
-            <Button color="secondary" onClick={this.toggle}>
-              Cancel
+            <Button color="link" onClick={this.showSignUp} id="change_btn">
+              Not a member ? please {this.state.signUp && "Sign In"}
+              {!this.state.signUp && "Sign Up"}
             </Button>
-            <Button color="secondary" onClick={this.logingoogle}>
-              <i className="fa fa-google"></i>
-              SignUp with Google
-            </Button>
+            
+            </div>
           </ModalFooter>
         </Modal>
       </div>

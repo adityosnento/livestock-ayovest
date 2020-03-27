@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Container, Row, Col, Card, CardBody, CardFooter } from "reactstrap";
+import ButtonLink from "../home/ButtonLink";
 
 import "./cardcomponent.scss";
 import { liveStockGetAll } from "../../utils/api";
@@ -44,8 +45,8 @@ export default class CardComponent extends Component {
           <Card className="card-item-single">
             <img src={data.image} alt="sapi" />
             <CardBody>
-              <p>{data.description}</p>
-              <h3 style={{ textAlign: "left" }}>
+              <p>{data.name}</p>
+              <h3 style={{ textAlign: "center" }}>
                 $ {data.priceUnit}
               </h3>
             </CardBody>
