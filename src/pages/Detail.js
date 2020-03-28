@@ -5,7 +5,9 @@ import DetailCarousel from "../components/detail/DetailCarousel";
 import TabComponent from "../components/detail/TabComponent";
 import ButtonLink from "../components/home/ButtonLink";
 import CardComponent from "../components/home/CardComponent";
+import ImagesComponent from "../components/detail/ImagesComponent";
 import { livestockGetOne } from "../utils/api";
+import "./Detail.scss";
 
 export default class Detail extends Component {
   constructor(props) {
@@ -26,7 +28,7 @@ export default class Detail extends Component {
   }
   render() {
     return (
-      <div className="page-container">
+      <div className="detail-container">
         <Container>
           <Row>
             <DetailComponent
@@ -36,18 +38,23 @@ export default class Detail extends Component {
           </Row>
           <Row>
             <Col xs="12" md="6">
-              <DetailCarousel />
+              {/* <DetailCarousel /> */}
+              <ImagesComponent image={this.state.livestock.image} />
             </Col>
             <Col>
               <TabComponent
+                name={this.state.livestock.name}
+                priceUnit={this.state.livestock.priceUnit}
                 contractPeriod={this.state.livestock.contractPeriod}
                 expectedReturn={this.state.livestock.expectedReturn}
                 sharingPeriod={this.state.livestock.sharingPeriod}
                 description={this.state.livestock.description}
+                totalUnit={this.state.livestock.totalUnit}
+                profitContractPeriod={this.state.livestock.profitContractPeriod}
               />
             </Col>
           </Row>
-          <ButtonLink title="lakukan investasi" />
+
           <CardComponent />
         </Container>
       </div>

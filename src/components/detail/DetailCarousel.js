@@ -6,6 +6,7 @@ import {
   CarouselIndicators,
   CarouselCaption
 } from "reactstrap";
+import './DetailCarousel.scss'
 
 const items = [
   {
@@ -70,16 +71,24 @@ const DetailCarousel = props => {
         onClickHandler={goToIndex}
       />
       {slides}
-      <CarouselControl
-        direction="prev"
-        directionText="Previous"
-        onClickHandler={previous}
+      <div className="photo__collection">
+      <img
+        className="grafik"
+        src={require("../../asset/component/anjing2.jpg")}
+        alt="grafik"
       />
-      <CarouselControl
-        direction="next"
-        directionText="Next"
-        onClickHandler={next}
+        <img
+        className="grafik"
+        src={require("../../asset/image/grafik.png")}
+        alt="grafik"
       />
+        <img
+        className="grafik"
+        src={require("../../asset/image/grafik.png")}
+        alt="grafik"
+      />
+      </div>
+      
     </Carousel>
   );
 };

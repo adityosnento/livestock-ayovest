@@ -4,7 +4,7 @@ import "./AboutUs.scss";
 export default function LandingPage() {
   return (
     <div className="container__aboutus">
-      <img src={require("../../asset/component/anjing2.jpg")} alt="logo" />
+      <img src={require("../../asset/image/AboutUS.png")} alt="logo" />
       <div className="container__aboutus__content">
         <h5>Ayovest</h5>
         <h1>ABOUT US</h1>
