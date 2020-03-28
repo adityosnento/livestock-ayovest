@@ -27,9 +27,11 @@ class FormPayments extends React.Component {
 
   handleImageChange = e => {
     const payment_photo = e.target.files[0];
+    const payment_photo_url = URL.createObjectURL(e.target.files[0]);
 
     this.setState({
-      payment_photo
+      payment_photo,
+      payment_photo_url
     });
   };
   render() {
@@ -89,7 +91,11 @@ class FormPayments extends React.Component {
                   </div>
                 )}
                 {this.state.payment_photo && (
-                  <img src={this.state.payment_photo} alt="receipt" />
+                  <img
+                    src={this.state.payment_photo_url}
+                    alt="receipt"
+                    style={{ maxWidth: "100%" }}
+                  />
                 )}
               </div>
             </div>
