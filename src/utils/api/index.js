@@ -114,8 +114,9 @@ export const investorRecoverPassword = data => {
 /**
  * Get all investments
  */
-export const investmentGetAll = () => {
+export const investmentsGetAll = () => {
   return axios({
-    metho
+    method: "GET",
+    url: "investments/getall"
   });
 };
