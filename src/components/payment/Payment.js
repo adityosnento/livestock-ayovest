@@ -2,6 +2,7 @@ import React from "react";
 import { Button } from "reactstrap";
 import "../payment/Payment.scss";
 import { profileCurrentUser } from "../../utils/api";
+import { toast, ToastContainer } from "react-toastify";
 
 class FormPayments extends React.Component {
   constructor(props) {
@@ -11,7 +12,7 @@ class FormPayments extends React.Component {
       payment_photo: null,
       payment_photo_url: null,
       fullname: "",
-      id: this.props.userId
+      id: this.props.livestockId
     };
   }
 
@@ -34,9 +35,24 @@ class FormPayments extends React.Component {
       payment_photo_url
     });
   };
+
+  payNow = () => {
+    if (this.state.payment_photo) {
+      toast.dismiss();
+      toast.success("Successfully paid!");
+      setTimeout(() => {
+        window.location.href = "/";
+      }, 1000);
+    } else {
+      toast.dismiss();
+      toast.error("Please upload your payment receipt!");
+    }
+  };
+
   render() {
     return (
       <div className="container__payment">
+        <ToastContainer />
         <div className="container__left">
           {/* <img src={require("../../asset/Payment/payment.svg")}
           alt="logo" />
@@ -101,7 +117,7 @@ class FormPayments extends React.Component {
             </div>
           </div>
           <div className="btn-payment">
-            <Button>Pay for $450</Button>
+            <Button onClick={() => this.payNow()}>Pay for $450</Button>
           </div>
         </div>
       </div>
