@@ -9,20 +9,19 @@
 }
 
 .card-item-single img {
- height: 40vh;
+  height: 40vh;
 }
 .card-item-single {
+  overflow-y: scroll;
   box-shadow: 0em 0em #ffffff;
 
   &:hover {
     opacity: 0.7;
   }
-
- }
+}
 
 .card-body {
   height: 23vh;
-
 
   p {
     color: #217d38;
