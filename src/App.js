@@ -14,11 +14,15 @@ import Detail from "./pages/Detail";
 import LiveeStock from "./pages/LiveeStock";
 import Profile from "./pages/Profile";
 import "react-toastify/dist/ReactToastify.min.css";
-import Breeders from "./pages/Breeders";
+// import Breeders from "./pages/Breeders";
 import Payments from "./components/payment/Payments";
+
+import { Provider } from "react-redux";
+import store from "./utils/store";
 
 function App() {
   return (
+    // <Provider store={store}>
     <div className="App">
       <TopBar />
       <Router>
@@ -27,14 +31,15 @@ function App() {
           <Route path="/detail/:id" component={Detail} />
           <Route path="/livestock" component={LiveeStock} />
           <Route path="/profile/:id" component={Profile} />
-          <Route path="/payment" component={Payment} />
-          <Route path="/breeder" component={Breeder} />
+          <Route path="/payment/:id" component={Payment} />
+          {/* <Route path="/breeder/:id" component={Breeder} /> */}
           <Route path="/loginbreeder" component={Loginbreeder} />
-          <Route path="/payments-status" component={Payments} />
+          <Route path="/payments-status/:id" component={Payments} />
         </Switch>
       </Router>
       <FooterComponent />
     </div>
+    // </Provider>
   );
 }
 
