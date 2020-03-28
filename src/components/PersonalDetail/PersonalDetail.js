@@ -6,7 +6,7 @@ import {
   updateUserDataInvestor,
   investmentsGetAll
 } from "../../utils/api";
-import { TabContent, TabPane, Nav, NavItem, NavLink, Card } from "reactstrap";
+import { TabContent, TabPane, Nav, NavItem, NavLink } from "reactstrap";
 import { Breadcrumb, BreadcrumbItem } from "reactstrap";
 import classnames from "classnames";
 import { toast } from "react-toastify";
@@ -38,11 +38,10 @@ class PersonalDetail extends React.Component {
     alert("OK");
     updateUserDataInvestor(this.state)
       .then(res => {
-        console.log(res);
+        toast.success("Data Updated");
       })
       .catch(err => {
-        console.log(err);
-        alert("SALAH");
+        toast.error("Data Not Updated");
       });
   };
 
