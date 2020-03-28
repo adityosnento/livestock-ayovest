@@ -11,7 +11,6 @@ import {
 } from "reactstrap";
 import classnames from "classnames";
 // import ButtonLink from "../../components/home/ButtonLink";
-
 import "./tabcomponent.scss";
 
 const TabComponent = props => {
