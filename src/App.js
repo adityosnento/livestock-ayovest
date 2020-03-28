@@ -22,24 +22,24 @@ import store from "./utils/store";
 
 function App() {
   return (
-    <Provider store={store}>
-      <div className="App">
-        <TopBar />
-        <Router>
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route path="/detail/:id" component={Detail} />
-            <Route path="/livestock" component={LiveeStock} />
-            <Route path="/profile/:id" component={Profile} />
-            <Route path="/payment/:id" component={Payment} />
-            <Route path="/breeder/:id" component={Breeder} />
-            <Route path="/loginbreeder" component={Loginbreeder} />
-            <Route path="/payments-status/:id" component={Payments} />
-          </Switch>
-        </Router>
-        <FooterComponent />
-      </div>
-    </Provider>
+    // <Provider store={store}>
+    <div className="App">
+      <TopBar />
+      <Router>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/detail/:id" component={Detail} />
+          <Route path="/livestock" component={LiveeStock} />
+          <Route path="/profile/:id" component={Profile} />
+          <Route path="/payment/:id" component={Payment} />
+          <Route path="/breeder/:id" component={Breeder} />
+          <Route path="/loginbreeder" component={Loginbreeder} />
+          <Route path="/payments-status/:id" component={Payments} />
+        </Switch>
+      </Router>
+      <FooterComponent />
+    </div>
+    // </Provider>
   );
 }
 
