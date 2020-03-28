@@ -97,8 +97,8 @@ const TabComponent = props => {
         </TabPane>
       </TabContent>
       <div className="btn-invest">
-      <button title="Invest Now">
-      Start to Invest</button>
+      <a href="/paymentresume" title="Invest Now">
+        Start to Invest</a>
       </div>
     </div>
   );

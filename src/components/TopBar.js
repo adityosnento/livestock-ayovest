@@ -37,6 +37,9 @@ const TopBar = props => {
             <NavItem>
               <NavLink href="/components/">ABOUT US</NavLink>
             </NavItem>
+            <NavItem>
+              <NavLink href="/contactus">CONTACT US</NavLink>
+            </NavItem>
           </Nav>
           <ModalComponent buttonLabel="SIGN IN" />
         </Collapse>

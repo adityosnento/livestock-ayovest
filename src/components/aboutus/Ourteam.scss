@@ -1,0 +1,41 @@
+.ourteam-card {
+    padding: 100px;
+    margin-left: 50px;
+
+    .container-card {
+        padding: 0px 20px;
+        img {
+            background-color: red;
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        h4 {
+            padding-top:20px;
+            text-align: center;
+            font-size: 24px;
+            color: #151515;
+            font-weight: 600;
+        }
+
+        p {
+            text-align: center;
+            columns: #777777;
+            font-size: 16px;
+        }
+
+        .logo__center {
+            text-align: center;
+            font-size: 24px;
+            
+            i {
+                padding: 0px 10px;
+            }
+        }
+    }
+}
+
+.slick-dots li.slick-active button:before {
+    opacity: .75;
+    color: #000;
+}

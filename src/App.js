@@ -10,12 +10,14 @@ import Payment from "./pages/Payment"
 import Breeder from './pages/Breeder'
 import PaymentDetail from './pages/Paymentresume'
 import InvestationList from './pages/Investation'
+import Aboutus from './pages/Aboutus'
 
 import Registerbreeder from './pages/RegisterBreeder'
 import Loginbreeder from './pages/LoginBreeder'
 import Detail from "./pages/Detail";
 import LiveeStock from "./pages/LiveeStock";
 import Profile from "./pages/Profile";
+import Contactsus from "./pages/ContactUs"
 import "react-toastify/dist/ReactToastify.min.css";
 
 
@@ -35,6 +37,8 @@ function App() {
           <Route path="/registerbreeder" component={Registerbreeder}/>
           <Route path="/paymentresume" component={PaymentDetail}/>
           <Route path="/investationlist" component={InvestationList}/>
+          <Route path="/contactus" component={Contactsus}/>
+          <Route path="/aboutus" component={Aboutus}/>
         </Switch>
       </Router>
       <FooterComponent />

@@ -65,7 +65,7 @@ export default class paymentresume extends Component {
                 <span>    $640</span></p>
             </div>
             <div className="total__button">
-                <button>Checkout</button>
+                <a href="/payment">Checkout</a>
             </div>
             </div>
            
