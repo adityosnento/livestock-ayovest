@@ -54,7 +54,12 @@ class PersonalDetail extends React.Component {
         profile_picture: res.data.data.profile_picture,
         fullname: res.data.data.fullname,
         phone_number: res.data.data.phone_number,
-        uploaded_profile_picture: res.data.data.profile_picture
+        uploaded_profile_picture: res.data.data.profile_picture,
+        country: res.data.data.country,
+        province: res.data.data.province,
+        city: res.data.data.city,
+        zipcode: res.data.data.postal_code,
+        address: res.data.data.address
       });
     });
   }
@@ -63,6 +68,16 @@ class PersonalDetail extends React.Component {
     const form = e.target;
     this.setState({
       [form.name]: form.value
+    });
+  };
+
+  handleImageChange = e => {
+    const uploaded_profile_picture = URL.createObjectURL(e.target.files[0]);
+    const profile_picture = e.target.files[0];
+
+    this.setState({
+      uploaded_profile_picture,
+      profile_picture
     });
   };
 
@@ -79,13 +94,13 @@ class PersonalDetail extends React.Component {
       <div>
         {/* HEADER */}
 
-        <div class="parallax-container">
-          <div class="material-parallax">
+        <div className="parallax-container">
+          <div className="material-parallax">
             {/* <img src={require("../../asset/image/invest.webp")} alt="logo" /> */}
           </div>
-          <div class="breadcrumbs-custom-body parallax-content context-dark">
-            <div class="container">
-              <h2 class="breadcrumbs-custom-title">PROFILE DETAIL</h2>
+          <div className="breadcrumbs-custom-body parallax-content context-dark">
+            <div className="container">
+              <h2 className="breadcrumbs-custom-title">PROFILE DETAIL</h2>
             </div>
           </div>
         </div>
@@ -107,11 +122,8 @@ class PersonalDetail extends React.Component {
             <Col xs="6" sm="4" md="4">
               <Nav tabs vertical pills>
                 <div className="profile__pic">
-                  <img
-                    src={require("../../asset/image/user1.jpeg")}
-                    alt="logo"
-                  />
-                  <p> ADITYO S. NENTO</p>
+                  <img src={this.state.uploaded_profile_picture} alt="logo" />
+                  <p> {this.state.fullname}</p>
                 </div>
                 <NavItem>
                   <NavLink
@@ -156,6 +168,7 @@ class PersonalDetail extends React.Component {
                           id="myFile"
                           name="filename"
                           className="input__photo"
+                          onChange={e => this.handleImageChange(e)}
                         />
                       </form>
                     </div>
@@ -252,7 +265,7 @@ class PersonalDetail extends React.Component {
                                 id="City"
                                 placeholder="Layangan Putus Street"
                                 onChange={e => this.handleFormChange(e)}
-                                defaultValue={this.state.Address}
+                                defaultValue={this.state.address}
                               />
                             </FormGroup>
                             <Button onClick={() => this.userData()}>
