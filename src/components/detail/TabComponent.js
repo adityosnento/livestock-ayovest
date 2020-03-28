@@ -10,7 +10,7 @@ import {
   Col
 } from "reactstrap";
 import classnames from "classnames";
-import ButtonLink from "../../components/home/ButtonLink";
+// import ButtonLink from "../../components/home/ButtonLink";
 
 import "./tabcomponent.scss";
 

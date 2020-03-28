@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "../../components/breeder/Breeder.scss";
+import "../Breeder/Breeder.scss";
 import { Col, Row, Button, Form, FormGroup, Label, Input } from "reactstrap";
 
 export default class Breeder extends Component {
@@ -16,7 +16,7 @@ export default class Breeder extends Component {
         <div className="breeder__cover">
           <img
             className="photo__cover"
-            src={require("../../asset/image/background.jpg")}
+            src={require("../../asset/component/background.jpg")}
             alt="logo"
           />
           <img
@@ -54,7 +54,8 @@ export default class Breeder extends Component {
             </div>
           </div>
           <Form>
-            <h4>Personal Information</h4>
+          <div className="form__personalinformation">
+          <h4>Detail Information</h4>
             <FormGroup>
               <Label for="exampleName">Name</Label>
               <Input
@@ -83,6 +84,9 @@ export default class Breeder extends Component {
                 placeholder="Input your description here"
               />
             </FormGroup>
+          </div>
+         
+           
 
             <div className="contact__information">
               <h4>Location Information</h4>
@@ -152,8 +156,9 @@ export default class Breeder extends Component {
                   </FormGroup>
                 </Col>
               </Row>
+              </div>
 
-              <div className="contact__information">
+              <div className="Livestock__information">
                 <h4>Livestock Information</h4>
                 <Row form>
                   <Col md={6}>
@@ -175,7 +180,7 @@ export default class Breeder extends Component {
                         type="text"
                         name="text"
                         id="Province"
-                        placeholder="10% / 20% / 30%"
+                        placeholder="10% / 20% / 30%  "
                         onChange={e => this.handleFormChange(e)}
                       />
                     </FormGroup>
@@ -208,8 +213,12 @@ export default class Breeder extends Component {
                   </Col>
                 </Row>
               </div>
-            </div>
-            <Button onClick={() => this.userData()}>Submit</Button>
+           
+            <Button 
+              onClick={() => this.userData()}
+              className="btn-submit">
+              Submit
+            </Button>
           </Form>
         </div>
       </div>
