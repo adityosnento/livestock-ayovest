@@ -110,3 +110,12 @@ export const investorRecoverPassword = data => {
     url: "investors/recover"
   });
 };
+
+/**
+ * Get all investments
+ */
+export const investmentGetAll = () => {
+  return axios({
+    metho
+  });
+};

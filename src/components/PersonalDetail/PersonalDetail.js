@@ -1,10 +1,15 @@
 import React from "react";
 import { Col, Row, Button, Form, FormGroup, Label, Input } from "reactstrap";
 import "../../components/PersonalDetail/persoaldetail.scss";
-import { profileCurrentUser, updateUserDataInvestor } from "../../utils/api";
+import {
+  profileCurrentUser,
+  updateUserDataInvestor,
+  investmentsGetAll
+} from "../../utils/api";
 import { TabContent, TabPane, Nav, NavItem, NavLink, Card } from "reactstrap";
 import { Breadcrumb, BreadcrumbItem } from "reactstrap";
 import classnames from "classnames";
+import { toast } from "react-toastify";
 
 class PersonalDetail extends React.Component {
   constructor(props) {
@@ -62,6 +67,14 @@ class PersonalDetail extends React.Component {
         address: res.data.data.address
       });
     });
+
+    investmentsGetAll()
+      .then(res => {
+        console.log(res.data.data);
+      })
+      .catch(err => {
+        toast.error("failed to get investment data");
+      });
   }
 
   handleFormChange = e => {
