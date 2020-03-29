@@ -2,9 +2,14 @@ import React from "react";
 import { Col, Row, Button, Form, FormGroup, Label, Input } from "reactstrap";
 import "../../components/PersonalDetail/persoaldetail.scss";
 import { profileCurrentUser, updateUserDataInvestor } from "../../utils/api";
-import { TabContent, TabPane, Nav, NavItem, NavLink, Card } from "reactstrap";
+import { toast, ToastContainer } from "react-toastify";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 import { Breadcrumb, BreadcrumbItem } from 'reactstrap';
+import { TabContent, TabPane, Nav, NavItem, NavLink, Card } from "reactstrap";
 import classnames from "classnames";
+
+const MySwal = withReactContent(Swal);
 
 class PersonalDetail extends React.Component {
   constructor(props) {
@@ -15,9 +20,9 @@ class PersonalDetail extends React.Component {
       uploaded_profile_picture: "",
       fullname: "",
       identity_number: "",
-      phone_number: "",
+      phone_number: null,
       country: "",
-      provice: "",
+      province: "",
       city: "",
       zipcode: null,
       address: ""
@@ -30,9 +35,16 @@ class PersonalDetail extends React.Component {
   }
 
   userData = () => {
-    alert("OK");
+    toast.info("Updating data");
     updateUserDataInvestor(this.state)
       .then(res => {
+        toast.dismiss();
+
+        MySwal.fire(
+          "Success",
+          "updated user data for: " + this.state.fullname,
+          "success"
+        );
         console.log(res);
       })
       .catch(err => {
@@ -54,6 +66,11 @@ class PersonalDetail extends React.Component {
         profile_picture: res.data.data.profile_picture,
         fullname: res.data.data.fullname,
         phone_number: res.data.data.phone_number,
+        country: res.data.data.country,
+        province: res.data.data.province,
+        city: res.data.data.city,
+        zipcode: res.data.data.postal_code,
+        address: res.data.data.address,
         uploaded_profile_picture: res.data.data.profile_picture
       });
     });
@@ -73,6 +90,28 @@ class PersonalDetail extends React.Component {
       });
     }
   }
+
+  handleProfilePicture = e => {
+    const file = e.target.files;
+
+    this.setState({
+      uploaded_profile_picture: file[0],
+      profile_picture: URL.createObjectURL(file[0])
+    });
+  };
+
+  clearData = () => {
+    this.setState({
+      fullname: "",
+      identity_number: "",
+      phone_number: null,
+      country: "",
+      province: "",
+      city: "",
+      zipcode: null,
+      address: ""
+    });
+  };
 
   render() {
     return (
@@ -105,10 +144,10 @@ class PersonalDetail extends React.Component {
               <Nav tabs vertical pills>
                 <div className="profile__pic">
                   <img
-                    src={require("../../asset/image/user1.jpeg")}
+                    src={this.state.uploaded_profile_picture}
                     alt="logo"
                   />
-                  <p> ADITYO S. NENTO</p>
+                  <p>{this.state.fullname}</p>
                 </div>
                 <NavItem>
                   <NavLink
@@ -146,7 +185,7 @@ class PersonalDetail extends React.Component {
                     <h4>Update Photo Profile</h4>
                     <form action="/action_page.php">
                       <img
-                        src={this.state.uploaded_profile_picture}
+                        src={this.state.profile_picture}
                         alt="logo"
                       />
                       <input
@@ -154,6 +193,7 @@ class PersonalDetail extends React.Component {
                         id="myFile"
                         name="filename"
                         className="input__photo"
+                        onChange={e => this.handleProfilePicture(e)}
                       />
                     </form>
                   </div>
@@ -285,15 +325,31 @@ class PersonalDetail extends React.Component {
             </Col>
           </Row>
         </div>
-
-        <div className="container__personaldetail">
-          <div className="container__right">
-            <Form>
-            
-            </Form>
+            <div>
+            <Row>
+              <Col>
+                <Button onClick={() => this.userData()} color="success" block>
+                  <i className="fa fa-paper-plane"></i> &nbsp; Submit
+                </Button>
+              </Col>
+              <Col>
+                <Button onClick={() => this.clearData()} color="danger" block>
+                  <i className="fa fa-times"></i> &nbsp; Clear
+                </Button>
+              </Col>
+              <Col md="1">
+                <Button title="Refresh page">
+                  <i
+                    className="fa fa-refresh"
+                    block
+                    onClick={() => window.location.reload(false)}
+                  ></i>
+                </Button>
+              </Col>
+            </Row>
           </div>
         </div>
-      </div>
+   
     );
   }
 }

@@ -26,16 +26,16 @@ export default class FooterComponent extends Component {
           </Col>
           <Col xs="12" md="2">
             <ul className="footer-link">
-            <h5>Useful Links</h5>
+              <h5>Useful Links</h5>
               <li>Bantuan</li>
               <li>Hubungi Kami</li>
             </ul>
           </Col>
           <Col xs="12" md="4">
-            <h4 style={{ textAlign: "center" }}>
-              Subscribe Now
-            </h4>
-            <p>Lorem ipsum dolor sit ame consecte adipisicing elit, sed do eiusm</p>
+            <h4 style={{ textAlign: "center" }}>Subscribe Now</h4>
+            <p>
+              Lorem ipsum dolor sit ame consecte adipisicing elit, sed do eiusm
+            </p>
           </Col>
         </Row>
         <Row>

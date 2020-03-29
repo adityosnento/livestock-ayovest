@@ -100,3 +100,14 @@ export const updateUserDataInvestor = data => {
     url: "investors"
   });
 };
+
+/**
+ * Rrecovering password
+ */
+export const investorRecoverPassword = data => {
+  return axios({
+    method: "POST",
+    data: data,
+    url: "investors/recover"
+  });
+};

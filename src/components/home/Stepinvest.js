@@ -14,11 +14,11 @@ export default function Stepinvest() {
           ke pengelola peternakan.
         </p>
         <div id="container__button">
-          <button class="learn-more">
-            <span class="circle" aria-hidden="true">
-              <span class="icon arrow"></span>
+          <button className="learn-more">
+            <span className="circle" aria-hidden="true">
+              <span className="icon arrow"></span>
             </span>
-            <span class="button-text">Learn More</span>
+            <span className="button-text">Learn More</span>
           </button>
         </div>
       </div>
@@ -61,7 +61,7 @@ export default function Stepinvest() {
               </p>
             </div>
           </div>
+        </div>
       </div>
-    </div>
   );
 }

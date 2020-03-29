@@ -10,11 +10,16 @@ import {
   Input,
   Form
 } from "reactstrap";
-import { investorSignUp, investorLogin, loginwithgoogle } from "../utils/api";
+import {
+  investorSignUp,
+  investorLogin,
+  loginwithgoogle,
+  investorRecoverPassword
+} from "../utils/api";
 import { toast, ToastContainer } from "react-toastify";
 import { logout } from "../utils/functions/page-behaviour";
-import { Spinner } from 'reactstrap';
 import './ModalComponent.scss'
+import Loader from "react-loader-spinner";
 
 class ModalComponent extends Component {
   constructor(props) {
@@ -32,10 +37,18 @@ class ModalComponent extends Component {
       SigninPassword: "",
       isLoggedin: false,
       fullname: "",
-      profile_picture:"",
-      id: ""
+      id: "",
+      role: "",
+      isLoading: false
     };
   }
+
+  recoverPassword = () => {
+    const data = {};
+    investorRecoverPassword(data).then(res => {
+      console.log(res);
+    });
+  };
 
   componentWillMount(props) {
     const token = localStorage.getItem("token");
@@ -54,9 +67,13 @@ class ModalComponent extends Component {
   };
 
   logingoogle = () => {
-    loginwithgoogle().then(res => {
-      console.log(res);
-    });
+    loginwithgoogle()
+      .then(res => {
+        toast.success("Logged in");
+      })
+      .then(err => {
+        toast.error("failed to log in with Google");
+      });
   };
 
   toggle = () => {
@@ -86,6 +103,10 @@ class ModalComponent extends Component {
   };
 
   handleSigninSubmit = () => {
+    toast.info("Signing in");
+    this.setState({
+      isLoading: true
+    });
     const data = {
       email: this.state.SigninEmail,
       password: this.state.SigninPassword
@@ -93,7 +114,6 @@ class ModalComponent extends Component {
 
     investorLogin(data)
       .then(res => {
-        toast.success("login berhasil");
         console.log("login", res);
         const token = res.data.data.jwt_token;
         const fullname = res.data.data.fullname;
@@ -106,16 +126,26 @@ class ModalComponent extends Component {
         this.setState({
           isLoggedin: true,
           id: id,
+          role: res.data.data.role,
           fullname: fullname
         });
 
+        toast.dismiss();
+        toast.success("Logged in");
         setTimeout(() => {
+          this.doneLoading();
           this.toggle();
-        }, 1500);
+          window.location.href = "/";
+        }, 1000);
       })
       .catch(err => {
+        this.doneLoading();
+
         toast.error("Failed to log in", "Error!");
-        console.log(err);
+        this.setState({
+          signUp: true
+        });
+        toast.info("Please sign up first");
       });
   };
 
@@ -128,31 +158,47 @@ class ModalComponent extends Component {
       password_confirmation: this.state.signUpConfirmationPassword
     };
 
+    this.setState({
+      isLoading: true
+    });
+
     investorSignUp(data)
       .then(res => {
         toast.success("Sign up success!");
+        this.doneLoading();
       })
-      .catch(err => toast.error("Sign up failed"));
+      .catch(err => {
+        toast.error("Sign up failed");
+        this.doneLoading();
+      });
   };
 
+  doneLoading = () => {
+    this.setState({
+      isLoading: false
+    });
+  };
 
   render() {
     return (
       <div>
         {!this.state.isLoggedin && (
-          <Button color="primary" onClick={this.toggle}>
+          <Button color="success" onClick={this.toggle}>
             {!this.state.signUp ? this.props.buttonLabel : "Sign Up"}
           </Button>
         )}
 
-{this.state.isLoggedin && (
-          <Button color="link" onClick={this.goToProfile}>
-             {this.state.profile_picture}
+        {this.state.isLoggedin && (
+          <Button
+            color="link"
+            className="text-success"
+            onClick={this.goToProfile}
+          >
             {this.state.fullname}
           </Button>
         )}
 
-{this.state.isLoggedin && (
+        {this.state.isLoggedin && (
           <Button
             style={{ color: "black" }}
             color="link"
@@ -291,19 +337,24 @@ class ModalComponent extends Component {
           <ModalFooter>
             <div className="btn__flex">
             {!this.state.signUp ? (
+              <div>
               <Button color="primary" onClick={this.handleSigninSubmit}>
                 Sign In
               </Button>
-            ) : (
-              <Button color="primary" onClick={this.handleSignUpSubmit}>
-                Sign Up
+              <Button
+                color="danger"
+                style={{ borderRadius: "50%" }}
+                onClick={this.logingoogle}
+                title="Signin with Google"
+              >
+                <i className="fa fa-google"></i>
               </Button>
-            )}
+              </div>
+            ): false}
             <Button color="link" onClick={this.showSignUp} id="change_btn">
               Not a member ? please {this.state.signUp && "Sign In"}
               {!this.state.signUp && "Sign Up"}
             </Button>
-            
             </div>
           </ModalFooter>
         </Modal>

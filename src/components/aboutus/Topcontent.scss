@@ -1,0 +1,18 @@
+.container__top {
+    padding: 200px 150px 50px 150px;
+    display: flex;
+
+    h2 {
+        font-weight: 700;
+        letter-spacing: 0.1rem;
+        padding: 0px 20px;
+        line-height: 1.6;
+    }
+
+    p {
+        align-items: center;
+        justify-content: center;
+        padding: 20px 20px;
+        line-height: 1.9;
+    }
+}
