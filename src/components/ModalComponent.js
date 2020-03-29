@@ -199,7 +199,7 @@ class ModalComponent extends Component {
 
         {this.state.isLoggedin && (
           <Button
-            style={{ color: "white" }}
+            style={{ color: "black" }}
             color="link"
             title="logout"
             onClick={logout}

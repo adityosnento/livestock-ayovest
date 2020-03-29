@@ -313,12 +313,6 @@ class PersonalDetail extends React.Component {
             </Col>
           </Row>
         </div>
-
-        <div className="container__personaldetail">
-          <div className="container__right">
-            <Form></Form>
-          </div>
-        </div>
       </div>
     );
   }

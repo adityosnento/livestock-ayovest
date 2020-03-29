@@ -21,26 +21,27 @@ const TopBar = props => {
   return (
     <div>
       <Navbar className="navbar-color" dark expand="md" fixed="top">
-        <NavbarBrand href="/">Ayovest</NavbarBrand>
+        <NavbarBrand href="/">
+          <img  src={require("../../src/asset/image/logo.png")}
+            alt="logo"/>
+        </NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
-            <NavItem>
-              <NavLink href="/components/">investasi</NavLink>
+          <NavItem>
+              <NavLink href="/">HOME</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="https://github.com/reactstrap/reactstrap">
-                Cara Kerja
-              </NavLink>
+              <NavLink href="/investationlist">INVESTATION</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/components/">Tentang</NavLink>
+              <NavLink href="/components/">ABOUT US</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/components/">Bantuan</NavLink>
+              <NavLink href="/contactus">CONTACT US</NavLink>
             </NavItem>
           </Nav>
-          <ModalComponent buttonLabel="Sign In" />
+          <ModalComponent buttonLabel="SIGN IN" />
         </Collapse>
       </Navbar>
     </div>

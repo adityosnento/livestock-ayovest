@@ -43,7 +43,7 @@ const TabComponent = props => {
               toggle("1");
             }}
           >
-            Ringkasan
+            Resume
           </NavLink>
         </NavItem>
         <NavItem>
@@ -53,7 +53,7 @@ const TabComponent = props => {
               toggle("3");
             }}
           >
-            Prediksi
+            Prediction
           </NavLink>
         </NavItem>
       </Nav>
@@ -103,7 +103,9 @@ const TabComponent = props => {
         </TabPane>
       </TabContent>
       <div className="btn-invest">
-        <button title="Invest Now">Start to Invest</button>
+        <a href="/paymentresume" title="Invest Now">
+          Start to Invest
+        </a>
       </div>
     </div>
   );

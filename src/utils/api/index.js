@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const url = "https://ayo-vest.herokuapp.com/api/v1/";
+const url = process.env.REACT_APP_BASE_URL;
+console.log(url)
 const userId = localStorage.getItem("id");
 
 // Default base url

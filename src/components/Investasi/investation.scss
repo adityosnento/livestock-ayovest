@@ -1,25 +1,3 @@
-.detail-container {
-    padding: 30px 75px 100px 75px;
-
-    .title__container {
-        padding-top: 150px;
-        align-items: center;
-        text-align: center;
-
-        h1 {
-            font-weight: 800;
-        }
-
-        h5 {
-            font-size: 16px;
-        }
-
-        p {
-            color: rgb(148, 148, 148);
-        }
-    }
-}
-
 .parallax-container {
     position: relative;
     overflow: hidden;
@@ -104,6 +82,76 @@
                 color: white;
                 font-size: 55px;
                 text-align: center;
+            }
+        }
+    }
+}
+
+.container__invest {
+    padding: 30px 75px 100px 75px;
+
+    .category__container {
+        width: 100%;
+        background-color: white;
+        display: flex;
+
+        .category__left {
+            width: 30%;
+            h4 {
+                font-weight: 700;
+                border-bottom: 1px solid #e1e1e1;
+                padding-bottom: 12px;
+                width: 85%;
+                font-size: 16px;
+                text-transform: uppercase;
+                letter-spacing: 0.15rem;
+            }
+        
+            .category__filter {
+                
+                display: flex;
+                align-items: center;
+                justify-content: left;
+
+                input {
+                    top: 2px;
+                    left: 0;
+                    width: 21px;
+                    height: 21px;
+                    margin: 0;
+                    border: 2px solid #e1e1e1;
+                    border-radius: 3px;
+                    margin-right: 20px;
+                    margin-top: 15px;
+                    text-align: center;;
+                }
+
+                p {
+                    margin-top: 15px;
+                    margin-bottom: 0rem;
+                }
+            }
+        }
+
+        .category__right {
+            width: 100%;
+
+            .category__top {
+                display: flex;
+                justify-content: space-between;
+
+                .category__sort {
+                    margin-right: 20px;
+
+                    button {
+                        color:black;
+    background-color: white;
+    border-color:white;
+    letter-spacing: 0.08rem;
+    font-size: 16px;
+
+                    }
+                }
             }
         }
     }

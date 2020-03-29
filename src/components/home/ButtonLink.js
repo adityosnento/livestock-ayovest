@@ -8,9 +8,9 @@ export default class ButtonLink extends Component {
       <Container>
         <Row>
           <Col style={{ textAlign: "center" }}>
-            <Button className="button-play">
+            <a href="" className="button-play" href="/investationlist"> 
               {this.props.title}
-            </Button>
+            </a>
           </Col>
         </Row>
       </Container>

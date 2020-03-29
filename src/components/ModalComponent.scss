@@ -1,0 +1,137 @@
+@media (min-width: 576px) {
+
+    .modal-dialog {
+        max-width: 500px;
+        margin: 1.75rem auto;
+    }
+}
+
+.display__signin {
+    display: flex;
+    
+    .signin__left {
+       width: 50%;
+        img {
+            width: 100%;
+        }
+    }
+}
+
+.signin__logo {
+    width: 100%;
+    img {
+        width: 50%;
+    }
+}
+
+.modal-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 1rem 1rem;
+    border-bottom: 1px solid #dee2e6;
+    border-top-left-radius: calc(.3rem - 1px);
+    border-top-right-radius: calc(.3rem - 1px);
+
+    .modal-title {
+        align-items: center;
+
+        .signin__logo {
+            justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+            p {
+                margin-top: 10px;
+                color: #3A7E39;
+                padding: 5px 10px;
+                border-radius: 10px;
+                font-size: 16px;
+                margin-bottom: 0rem;
+                margin-top: 0rem;
+            }
+        }
+    }
+    
+   
+}
+
+.modal-header .close {
+    padding: 1rem 1rem;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: auto;
+}
+
+.btn__flex {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    #change_btn {
+        font-size: 12px;
+    }
+}
+
+#btn__google {
+    width: 100%;
+    margin-top: 20px;
+    background-color: #2A75F3;
+    display: flex;
+    justify-content: center;
+
+    i {
+        padding: 10px;
+    }
+
+    p {
+        margin-left: 20px;
+        margin-bottom: 0rem;
+        margin-top: 5px;
+        display: flex;
+        align-items: center;
+    }
+
+    &:hover {
+        opacity: 0.5;
+    }
+}
+
+#input_label {
+    font-size: 14px;
+}
+
+#input_labelpassword {
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+#input_fullname {
+    font-size: 14px;
+}
+
+#input_email {
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+#input_phonenumber {
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+#input_pwdconfirm {
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+#input_pwd {
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.password_container {
+    display: flex;
+}
