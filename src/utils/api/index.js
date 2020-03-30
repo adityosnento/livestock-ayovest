@@ -131,3 +131,14 @@ export const investmentsGetAll = () => {
     url: "investments/getall"
   });
 };
+
+/**
+ * Create investment
+ */
+export const investmentCreate = data => {
+  return axios({
+    method: "POST",
+    url: "investments",
+    data: data
+  });
+};

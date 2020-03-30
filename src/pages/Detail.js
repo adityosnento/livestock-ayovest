@@ -80,6 +80,7 @@ export default class Detail extends Component {
                   profitContractPeriod={
                     this.state.livestock.profitContractPeriod
                   }
+                  livestockId={this.props.match.params.id}
                 />
               </Col>
             </Row>
