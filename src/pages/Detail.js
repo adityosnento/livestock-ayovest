@@ -8,6 +8,7 @@ import CardComponent from "../components/home/CardComponent";
 // import ImagesComponent from "../components/detail/ImagesComponent";
 import { livestockGetOne, liveStockGetAll } from "../utils/api";
 import "./Detail.scss";
+import { toast, ToastContainer } from "react-toastify";
 
 export default class Detail extends Component {
   constructor(props) {
@@ -28,18 +29,23 @@ export default class Detail extends Component {
       });
     });
 
-    liveStockGetAll().then(res => {
-      const data = res.data.data.docs;
-      const livestocks = [data[0], data[1], data[2]];
-      this.setState({
-        livestocks
+    liveStockGetAll()
+      .then(res => {
+        const data = res.data.data.docs;
+        const livestocks = [data[0], data[1], data[2]];
+
+        this.setState({
+          livestocks
+        });
+      })
+      .catch(err => {
+        toast.error("Cannot retrieve recommendation list");
       });
-      console.log(res);
-    });
   };
   render() {
     return (
       <div>
+        <ToastContainer />
         <div className="parallax-container">
           <div className="material-parallax">
             <img src={require("../asset/image/invest.webp")} alt="logo" />
