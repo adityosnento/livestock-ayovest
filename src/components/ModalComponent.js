@@ -54,6 +54,12 @@ class ModalComponent extends Component {
     const token = localStorage.getItem("token");
     const fullname = localStorage.getItem("fullname");
     const id = localStorage.getItem("id");
+    const justLoggedin = localStorage.getItem("login")
+      ? localStorage.getItem("login")
+      : false;
+
+    fullname && justLoggedin && toast.info(`Welcome back, ${fullname}!`);
+    localStorage.removeItem("login");
 
     this.setState({
       id,
@@ -123,6 +129,7 @@ class ModalComponent extends Component {
         localStorage.setItem("id", id);
         localStorage.setItem("fullname", fullname);
         localStorage.setItem("token", token);
+        localStorage.setItem("login", true);
 
         this.setState({
           isLoggedin: true,
