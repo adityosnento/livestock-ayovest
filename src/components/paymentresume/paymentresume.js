@@ -74,14 +74,19 @@ export default class paymentresume extends Component {
 
   postInvestments = () => {
     const data = {
-      livestockId: this.props.match.params.id,
+      livestockId: this.props.livestockId,
       unit: this.state.unit
     };
+    toast.info("Creating investment");
+
+    console.log(data);
     investmentCreate(data)
       .then(res => {
         toast.success("Created investment");
+        window.location.href = "/profile/" + localStorage.getItem("id");
       })
       .catch(err => {
+        toast.dismiss();
         toast.error(err.message);
       });
   };
@@ -171,7 +176,9 @@ export default class paymentresume extends Component {
               </p>
             </div>
             <div className="total__button">
-              <a href="/payment">Checkout</a>
+              <button href="#" onClick={this.postInvestments}>
+                Checkout
+              </button>
             </div>
           </div>
         </div>
