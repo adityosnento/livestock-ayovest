@@ -102,7 +102,7 @@ class ModalComponent extends Component {
     });
   };
 
-  handleSigninSubmit = () => {
+  signInAction = () => {
     toast.info("Signing in");
     this.setState({
       isLoading: true
@@ -147,6 +147,16 @@ class ModalComponent extends Component {
         });
         toast.info("Please sign up first");
       });
+  };
+
+  handleSigninSubmit = () => {
+    this.signInAction();
+  };
+
+  handleSigninKeyEnter = e => {
+    if (e.keyCode === 13) {
+      this.signInAction();
+    }
   };
 
   handleSignUpSubmit = () => {
@@ -258,6 +268,7 @@ class ModalComponent extends Component {
                         id="exampleEmail"
                         placeholder="something@idk.cool"
                         onChange={this.handleSigninChange}
+                        onKeyDown={this.handleSigninKeyEnter}
                       />
                     </FormGroup>
                     <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
@@ -274,6 +285,7 @@ class ModalComponent extends Component {
                         id="examplePassword"
                         placeholder="******"
                         onChange={this.handleSigninChange}
+                        onKeyDown={this.handleSigninKeyEnter}
                       />
                     </FormGroup>
                   </Form>
