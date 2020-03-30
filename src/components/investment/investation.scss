@@ -1,0 +1,158 @@
+.parallax-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 70vh;
+    padding: 100px;
+
+
+    .material-parallax {
+        position: absolute;
+        top: 0;
+        left: -1px;
+        right: -1px;
+        bottom: 0;
+        z-index: 0;
+        overflow: hidden;
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+
+  &:after {
+    content: "";
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 8;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    background: -moz-linear-gradient(top, rgba(0,0,0,0) 0, rgba(0,0,0,0) 40%, #000 100%);
+    background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0, rgba(0,0,0,0) 40%, #000 100%);
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0, rgba(0,0,0,0) 40%, #000 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#000000', GradientType=0)
+  } 
+
+
+
+        img {
+            margin: 0px;
+            width: 100%;
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            min-width: 101%;
+            min-height: 101%;
+            max-width: none;
+            display: block;
+            transform: translate3d(-50%, 278px, 0px);
+            height: auto;
+            vertical-align: middle;
+            border-style: none;
+        }
+    }
+
+    .breadcrumbs-custom-body {
+        display: flex;
+        align-items: center;
+        min-height: 24.84375vw;
+        padding: 40px 0;
+        background-color: transparent;
+        background-position: center;
+        position: relative;
+        z-index: 1;
+
+        .container {
+            width: 100%;
+            padding-right: 15px;
+            padding-left: 15px;
+            margin-right: auto;
+            margin-left: auto;
+
+            h2 {
+                text-shadow: 3px 9px 16px rgba(0, 0, 0, .4);
+                letter-spacing: .05em;
+                text-transform: uppercase;
+                margin-top: 0;
+                margin-bottom: 0;
+                font-weight: 600;
+                color: white;
+                font-size: 55px;
+                text-align: center;
+            }
+        }
+    }
+}
+
+.container__invest {
+    padding: 30px 75px 100px 75px;
+
+    .category__container {
+        width: 100%;
+        background-color: white;
+        display: flex;
+
+        .category__left {
+            width: 30%;
+            h4 {
+                font-weight: 700;
+                border-bottom: 1px solid #e1e1e1;
+                padding-bottom: 12px;
+                width: 85%;
+                font-size: 16px;
+                text-transform: uppercase;
+                letter-spacing: 0.15rem;
+            }
+        
+            .category__filter {
+                
+                display: flex;
+                align-items: center;
+                justify-content: left;
+
+                input {
+                    top: 2px;
+                    left: 0;
+                    width: 21px;
+                    height: 21px;
+                    margin: 0;
+                    border: 2px solid #e1e1e1;
+                    border-radius: 3px;
+                    margin-right: 20px;
+                    margin-top: 15px;
+                    text-align: center;;
+                }
+
+                p {
+                    margin-top: 15px;
+                    margin-bottom: 0rem;
+                }
+            }
+        }
+
+        .category__right {
+            width: 100%;
+
+            .category__top {
+                display: flex;
+                justify-content: space-between;
+
+                .category__sort {
+                    margin-right: 20px;
+
+                    button {
+                        color:black;
+    background-color: white;
+    border-color:white;
+    letter-spacing: 0.08rem;
+    font-size: 16px;
+
+                    }
+                }
+            }
+        }
+    }
+}

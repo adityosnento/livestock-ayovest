@@ -1,0 +1,25 @@
+image: node:8.15.1
+stages:
+  - build
+  - production
+deploy-to-development:
+  type: build
+  script:
+    - npm install
+    - npm run build
+  only:
+    - feature/updateprofile
+
+deploy-production:
+  type: deploy
+  stage: production
+  environment:
+    name: production
+    url: https://ayovest-livestock.herokuapp.com/
+  script:
+    - apt-get update -qy
+    - apt-get install -y ruby ruby-dev rubygems-integration
+    - gem install dpl
+    - dpl --provider=heroku --app=ayovest-livestock --api-key=8ccade31-7bff-4ad5-b7f8-f054119f0fdegit
+  only:
+    - master

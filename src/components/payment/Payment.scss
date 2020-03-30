@@ -1,0 +1,241 @@
+.container__payment {
+    padding: 0px 100px 0px 100px;
+    display: flex;
+
+    .container__left {
+        width: 70%;
+        padding: 30px 100px 100px 100px;
+        box-shadow: 0 1px 4px 0 rgba(0,0,0,.5);
+        padding: 24px 24px 8px;
+
+        h1 {
+            margin-bottom: 20px;
+            letter-spacing: 4px;
+        }
+
+        h6 {
+            letter-spacing: 0.7rem;
+            font-size: 12px;
+            font-weight: 900;
+            background-image: linear-gradient(to right top, #217d38, #268f40, #2aa148, #2fb451, #34c759);
+            width: 25%;
+            padding: 6px;
+            text-align: center;
+            color: white;
+        }
+
+        .total__payment {
+            display: flex;
+
+            .payment__history {
+                
+
+                h4 {
+                    margin-top: 20px;
+                }
+            }
+
+            .payment__value {
+                padding-left: 120px;
+                h4 {
+                    margin-top: 20px;
+                }
+            }
+        }
+      
+
+        .payment__flex {
+            display: flex;
+            border-bottom: 2px solid black;
+
+            .payment__value {
+                padding-left: 120px;
+            }
+        }
+
+        .container__content {
+            width: 90%;
+            h5 {
+                margin-bottom: 25px;
+                text-align: center;
+                background-color: #54CCB5;
+                color:white;
+                padding:8px;
+                border-radius: 15px;
+                width: 60%;
+                text-align: center;
+                margin-left: 60px;
+                margin-top: 25px;
+            }
+
+            p {
+                font-size: 13px;
+                line-height: 25px;
+            }
+        }
+
+        img {
+            width: 80%;
+        }
+    }
+
+    .container__right {
+        box-shadow: 0 1px 4px 0 rgba(0,0,0,.5);
+        padding: 24px 24px 8px;
+        width: 50%;
+
+        .btn-payment {
+            width: 100%;
+            text-align: center;
+        }
+        
+        .wrapper {
+            max-width: 800px;
+            margin: 30px auto;
+        }
+        
+        .photo_submit-container {
+            display: flex;
+            max-width: 800px;
+            margin: 0 auto;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            padding: 0;
+        }
+        
+        .photo_submit {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items:center;
+            justify-content: center;
+            width: 150px;
+            height: 150px;
+            background: #f8f8f8;
+            border-radius: 8px;
+        
+            &:hover {
+                cursor: pointer;
+                background: darken(#f8f8f8, 5%);
+            }
+        
+            &:nth-child(2),
+            &:nth-child(4){
+                margin-left: 1rem;
+            }
+        
+            &:nth-child(3),
+            &:nth-child(4){
+                margin-top: 1rem;
+            }
+        
+            &--image {
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center;
+        
+                &:hover {
+                    cursor: default;
+                }
+            }
+        }
+        
+        .photo_submit-input {
+            display: none;
+        }
+        
+        .photo_submit-plus {
+            position: relative;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background-image: linear-gradient(to right top, #217d38, #268f40, #2aa148, #2fb451, #34c759);
+            pointer-events: none;
+        
+            &:after {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-46%, -52%);
+                content: '+';
+                font-size: 36px;
+                color: #fff;
+            }
+        
+            .photo_submit--image & {
+                display: none;
+            }
+        }
+        
+        .photo_submit-uploadLabel {
+            margin-top: 1rem;
+            font-size: 16px;
+            color: cadetblue;
+            letter-spacing: 0.03em;
+            pointer-events: none;
+        
+            .photo_submit--image & {
+                display: none;
+            }
+        }
+        
+        .photo_submit-delete {
+            display: none;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        
+            width: 24px;
+            height: 24px;
+        
+            background: #f8f8f8;
+        
+            border-radius: 50%;
+        
+            text-indent: -9999px;
+            cursor: pointer;
+        
+            &:before,
+            &:after {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 2px;
+                height: 12px;
+        
+                background-color: cadetblue;
+        
+                content: '';
+            }
+        
+            &:before {
+                transform: translate(-50%, -50%) rotate(45deg);
+            }
+        
+            &:after {
+                transform: translate(-50%, -50%) rotate(-45deg);
+            }
+        
+            &:hover {
+                background: #ccc;
+            }
+        
+            .photo_submit--image & {
+                display: inline-block;
+            }
+        }
+     
+    }
+}
+
+
+.breadcrumb_payment {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+    padding: 35px 75px 0px 100px;
+    list-style: none;
+    background-color: #ffff;
+    border-radius: .25rem;
+}
