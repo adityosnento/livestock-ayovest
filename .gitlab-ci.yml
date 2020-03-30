@@ -8,7 +8,7 @@ deploy-to-development:
     - npm install
     - npm run build
   only:
-    - develop
+    - feature/updateprofile
 
 deploy-production:
   type: deploy
