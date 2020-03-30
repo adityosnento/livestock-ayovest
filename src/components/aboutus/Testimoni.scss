@@ -1,0 +1,89 @@
+.testimony-card {
+    padding: 20px 100px;
+    height: 100vh;
+    background-image: url(../../asset//image/bg-pattern-1.jpg);
+    background-repeat: repeat;
+    background-size: auto;
+    background-color: #f5f5f5;
+
+    i {
+        font-size: 40px;
+        text-align: center;
+        width: 100%;
+        color: rgba(10, 143, 0, 0.52);
+        
+    }
+
+    h2 {
+        text-align: center;
+        font-weight: 900;
+        margin-top: 10px;
+        padding: 50px;
+        letter-spacing: 0.2rem;
+    }
+
+    .container-testimony {
+        border-radius: 10px;
+        box-shadow: 0 0 18px 0 rgba(0,0,0,.13);
+        background: #fff;
+    height: 53vh;
+    padding: 60px 45px;
+
+    h3 {
+        padding: 40px 30px 0px 30px;
+        font-size: 24px;
+        text-align: center;
+        color: #777777;
+    }
+     
+    .container__person {
+        display: flex;
+       justify-content: center;
+       padding: 20px;
+        
+        .img__testimonial {
+            text-align: center;
+            
+            img {
+                border-radius: 50%;
+                width: 70px;
+                height: 70px;
+                text-align: center;
+            }
+        }
+            
+        .paragraph__description {
+            display: flex;
+            flex-direction: column;
+            align-items:left;
+            justify-content: center;
+            padding: 20px;
+            
+            p {
+                text-align: left;
+                columns: #777777;
+                font-size: 12px;
+                margin-bottom: 0px;
+            }
+            
+            #title__position {
+                font-weight: 700;
+            }
+        }
+       
+    }
+}
+}
+
+.slick-dots li.slick-active button:before {
+    opacity: .75;
+    color: #000;
+}
+
+.slick-slide {
+    padding: 0px 10px;
+}
+
+.slick-track {
+    height: 60vh;
+}

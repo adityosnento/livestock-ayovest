@@ -18,7 +18,7 @@ import {
 } from "../utils/api";
 import { toast, ToastContainer } from "react-toastify";
 import { logout } from "../utils/functions/page-behaviour";
-import Loader from "react-loader-spinner";
+import "./ModalComponent.scss";
 
 class ModalComponent extends Component {
   constructor(props) {
@@ -207,181 +207,189 @@ class ModalComponent extends Component {
             <i className="fa fa-sign-out"></i>
           </Button>
         )}
-        {this.state.isLoading && (
-          <Modal isOpen={this.state.modal} toggle={this.toggle}>
-            <div className="loader-div">
-              {this.state.signUp ? (
-                <h2>Signing up, please wait</h2>
-              ) : (
-                <h2>Signing in, please wait</h2>
-              )}
-            </div>
-            <div className="loader-div">
-              <Loader
-                style={{ display: "block" }}
-                type="ThreeDots"
-                color="#00BFFF"
-                height={100}
-                width={100}
-              />
-            </div>
-          </Modal>
-        )}
-        {!this.state.isLoading && (
-          <Modal isOpen={this.state.modal} toggle={this.toggle}>
-            <ToastContainer />
-            <ModalHeader toggle={this.toggle}>
-              {!this.state.signUp
-                ? "Sign in to Ayovest!"
-                : "Welcome to Ayovest!"}
-            </ModalHeader>
-            <ModalBody>
-              {!this.state.signUp && (
-                <Form>
-                  <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-                    <Label for="exampleEmail" className="mr-sm-2">
-                      Email
-                    </Label>
-                    <Input
-                      type="email"
-                      name="SigninEmail"
-                      id="exampleEmail"
-                      placeholder="something@idk.cool"
-                      onChange={this.handleSigninChange}
-                    />
-                  </FormGroup>
-                  <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-                    <Label for="examplePassword" className="mr-sm-2">
-                      Password
-                    </Label>
-                    <Input
-                      type="password"
-                      name="SigninPassword"
-                      id="examplePassword"
-                      placeholder="******"
-                      onChange={this.handleSigninChange}
-                    />
-                  </FormGroup>
-                </Form>
-              )}
+        <Modal isOpen={this.state.modal} toggle={this.toggle}>
+          <ToastContainer />
 
-              {this.state.signUp && (
-                <Form>
-                  <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-                    <Label for="Fullname" className="mr-sm-2">
-                      Full Name
-                    </Label>
-                    <Input
-                      type="text"
-                      name="signUpFullname"
-                      id="Fullname"
-                      placeholder="Your Name"
-                      onChange={this.handleSignUpChange}
-                    />
-                  </FormGroup>
-                  <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-                    <Label for="exampleEmail" className="mr-sm-2">
-                      Email
-                    </Label>
-                    <Input
-                      type="email"
-                      name="signUpEmail"
-                      id="exampleEmail"
-                      placeholder="something@idk.cool"
-                      onChange={this.handleSignUpChange}
-                    />
-                  </FormGroup>
-                  <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-                    <Label for="phoneNumber" className="mr-sm-2">
-                      Phone Number
-                    </Label>
-                    <Input
-                      type="tel"
-                      name="SignUpPhoneNumber"
-                      id="phoneNumber"
-                      placeholder="08123856"
-                      onChange={this.handleSignUpChange}
-                    />
-                  </FormGroup>
-                  <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-                    <Label for="examplePassword" className="mr-sm-2">
-                      Password
-                    </Label>
-                    <Input
-                      type="password"
-                      name="signUpPassword"
-                      id="examplePassword"
-                      placeholder="******"
-                      onChange={this.handleSignUpChange}
-                    />
-                  </FormGroup>
-                  <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-                    <Label for="signUpConfirmationPassword" className="mr-sm-2">
-                      Password Confirmation<sup className="text-danger">*</sup>
-                    </Label>
-                    <Input
-                      type="password"
-                      name="signUpConfirmationPassword"
-                      id="signUpConfirmationPassword"
-                      placeholder="******"
-                      onChange={this.handleSignUpChange}
-                    />
-                  </FormGroup>
-                </Form>
-              )}
-            </ModalBody>
-            <ModalFooter>
-              {!this.state.signUp && (
-                <Button
-                  color="link"
-                  style={{ fontSize: "0.8rem", color: "red" }}
-                >
-                  Forgot password
-                </Button>
-              )}
+          <ModalHeader toggle={this.toggle}>
+            {!this.state.signUp ? (
+              <div className="signin__logo">
+                <img src={require("../asset/image/logo.png")} alt="logo" />
+                <p>Welcome to AYOvest!</p>
+              </div>
+            ) : (
+              <div className="signin__logo">
+                <img src={require("../asset/image/logo.png")} alt="logo" />
+                <p>Welcome to AYOvest!</p>
+              </div>
+            )}
+          </ModalHeader>
 
+          <ModalBody>
+            {!this.state.signUp && (
+              <Form>
+                <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
+                  <Label
+                    for="exampleEmail"
+                    className="mr-sm-2"
+                    id="input_label"
+                  >
+                    Email <sup className="text-danger">*</sup>
+                  </Label>
+                  <Input
+                    type="email"
+                    name="SigninEmail"
+                    id="exampleEmail"
+                    placeholder="something@idk.cool"
+                    onChange={this.handleSigninChange}
+                  />
+                </FormGroup>
+                <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
+                  <Label
+                    for="examplePassword"
+                    className="mr-sm-2"
+                    id="input_labelpassword"
+                  >
+                    Password <sup className="text-danger">*</sup>
+                  </Label>
+                  <Input
+                    type="password"
+                    name="SigninPassword"
+                    id="examplePassword"
+                    placeholder="******"
+                    onChange={this.handleSigninChange}
+                  />
+                </FormGroup>
+              </Form>
+            )}
+
+            {this.state.signUp && (
+              <Form>
+                <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
+                  <Label for="Fullname" className="mr-sm-2" id="input_fullname">
+                    Full Name <sup className="text-danger">*</sup>
+                  </Label>
+                  <Input
+                    type="text"
+                    name="signUpFullname"
+                    id="Fullname"
+                    placeholder="Your Name"
+                    onChange={this.handleSignUpChange}
+                  />
+                </FormGroup>
+                <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
+                  <Label
+                    for="exampleEmail"
+                    className="mr-sm-2"
+                    id="input_email"
+                  >
+                    Email <sup className="text-danger">*</sup>
+                  </Label>
+                  <Input
+                    type="email"
+                    name="signUpEmail"
+                    id="exampleEmail"
+                    placeholder="Your Active Email"
+                    onChange={this.handleSignUpChange}
+                  />
+                </FormGroup>
+                <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
+                  <Label
+                    for="phoneNumber"
+                    className="mr-sm-2"
+                    id="input_phonenumber"
+                  >
+                    Phone Number <sup className="text-danger">*</sup>
+                  </Label>
+                  <Input
+                    type="tel"
+                    name="SignUpPhoneNumber"
+                    id="phoneNumber"
+                    placeholder="Your Phone Number"
+                    onChange={this.handleSignUpChange}
+                  />
+                </FormGroup>
+
+                <div className="password_container">
+                  <div className="registration_password">
+                    <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
+                      <Label
+                        for="examplePassword"
+                        className="mr-sm-2"
+                        id="input_pwd"
+                      >
+                        Password <sup className="text-danger">*</sup>
+                      </Label>
+                      <Input
+                        type="password"
+                        name="signUpPassword"
+                        id="examplePassword"
+                        placeholder="******"
+                        onChange={this.handleSignUpChange}
+                      />
+                    </FormGroup>
+                  </div>
+
+                  <div className="registration_passwordconfirmation">
+                    <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
+                      <Label
+                        for="signUpConfirmationPassword"
+                        className="mr-sm-2"
+                        id="input_pwdconfirm"
+                      >
+                        Password Confirmation
+                        <sup className="text-danger">*</sup>
+                      </Label>
+                      <Input
+                        type="password"
+                        name="signUpConfirmationPassword"
+                        id="signUpConfirmationPassword"
+                        placeholder="******"
+                        onChange={this.handleSignUpChange}
+                      />
+                    </FormGroup>
+                  </div>
+                </div>
+              </Form>
+            )}
+            <Button
+              color="secondary"
+              onClick={this.logingoogle}
+              id="btn__google"
+            >
+              <i className="fa fa-google"></i>
+              <p>Sign In with Google</p>
+            </Button>
+          </ModalBody>
+          <ModalFooter>
+            <div className="btn__flex">
               {!this.state.signUp ? (
-                <Button color="success" onClick={this.handleSigninSubmit}>
-                  Sign In
-                </Button>
+                <div>
+                  <Button
+                    color="primary"
+                    onClick={this.handleSigninSubmit}
+                    id="sign_btn"
+                  >
+                    Sign In
+                  </Button>
+                </div>
               ) : (
-                <Button color="success" onClick={this.handleSignUpSubmit}>
-                  Sign Up
-                </Button>
+                <div>
+                  <Button
+                    color="primary"
+                    onClick={this.handleSignUpSubmit}
+                    id="sign_btn"
+                  >
+                    Sign Up
+                  </Button>
+                </div>
               )}
-              <Button color="secondary" onClick={this.toggle}>
-                Cancel
-              </Button>
-            </ModalFooter>
-            <ModalFooter>
-              <Button
-                color="link"
-                className="text-success"
-                onClick={this.showSignUp}
-              >
-                {this.state.signUp && "Sign In"}
+              <Button color="link" onClick={this.showSignUp} id="change_btn">
+                Not a member ? please {this.state.signUp && "Sign In"}
                 {!this.state.signUp && "Sign Up"}
               </Button>
-              <Button
-                color="danger"
-                style={{ borderRadius: "50%" }}
-                onClick={this.logingoogle}
-                title="Signin with Google"
-              >
-                <i className="fa fa-google"></i>
-              </Button>
-            </ModalFooter>
-          </Modal>
-        )}
-        <style jsx="true">
-          {`
-            .loader-div {
-              display: flex;
-              justify-content: center;
-              align-items: center;
-            }
-          `}
-        </style>
+            </div>
+          </ModalFooter>
+        </Modal>
       </div>
     );
   }

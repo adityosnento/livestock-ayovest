@@ -14,7 +14,7 @@ export default class Stepinvest2 extends Component {
             <div className="container__stepinvest__content__padding">
               <h1>INSTRUMENT INVESTASI</h1>
               <p>
-                Hasil bersih adalah hasil keuntungan produksi komoditas sejenis
+              Choose instruments to be invested based on categories, such as goats, cows, or chickens
               </p>
             </div>
           </div>
@@ -27,7 +27,7 @@ export default class Stepinvest2 extends Component {
             <div className="container__stepinvest__content__padding">
               <h1>PAYMENT</h1>
               <p>
-                Hasil bersih adalah hasil keuntungan produksi komoditas sejenis
+              make payment after choosing the desired investment instrument
               </p>
             </div>
           </div>
@@ -40,7 +40,7 @@ export default class Stepinvest2 extends Component {
             <div className="container__stepinvest__content__padding">
               <h1>CAPITAL TO BREEDER</h1>
               <p>
-                Hasil bersih adalah hasil keuntungan produksi komoditas sejenis
+              All livestock products will be sold to partners who have worked with Ayovest
               </p>
             </div>
           </div>
@@ -53,7 +53,7 @@ export default class Stepinvest2 extends Component {
             <div className="container__stepinvest__content__padding">
               <h1>INVESTMENT RETURN</h1>
               <p>
-                Hasil bersih adalah hasil keuntungan produksi komoditas sejenis
+              All proceeds from the sale of livestock will be shared in accordance with the agreement
               </p>
             </div>
           </div>

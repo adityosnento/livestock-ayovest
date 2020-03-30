@@ -14,7 +14,7 @@ import "../asset/style.css";
 import "./topbar.scss";
 
 const TopBar = props => {
-  const [isOpen, setIsOpen, isModalVisble, setIsModalVisible] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
 
@@ -35,10 +35,10 @@ const TopBar = props => {
               <NavLink href="/investationlist">INVESTATION</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/components/">ABOUT US</NavLink>
+              <NavLink href="/aboutus">ABOUT</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/contactus">CONTACT US</NavLink>
+              <NavLink href="/contactus">CONTACT</NavLink>
             </NavItem>
           </Nav>
           <ModalComponent buttonLabel="SIGN IN" />

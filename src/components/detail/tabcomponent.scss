@@ -18,9 +18,7 @@ h4 {
 }
 
 .tab-content {
-  // height: 40vh;
-  overflow-y: auto;
-  overflow-x: visible;
+  height: 40vh;
   border-color: white;
   padding: 10px 10px 10px 0px;
 
@@ -72,6 +70,7 @@ h4 {
   border-bottom: 3px solid #7fcaa7;
   animation: 4s;
   cursor: pointer;
+  transition: opacity 0.2s ease-in;
 }
 
 .btn-invest {
@@ -95,14 +94,13 @@ h4 {
     padding: 10px 30px;
     letter-spacing: 1px;
     border-radius: 5px;
+  }
 
-    &:hover {
-      opacity: 0.6;
-      background-color: #4da974;
-      border-color: white;
-      color: white;
-      text-decoration: none;
-    }
+  &:hover {
+    opacity: 0.6;
+    border-color: white;
+    color: white;
+    text-decoration: none;
   }
 }
 

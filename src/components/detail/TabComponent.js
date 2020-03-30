@@ -64,16 +64,11 @@ const TabComponent = props => {
               <Card className="tab-content">
                 <p>{props.description}</p>
                 <div className="identity">
-                  <p>Periode Kontrak : {props.contractPeriod} tahun</p>
-                  <p>Return yang didapat : {props.expectedReturn} </p>
-                  <p>Periode Bagi Hasil : {props.sharingPeriod}</p>
+                  <p>Contract Period : {props.contractPeriod} years</p>
+                  <p>Expected return : {props.expectedReturn} </p>
+                  <p>Sharing Period : {props.sharingPeriod}</p>
                   <p>Stok : {props.totalUnit}</p>
                   <p>Periode Kontrak : {props.profitContractPeriod}</p>
-                </div>
-                <div className="input-lot">
-                  <span>-</span>
-                  <input></input>
-                  <span>+</span>
                 </div>
               </Card>
             </Col>

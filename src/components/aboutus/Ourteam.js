@@ -13,7 +13,7 @@ export default class MultipleItems extends Component {
     };
     return (
       <div className="ourteam-card">
-        <h2> Multiple items </h2>
+        <h2> OUR TEAM MEMBER </h2>
         <Slider {...settings}>
           <div className="container-card">
           <img src={require("../../asset/image/user1.jpeg")} alt="logo" />
