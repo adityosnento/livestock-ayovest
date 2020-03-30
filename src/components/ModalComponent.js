@@ -102,6 +102,7 @@ class ModalComponent extends Component {
     });
   };
 
+  // Action for SignIn function
   signInAction = () => {
     toast.info("Signing in");
     this.setState({
@@ -149,17 +150,8 @@ class ModalComponent extends Component {
       });
   };
 
-  handleSigninSubmit = () => {
-    this.signInAction();
-  };
-
-  handleSigninKeyEnter = e => {
-    if (e.keyCode === 13) {
-      this.signInAction();
-    }
-  };
-
-  handleSignUpSubmit = () => {
+  // Action for signup function
+  signUpAction = () => {
     const data = {
       fullname: this.state.signUpFullname,
       phone_number: this.state.SignUpPhoneNumber,
@@ -181,6 +173,26 @@ class ModalComponent extends Component {
         toast.error("Sign up failed");
         this.doneLoading();
       });
+  };
+
+  handleSigninSubmit = () => {
+    this.signInAction();
+  };
+
+  handleSigninKeyEnter = e => {
+    if (e.keyCode === 13) {
+      this.signInAction();
+    }
+  };
+
+  handleSignUpSubmit = () => {
+    this.signUpAction();
+  };
+
+  handleSignUpKeyEnter = e => {
+    if (e.keyCode === 13) {
+      this.signUpAction();
+    }
   };
 
   doneLoading = () => {
@@ -307,6 +319,7 @@ class ModalComponent extends Component {
                         id="Fullname"
                         placeholder="Your Name"
                         onChange={this.handleSignUpChange}
+                        onKeyDown={this.handleSignUpKeyEnter}
                       />
                     </FormGroup>
                     <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
@@ -323,6 +336,7 @@ class ModalComponent extends Component {
                         id="exampleEmail"
                         placeholder="Your Active Email"
                         onChange={this.handleSignUpChange}
+                        onKeyDown={this.handleSignUpKeyEnter}
                       />
                     </FormGroup>
                     <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
@@ -339,6 +353,7 @@ class ModalComponent extends Component {
                         id="phoneNumber"
                         placeholder="Your Phone Number"
                         onChange={this.handleSignUpChange}
+                        onKeyDown={this.handleSignUpKeyEnter}
                       />
                     </FormGroup>
 
@@ -358,6 +373,7 @@ class ModalComponent extends Component {
                             id="examplePassword"
                             placeholder="******"
                             onChange={this.handleSignUpChange}
+                            onKeyDown={this.handleSignUpKeyEnter}
                           />
                         </FormGroup>
                       </div>
@@ -378,6 +394,7 @@ class ModalComponent extends Component {
                             id="signUpConfirmationPassword"
                             placeholder="******"
                             onChange={this.handleSignUpChange}
+                            onKeyDown={this.handleSignUpKeyEnter}
                           />
                         </FormGroup>
                       </div>
