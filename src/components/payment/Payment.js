@@ -59,7 +59,7 @@ class FormPayments extends React.Component {
       <div className="container__payment">
         <div className="container__left">
           <h6>INVOICE</h6>
-          <h1>{this.state.fullname}</h1>
+          <h1>BOER GOAT</h1>
           <div className="payment__flex">
             <div className="payment__content">
               <p>Contract Period</p>
@@ -79,7 +79,7 @@ class FormPayments extends React.Component {
               <h4>Total Payment</h4>
             </div>
             <div className="payment__value">
-              <h4>$450</h4>
+              <h4>$3200</h4>
             </div>
           </div>
         </div>
@@ -115,7 +115,7 @@ class FormPayments extends React.Component {
             </div>
           </div>
           <div className="btn-payment">
-            <Button>Pay for $450</Button>
+            <Button>Pay for $3200</Button>
           </div>
         </div>
       </div>

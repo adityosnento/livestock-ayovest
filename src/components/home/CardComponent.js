@@ -52,9 +52,9 @@ export default class CardComponent extends Component {
             </CardBody>
             <CardFooter className="card-footer-text">
               <i className="fa fa-bar-chart"></i>
-              <span>12%-19%</span>
+              <span>{data.expectedReturn}</span>
               <i className="fa fa-clock-o float-right"></i>
-              <span className="float-right">10 tahun</span>
+              <span className="float-right">{data.contractPeriod} tahun</span>
             </CardFooter>
           </Card>
         </Col>

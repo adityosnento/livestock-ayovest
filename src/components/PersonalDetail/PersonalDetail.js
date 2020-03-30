@@ -294,12 +294,12 @@ class PersonalDetail extends React.Component {
                   </div>
                   <div className="investmentstatus__content">
                     <div>Boear Goat</div>
-                    <div>$360</div>
+                    <div>$3600</div>
                     <div className="invest_payoff">Paid off</div>
                   </div>
                   <div className="investmentstatus__content">
-                    <div>Boear Goat</div>
-                    <div>$860</div>
+                    <div>Boear Goat Little</div>
+                    <div>$210</div>
                     <div className="invest_payoffs">Not paid</div>
                   </div>
                 </TabPane>
@@ -308,7 +308,7 @@ class PersonalDetail extends React.Component {
             </Col>
           </Row>
         </div>
-            <div>
+            {/* <div>
             <Row>
               <Col>
                 <Button onClick={() => this.userData()} color="success" block>
@@ -330,7 +330,7 @@ class PersonalDetail extends React.Component {
                 </Button>
               </Col>
             </Row>
-          </div>
+          </div> */}
         </div>
    
     );

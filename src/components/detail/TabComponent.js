@@ -67,8 +67,8 @@ const TabComponent = props => {
                   <p>Contract Period : {props.contractPeriod} years</p>
                   <p>Expected return : {props.expectedReturn} </p>
                   <p>Sharing Period : {props.sharingPeriod}</p>
-                  <p>Stok : {props.totalUnit}</p>
-                  <p>Periode Kontrak : {props.profitContractPeriod}</p>
+                  <p>Stock : {props.totalUnit}</p>
+                  <p>Contract Period : {props.contractPeriod} years</p>
                 </div>
               </Card>
             </Col>

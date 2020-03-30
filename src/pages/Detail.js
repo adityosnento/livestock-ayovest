@@ -5,7 +5,7 @@ import DetailCarousel from "../components/detail/DetailCarousel";
 import TabComponent from "../components/detail/TabComponent";
 // import ButtonLink from "../components/home/ButtonLink";
 import CardComponent from "../components/home/CardComponent";
-// import ImagesComponent from "../components/detail/ImagesComponent";
+import ImagesComponent from "../components/detail/ImagesComponent";
 import { livestockGetOne } from "../utils/api";
 import "./Detail.scss";
 
@@ -50,7 +50,8 @@ export default class Detail extends Component {
             </Row>
             <Row>
               <Col xs="12" md="6">
-                <DetailCarousel />
+                <ImagesComponent 
+                image={this.state.livestock.image}/>
               </Col>
               <Col>
                 <TabComponent

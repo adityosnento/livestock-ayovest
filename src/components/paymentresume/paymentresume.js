@@ -1,8 +1,31 @@
 import React, { Component } from "react";
 import "../../components/paymentresume/paymentresume.scss";
 import { Breadcrumb, BreadcrumbItem } from 'reactstrap';
+import { livestockGetOne } from "../../utils/api";
+import { toast, ToastContainer } from "react-toastify";
 
 export default class paymentresume extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      livestocks: [],
+      image:""
+    };
+
+    livestockGetOne(this.id).then(res => {
+      const livestock = res.data.data;
+      const image = res.data.data.image;
+      this.setState({
+        livestock: livestock,
+        image
+      });
+
+      console.log(this.state);
+    });
+
+  }
+  
   render() {
     return (
       <div>
@@ -36,7 +59,7 @@ export default class paymentresume extends Component {
             <input type="checkbox" />
             <img
             className="grafik"
-            src={require("../../asset/image/grafik.png")}
+            src={this.state.image}
             alt="grafik"/>
             <p>Boer Goat</p>
           </div>
@@ -62,7 +85,7 @@ export default class paymentresume extends Component {
             <div className="container__submit">
             <div className="total__payment">
                 <p>TOTAL PAYMENT : 
-                <span>    $640</span></p>
+                <span>    $3200</span></p>
             </div>
             <div className="total__button">
                 <a href="/payment">Checkout</a>

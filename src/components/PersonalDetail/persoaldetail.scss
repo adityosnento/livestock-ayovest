@@ -1,6 +1,7 @@
 .container__personaldetail {
     padding: 150px 100px;
     display: flex;
+    height: 100vh;
 
     .container__left {
         text-align: center;
@@ -36,6 +37,7 @@
 
     .container__right {
         width: 100%;
+        
 
         img {
             width: 20%;

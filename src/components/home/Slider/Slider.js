@@ -9,7 +9,7 @@ export default function Slider() {
                 <img src={require("../../../asset/image/Rectangle.png")}
                   alt="logo" />
                 <h1>Better Investment get sales and profit</h1>
-                <p>Ayovest hadir sebagai medium kolaborasi untuk satu visi yang sama. Kami percaya bahwa kesempatan untuk berkontribusi kepada bangsa adalah milik semua orang. </p>
+                <p>Ayovest comes as a collaboration medium for a common vision. We believe that the opportunity to contribute to the nation belongs to everyone. </p>
                 <button>Contact Us</button>
                 </div>
 
