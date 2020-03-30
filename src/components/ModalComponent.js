@@ -71,7 +71,7 @@ class ModalComponent extends Component {
       .then(res => {
         toast.success("Logged in");
       })
-      .then(err => {
+      .catch(err => {
         toast.error("failed to log in with Google");
       });
   };
