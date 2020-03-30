@@ -45,10 +45,8 @@ export default class CardComponent extends Component {
           <Card className="card-item-single">
             <img src={data.image} alt="sapi" />
             <CardBody>
-              {data.description}
-              <h3 style={{ textAlign: "center" }} className="text-success">
-                $ {data.priceUnit}
-              </h3>
+              <p>{data.name}</p>
+              <h3 style={{ textAlign: "center" }}>$ {data.priceUnit}</h3>
             </CardBody>
             <CardFooter className="card-footer-text">
               <i className="fa fa-bar-chart"></i>

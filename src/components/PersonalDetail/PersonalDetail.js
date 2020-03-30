@@ -1,5 +1,5 @@
 import React from "react";
-import { Col, Row, Button, Form, FormGroup, Label, Input } from "reactstrap";
+import { Col, Row, Button, FormGroup, Label, Input } from "reactstrap";
 import "../../components/PersonalDetail/persoaldetail.scss";
 import {
   profileCurrentUser,
@@ -8,8 +8,12 @@ import {
 } from "../../utils/api";
 import { TabContent, TabPane, Nav, NavItem, NavLink } from "reactstrap";
 import { Breadcrumb, BreadcrumbItem } from "reactstrap";
-import classnames from "classnames";
 import { toast } from "react-toastify";
+// import Swal from "sweetalert2";
+// import withReactContent from "sweetalert2-react-content";
+import classnames from "classnames";
+
+// const MySwal = withReactContent(Swal);
 
 class PersonalDetail extends React.Component {
   constructor(props) {
@@ -35,7 +39,7 @@ class PersonalDetail extends React.Component {
   }
 
   userData = () => {
-    alert("OK");
+    toast.info("Updating data");
     updateUserDataInvestor(this.state)
       .then(res => {
         toast.success("Data Updated");
@@ -106,13 +110,13 @@ class PersonalDetail extends React.Component {
       <div>
         {/* HEADER */}
 
-        <div className="parallax-container">
-          <div className="material-parallax">
-            {/* <img src={require("../../asset/image/invest.webp")} alt="logo" /> */}
+        <div class="parallax-container">
+          <div class="material-parallax">
+            <img src={require("../../asset/image/invest.webp")} alt="logo" />
           </div>
-          <div className="breadcrumbs-custom-body parallax-content context-dark">
-            <div className="container">
-              <h2 className="breadcrumbs-custom-title">PROFILE DETAIL</h2>
+          <div class="breadcrumbs-custom-body parallax-content context-dark">
+            <div class="container">
+              <h2 class="breadcrumbs-custom-title">PROFILE DETAIL</h2>
             </div>
           </div>
         </div>
@@ -135,7 +139,7 @@ class PersonalDetail extends React.Component {
               <Nav tabs vertical pills>
                 <div className="profile__pic">
                   <img src={this.state.uploaded_profile_picture} alt="logo" />
-                  <p> {this.state.fullname}</p>
+                  <p>{this.state.fullname}</p>
                 </div>
                 <NavItem>
                   <NavLink
@@ -171,16 +175,13 @@ class PersonalDetail extends React.Component {
                     <div className="container__photos">
                       <h4>Update Photo Profile</h4>
                       <form action="/action_page.php">
-                        <img
-                          src={this.state.uploaded_profile_picture}
-                          alt="logo"
-                        />
+                        <img src={this.state.profile_picture} alt="logo" />
                         <input
                           type="file"
                           id="myFile"
                           name="filename"
                           className="input__photo"
-                          onChange={e => this.handleImageChange(e)}
+                          onChange={e => this.handleProfilePicture(e)}
                         />
                       </form>
                     </div>
@@ -277,7 +278,7 @@ class PersonalDetail extends React.Component {
                                 id="City"
                                 placeholder="Layangan Putus Street"
                                 onChange={e => this.handleFormChange(e)}
-                                defaultValue={this.state.address}
+                                defaultValue={this.state.Address}
                               />
                             </FormGroup>
                             <Button onClick={() => this.userData()}>
@@ -313,11 +314,28 @@ class PersonalDetail extends React.Component {
             </Col>
           </Row>
         </div>
-
-        <div className="container__personaldetail">
-          <div className="container__right">
-            <Form></Form>
-          </div>
+        <div>
+          <Row>
+            <Col>
+              <Button onClick={() => this.userData()} color="success" block>
+                <i className="fa fa-paper-plane"></i> &nbsp; Submit
+              </Button>
+            </Col>
+            <Col>
+              <Button onClick={() => this.clearData()} color="danger" block>
+                <i className="fa fa-times"></i> &nbsp; Clear
+              </Button>
+            </Col>
+            <Col md="1">
+              <Button title="Refresh page">
+                <i
+                  className="fa fa-refresh"
+                  block
+                  onClick={() => window.location.reload(false)}
+                ></i>
+              </Button>
+            </Col>
+          </Row>
         </div>
       </div>
     );

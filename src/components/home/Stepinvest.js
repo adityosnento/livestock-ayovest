@@ -5,7 +5,7 @@ export default function Stepinvest() {
   return (
     <div className="container__stepinvest">
       <div className="container__stepinvest__left">
-        <h5>Ayovest</h5>
+      <h5>Ayovest</h5>
         <h1>How to Invest</h1>
         <p>
           Hasil bersih adalah hasil keuntungan produksi komoditas sejenis yang
@@ -44,24 +44,24 @@ export default function Stepinvest() {
           </div>
         </div>
         <div className="container__stepinvest__content">
-          <img src={require("../../asset/Service/3.png")} alt="logo" />
-          <div className="container__stepinvest__content__padding">
-            <h1>Capital to Breeder</h1>
-            <p>
-              Hasil bersih adalah hasil keuntungan produksi komoditas sejenis
-            </p>
+            <img src={require("../../asset/Service/3.png")} alt="logo" />
+            <div className="container__stepinvest__content__padding">
+              <h1>Capital to Breeder</h1>
+              <p>
+                Hasil bersih adalah hasil keuntungan produksi komoditas sejenis
+              </p>
+            </div>
           </div>
-        </div>
-        <div className="container__stepinvest__content">
-          <img src={require("../../asset/Service/4.png")} alt="logo" />
-          <div className="container__stepinvest__content__padding">
-            <h1>Investment Return</h1>
-            <p>
-              Hasil bersih adalah hasil keuntungan produksi komoditas sejenis
-            </p>
+          <div className="container__stepinvest__content">
+            <img src={require("../../asset/Service/4.png")} alt="logo" />
+            <div className="container__stepinvest__content__padding">
+              <h1>Investment Return</h1>
+              <p>
+                Hasil bersih adalah hasil keuntungan produksi komoditas sejenis
+              </p>
+            </div>
           </div>
         </div>
       </div>
-    </div>
   );
 }

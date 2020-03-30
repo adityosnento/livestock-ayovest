@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, Container, Row, Col } from "reactstrap";
+import { Container, Row, Col } from "reactstrap";
 import '../home/ButtonLink.scss'
 
 export default class ButtonLink extends Component {
@@ -8,9 +8,9 @@ export default class ButtonLink extends Component {
       <Container>
         <Row>
           <Col style={{ textAlign: "center" }}>
-            <Button className="button-play">
+            <a href="/investationlist" className="button-play" alt="btn"> 
               {this.props.title}
-            </Button>
+            </a>
           </Col>
         </Row>
       </Container>

@@ -12,7 +12,7 @@ export default class DetailComponent extends Component {
         <div> 
       <Breadcrumb>
         <BreadcrumbItem><a href="/">Home</a></BreadcrumbItem>
-        <BreadcrumbItem><a href="/detail">Investasi</a></BreadcrumbItem>
+        <BreadcrumbItem><a href="/investationlist">Investasi</a></BreadcrumbItem>
         <BreadcrumbItem active>Detail</BreadcrumbItem>
       </Breadcrumb>
     </div>
