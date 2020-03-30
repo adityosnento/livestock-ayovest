@@ -19,6 +19,7 @@ import {
 import { toast, ToastContainer } from "react-toastify";
 import { logout } from "../utils/functions/page-behaviour";
 import "./ModalComponent.scss";
+import Loader from "react-loader-spinner";
 
 class ModalComponent extends Component {
   constructor(props) {
@@ -209,186 +210,212 @@ class ModalComponent extends Component {
         )}
         <Modal isOpen={this.state.modal} toggle={this.toggle}>
           <ToastContainer />
+          {this.state.isLoading && (
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                flexDirection: "column",
+                padding: "20px"
+              }}
+            >
+              <Loader type="Circles" height={100} width={100} />
+              <p>Loading... Please wait</p>
+            </div>
+          )}
 
-          <ModalHeader toggle={this.toggle}>
-            {!this.state.signUp ? (
-              <div className="signin__logo">
-                <img src={require("../asset/image/logo.png")} alt="logo" />
-                <p>Welcome to AYOvest!</p>
-              </div>
-            ) : (
-              <div className="signin__logo">
-                <img src={require("../asset/image/logo.png")} alt="logo" />
-                <p>Welcome to AYOvest!</p>
-              </div>
-            )}
-          </ModalHeader>
+          {!this.state.isLoading && (
+            <>
+              <ModalHeader toggle={this.toggle}>
+                {!this.state.signUp ? (
+                  <div className="signin__logo">
+                    <img src={require("../asset/image/logo.png")} alt="logo" />
+                    <p>Welcome to AYOvest!</p>
+                  </div>
+                ) : (
+                  <div className="signin__logo">
+                    <img src={require("../asset/image/logo.png")} alt="logo" />
+                    <p>Welcome to AYOvest!</p>
+                  </div>
+                )}
+              </ModalHeader>
 
-          <ModalBody>
-            {!this.state.signUp && (
-              <Form>
-                <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-                  <Label
-                    for="exampleEmail"
-                    className="mr-sm-2"
-                    id="input_label"
-                  >
-                    Email <sup className="text-danger">*</sup>
-                  </Label>
-                  <Input
-                    type="email"
-                    name="SigninEmail"
-                    id="exampleEmail"
-                    placeholder="something@idk.cool"
-                    onChange={this.handleSigninChange}
-                  />
-                </FormGroup>
-                <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-                  <Label
-                    for="examplePassword"
-                    className="mr-sm-2"
-                    id="input_labelpassword"
-                  >
-                    Password <sup className="text-danger">*</sup>
-                  </Label>
-                  <Input
-                    type="password"
-                    name="SigninPassword"
-                    id="examplePassword"
-                    placeholder="******"
-                    onChange={this.handleSigninChange}
-                  />
-                </FormGroup>
-              </Form>
-            )}
-
-            {this.state.signUp && (
-              <Form>
-                <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-                  <Label for="Fullname" className="mr-sm-2" id="input_fullname">
-                    Full Name <sup className="text-danger">*</sup>
-                  </Label>
-                  <Input
-                    type="text"
-                    name="signUpFullname"
-                    id="Fullname"
-                    placeholder="Your Name"
-                    onChange={this.handleSignUpChange}
-                  />
-                </FormGroup>
-                <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-                  <Label
-                    for="exampleEmail"
-                    className="mr-sm-2"
-                    id="input_email"
-                  >
-                    Email <sup className="text-danger">*</sup>
-                  </Label>
-                  <Input
-                    type="email"
-                    name="signUpEmail"
-                    id="exampleEmail"
-                    placeholder="Your Active Email"
-                    onChange={this.handleSignUpChange}
-                  />
-                </FormGroup>
-                <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
-                  <Label
-                    for="phoneNumber"
-                    className="mr-sm-2"
-                    id="input_phonenumber"
-                  >
-                    Phone Number <sup className="text-danger">*</sup>
-                  </Label>
-                  <Input
-                    type="tel"
-                    name="SignUpPhoneNumber"
-                    id="phoneNumber"
-                    placeholder="Your Phone Number"
-                    onChange={this.handleSignUpChange}
-                  />
-                </FormGroup>
-
-                <div className="password_container">
-                  <div className="registration_password">
+              <ModalBody>
+                {!this.state.signUp && (
+                  <Form>
+                    <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
+                      <Label
+                        for="exampleEmail"
+                        className="mr-sm-2"
+                        id="input_label"
+                      >
+                        Email <sup className="text-danger">*</sup>
+                      </Label>
+                      <Input
+                        type="email"
+                        name="SigninEmail"
+                        id="exampleEmail"
+                        placeholder="something@idk.cool"
+                        onChange={this.handleSigninChange}
+                      />
+                    </FormGroup>
                     <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
                       <Label
                         for="examplePassword"
                         className="mr-sm-2"
-                        id="input_pwd"
+                        id="input_labelpassword"
                       >
                         Password <sup className="text-danger">*</sup>
                       </Label>
                       <Input
                         type="password"
-                        name="signUpPassword"
+                        name="SigninPassword"
                         id="examplePassword"
                         placeholder="******"
-                        onChange={this.handleSignUpChange}
+                        onChange={this.handleSigninChange}
                       />
                     </FormGroup>
-                  </div>
+                  </Form>
+                )}
 
-                  <div className="registration_passwordconfirmation">
+                {this.state.signUp && (
+                  <Form>
                     <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
                       <Label
-                        for="signUpConfirmationPassword"
+                        for="Fullname"
                         className="mr-sm-2"
-                        id="input_pwdconfirm"
+                        id="input_fullname"
                       >
-                        Password Confirmation
-                        <sup className="text-danger">*</sup>
+                        Full Name <sup className="text-danger">*</sup>
                       </Label>
                       <Input
-                        type="password"
-                        name="signUpConfirmationPassword"
-                        id="signUpConfirmationPassword"
-                        placeholder="******"
+                        type="text"
+                        name="signUpFullname"
+                        id="Fullname"
+                        placeholder="Your Name"
                         onChange={this.handleSignUpChange}
                       />
                     </FormGroup>
-                  </div>
-                </div>
-              </Form>
-            )}
-            <Button
-              color="secondary"
-              onClick={this.logingoogle}
-              id="btn__google"
-            >
-              <i className="fa fa-google"></i>
-              <p>Sign In with Google</p>
-            </Button>
-          </ModalBody>
-          <ModalFooter>
-            <div className="btn__flex">
-              {!this.state.signUp ? (
-                <div>
+                    <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
+                      <Label
+                        for="exampleEmail"
+                        className="mr-sm-2"
+                        id="input_email"
+                      >
+                        Email <sup className="text-danger">*</sup>
+                      </Label>
+                      <Input
+                        type="email"
+                        name="signUpEmail"
+                        id="exampleEmail"
+                        placeholder="Your Active Email"
+                        onChange={this.handleSignUpChange}
+                      />
+                    </FormGroup>
+                    <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
+                      <Label
+                        for="phoneNumber"
+                        className="mr-sm-2"
+                        id="input_phonenumber"
+                      >
+                        Phone Number <sup className="text-danger">*</sup>
+                      </Label>
+                      <Input
+                        type="tel"
+                        name="SignUpPhoneNumber"
+                        id="phoneNumber"
+                        placeholder="Your Phone Number"
+                        onChange={this.handleSignUpChange}
+                      />
+                    </FormGroup>
+
+                    <div className="password_container">
+                      <div className="registration_password">
+                        <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
+                          <Label
+                            for="examplePassword"
+                            className="mr-sm-2"
+                            id="input_pwd"
+                          >
+                            Password <sup className="text-danger">*</sup>
+                          </Label>
+                          <Input
+                            type="password"
+                            name="signUpPassword"
+                            id="examplePassword"
+                            placeholder="******"
+                            onChange={this.handleSignUpChange}
+                          />
+                        </FormGroup>
+                      </div>
+
+                      <div className="registration_passwordconfirmation">
+                        <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
+                          <Label
+                            for="signUpConfirmationPassword"
+                            className="mr-sm-2"
+                            id="input_pwdconfirm"
+                          >
+                            Password Confirmation
+                            <sup className="text-danger">*</sup>
+                          </Label>
+                          <Input
+                            type="password"
+                            name="signUpConfirmationPassword"
+                            id="signUpConfirmationPassword"
+                            placeholder="******"
+                            onChange={this.handleSignUpChange}
+                          />
+                        </FormGroup>
+                      </div>
+                    </div>
+                  </Form>
+                )}
+                <Button
+                  color="secondary"
+                  onClick={this.logingoogle}
+                  id="btn__google"
+                >
+                  <i className="fa fa-google"></i>
+                  <p>Sign In with Google</p>
+                </Button>
+              </ModalBody>
+              <ModalFooter>
+                <div className="btn__flex">
+                  {!this.state.signUp ? (
+                    <div>
+                      <Button
+                        color="primary"
+                        onClick={this.handleSigninSubmit}
+                        id="sign_btn"
+                      >
+                        Sign In
+                      </Button>
+                    </div>
+                  ) : (
+                    <div>
+                      <Button
+                        color="primary"
+                        onClick={this.handleSignUpSubmit}
+                        id="sign_btn"
+                      >
+                        Sign Up
+                      </Button>
+                    </div>
+                  )}
                   <Button
-                    color="primary"
-                    onClick={this.handleSigninSubmit}
-                    id="sign_btn"
+                    color="link"
+                    onClick={this.showSignUp}
+                    id="change_btn"
                   >
-                    Sign In
+                    Not a member ? please {this.state.signUp && "Sign In"}
+                    {!this.state.signUp && "Sign Up"}
                   </Button>
                 </div>
-              ) : (
-                <div>
-                  <Button
-                    color="primary"
-                    onClick={this.handleSignUpSubmit}
-                    id="sign_btn"
-                  >
-                    Sign Up
-                  </Button>
-                </div>
-              )}
-              <Button color="link" onClick={this.showSignUp} id="change_btn">
-                Not a member ? please {this.state.signUp && "Sign In"}
-                {!this.state.signUp && "Sign Up"}
-              </Button>
-            </div>
-          </ModalFooter>
+              </ModalFooter>
+            </>
+          )}
         </Modal>
       </div>
     );
