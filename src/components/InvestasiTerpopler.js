@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Container, Row, Col } from "reactstrap";
+import './InvestasiTerpopuler.scss'
 
 export default class InvestasiTerpopler extends Component {
   render() {

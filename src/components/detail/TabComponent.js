@@ -10,8 +10,7 @@ import {
   Col
 } from "reactstrap";
 import classnames from "classnames";
-import ButtonLink from "../../components/home/ButtonLink";
-
+// import ButtonLink from "../../components/home/ButtonLink";
 import "./tabcomponent.scss";
 
 const TabComponent = props => {
@@ -44,7 +43,7 @@ const TabComponent = props => {
               toggle("1");
             }}
           >
-            Ringkasan
+            Resume
           </NavLink>
         </NavItem>
         <NavItem>
@@ -54,7 +53,7 @@ const TabComponent = props => {
               toggle("3");
             }}
           >
-            Prediksi
+            Prediction
           </NavLink>
         </NavItem>
       </Nav>
@@ -65,16 +64,11 @@ const TabComponent = props => {
               <Card className="tab-content">
                 <p>{props.description}</p>
                 <div className="identity">
-                  <p>Periode Kontrak : {props.contractPeriod} tahun</p>
-                  <p>Return yang didapat : {props.expectedReturn} </p>
-                  <p>Periode Bagi Hasil : {props.sharingPeriod}</p>
+                  <p>Contract Period : {props.contractPeriod} years</p>
+                  <p>Expected return : {props.expectedReturn} </p>
+                  <p>Sharing Period : {props.sharingPeriod}</p>
                   <p>Stok : {props.totalUnit}</p>
                   <p>Periode Kontrak : {props.profitContractPeriod}</p>
-                </div>
-                <div className="input-lot">
-                  <span>-</span>
-                  <input></input>
-                  <span>+</span>
                 </div>
               </Card>
             </Col>
@@ -104,7 +98,9 @@ const TabComponent = props => {
         </TabPane>
       </TabContent>
       <div className="btn-invest">
-        <button title="Invest Now">Start to Invest</button>
+        <a href="/paymentresume" title="Invest Now">
+          Start to Invest
+        </a>
       </div>
     </div>
   );

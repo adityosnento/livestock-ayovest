@@ -1,23 +1,22 @@
 .containerlogin__breeder {
-    padding: 150px 150px;
     display: flex;
-    height: 100vh;
     background-color: #f6f6f6;
 
     .containerleft__breeder {
-        width: 60%;
+        width: 50%;
+        height: 100vh;
         
         img {
             width: 100%;
-            height:60vh;
+            height:100vh;
         }
     }
 
     .containerright__breeder {
-        width: 40%;
+        width: 50%;
         background-color: white;
-        padding: 35px;
-        height: 60vh;
+        padding: 175px 100px;
+        height: 100vh;
         box-shadow: 0 1px 4px 0 rgba(0,0,0,.1);
 
         h1 {
@@ -72,7 +71,7 @@
         .container-btn {
             display: flex;
             align-items: center;
-            margin-top: 50px;
+            margin-top: 40px;
             
 
             p {

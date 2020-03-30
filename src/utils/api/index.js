@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const url = "https://ayo-vest.herokuapp.com/api/v1/";
+const url = process.env.REACT_APP_BASE_URL;
+console.log(url)
 const userId = localStorage.getItem("id");
 
 // Default base url
@@ -108,5 +109,15 @@ export const investorRecoverPassword = data => {
     method: "POST",
     data: data,
     url: "investors/recover"
+  });
+};
+
+/**
+ * Get all investments
+ */
+export const investmentsGetAll = () => {
+  return axios({
+    method: "GET",
+    url: "investments/getall"
   });
 };

@@ -17,34 +17,31 @@ export default class WhyUs extends Component {
           <div className="whyus__containerbottom">
             <div className="whyus__content">
               <img src={require("../../asset/why/1.png")} alt="logo" />
-              <h3>Pembiayaan Menguntungkan</h3>
+              <h3>Beneficial Financing</h3>
               <p>
-                dapat memperoleh keuntungan dari bagi hasil antara 12-30% dari
-                nilai pembiayaan per tahun
+              can benefit from a profit sharing of between 12-30%
+  value of financing per year
               </p>
             </div>
             <div className="whyus__content">
               <img src={require("../../asset/why/2.png")} alt="logo" />
-              <h3>Memberdayakan Peternak</h3>
+              <h3>Empowering Breeders</h3>
               <p>
-                Peternak bisa punya pekerjaan dan mengoptimalkan peternakan
-                sehingga menambah pendapatan
+              Farmers can have jobs and optimize livestock so that it can increase income
               </p>
             </div>
             <div className="whyus__content">
               <img src={require("../../asset/why/3.png")} alt="logo" />
-              <h3>Ramah Lingkungan</h3>
+              <h3>Environmentally friendly</h3>
               <p>
-                Masyarakat merasakan dampak penghijauan dan peningkatan produksi
-                pangan
+              The community feels the impact of greening and increasing food production
               </p>
             </div>
             <div className="whyus__content">
               <img src={require("../../asset/why/4.png")} alt="logo" />
-              <h3>Ketahanan Pangan</h3>
+              <h3>Food security</h3>
               <p>
-                Lender berpartisipasi dalam peningkatan produksi pangan dalam
-                negeri
+              Lenders participate in increasing domestic food production
               </p>
             </div>
           </div>
