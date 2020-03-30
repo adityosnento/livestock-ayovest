@@ -4,8 +4,10 @@ import { Container, Row, Col } from "reactstrap";
 import DetailCarousel from "../components/detail/DetailCarousel";
 import TabComponent from "../components/detail/TabComponent";
 import CardComponent from "../components/home/CardComponent";
+// import ImagesComponent from "../components/detail/ImagesComponent";
 import { livestockGetOne, liveStockGetAll } from "../utils/api";
 import "./Detail.scss";
+import { toast, ToastContainer } from "react-toastify";
 
 export default class Detail extends Component {
   constructor(props) {
@@ -13,28 +15,43 @@ export default class Detail extends Component {
 
     this.id = this.props.match.params.id;
     this.state = {
-      livestock: []
+      livestock: [],
+      livestocks: []
     };
+  }
 
+  componentDidMount = props => {
     livestockGetOne(this.id).then(res => {
       const livestock = res.data.data;
       this.setState({
         livestock: livestock
       });
-
-      console.log(this.state);
     });
-  }
+
+    liveStockGetAll()
+      .then(res => {
+        const data = res.data.data.docs;
+        const livestocks = [data[0], data[1], data[2]];
+
+        this.setState({
+          livestocks
+        });
+      })
+      .catch(err => {
+        toast.error("Cannot retrieve recommendation list");
+      });
+  };
   render() {
     return (
       <div>
-        <div class="parallax-container">
-          <div class="material-parallax">
+        <ToastContainer />
+        <div className="parallax-container">
+          <div className="material-parallax">
             <img src={require("../asset/image/invest.webp")} alt="logo" />
           </div>
-          <div class="breadcrumbs-custom-body parallax-content context-dark">
-            <div class="container">
-              <h2 class="breadcrumbs-custom-title">INVESTATION DETAIL</h2>
+          <div className="breadcrumbs-custom-body parallax-content context-dark">
+            <div className="container">
+              <h2 className="breadcrumbs-custom-title">INVESTATION DETAIL</h2>
             </div>
           </div>
         </div>
@@ -73,7 +90,7 @@ export default class Detail extends Component {
                 hopefully it can help:
               </p>
             </div>
-            <CardComponent />
+            <CardComponent livestocks={this.state.livestocks} />
           </Container>
         </div>
       </div>
