@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import DetailComponent from "../components/detail/DetailComponent";
 import { Container, Row, Col } from "reactstrap";
-import DetailCarousel from "../components/detail/DetailCarousel";
 import TabComponent from "../components/detail/TabComponent";
 // import ButtonLink from "../components/home/ButtonLink";
 import CardComponent from "../components/home/CardComponent";

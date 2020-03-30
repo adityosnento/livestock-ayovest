@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import "../../components/paymentresume/paymentresume.scss";
 import { Breadcrumb, BreadcrumbItem } from 'reactstrap';
 import { livestockGetOne } from "../../utils/api";
-import { toast, ToastContainer } from "react-toastify";
 
 export default class paymentresume extends Component {
   constructor(props) {
