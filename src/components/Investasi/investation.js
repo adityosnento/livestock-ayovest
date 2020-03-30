@@ -17,7 +17,8 @@ class Investation extends React.Component {
 
     this.state = {
       dropdownOpen: false,
-      livestocks: []
+      livestocks: [],
+      totalPages: 0
     };
   }
 
@@ -50,7 +51,7 @@ class Investation extends React.Component {
         .then(res => {
           this.setState({
             livestocks: res.data.data.docs,
-            totalPages: res.data.data.totalDocs
+            totalPages: res.data.totalDocs
           });
           toast.dismiss();
           toast.info("Showing " + category);
@@ -64,7 +65,7 @@ class Investation extends React.Component {
         .then(res => {
           this.setState({
             livestocks: res.data.data.docs,
-            totalPages: res.data.data.totalDocs
+            totalPages: res.data.totalDocs
           });
           toast.dismiss();
           toast.info("Showing All kinds");
