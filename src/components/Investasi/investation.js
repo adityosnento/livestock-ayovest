@@ -71,23 +71,23 @@ class Investation extends React.Component {
             <div className="category__left">
               <h4>Filter By Category</h4>
               <div className="category__filter">
-                <input type="checkbox" />
+                <input type="radio" name="sort-by" />
                 <p>All</p>
               </div>
               <div className="category__filter">
-                <input type="checkbox" />
+                <input type="radio" name="sort-by" />
                 <p>Cow</p>
               </div>
               <div className="category__filter">
-                <input type="checkbox" />
+                <input type="radio" name="sort-by" />
                 <p>Chicken</p>
               </div>
               <div className="category__filter">
-                <input type="checkbox" />
+                <input type="radio" name="sort-by" />
                 <p>Goat</p>
               </div>
               <div className="category__filter">
-                <input type="checkbox" />
+                <input type="radio" name="sort-by" />
                 <p>Duck</p>
               </div>
             </div>
