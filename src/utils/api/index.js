@@ -44,7 +44,7 @@ export const investorLogin = data => {
 export const liveStockGetAll = () => {
   return axios({
     method: "GET",
-    url: "livestocks/getall"
+    url: "livestocks/getall?admin=true"
   });
 };
 

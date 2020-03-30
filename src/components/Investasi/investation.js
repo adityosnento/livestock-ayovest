@@ -24,10 +24,9 @@ class Investation extends React.Component {
   componentDidMount = props => {
     liveStockGetAll()
       .then(res => {
-        console.log(res);
         this.setState({
           livestocks: res.data.data.docs,
-          totalPages: res.data.data.totalPages
+          totalPages: res.data.data.totalDocs
         });
       })
       .catch(err => {
@@ -50,7 +49,8 @@ class Investation extends React.Component {
       liveStockGetCategory(category)
         .then(res => {
           this.setState({
-            livestocks: res.data.data.docs
+            livestocks: res.data.data.docs,
+            totalPages: res.data.data.totalDocs
           });
           toast.dismiss();
           toast.info("Showing " + category);
@@ -63,7 +63,8 @@ class Investation extends React.Component {
       liveStockGetAll()
         .then(res => {
           this.setState({
-            livestocks: res.data.data.docs
+            livestocks: res.data.data.docs,
+            totalPages: res.data.data.totalDocs
           });
           toast.dismiss();
           toast.info("Showing All kinds");
@@ -151,7 +152,10 @@ class Investation extends React.Component {
             <div className="category__right">
               <div className="category__top">
                 <div>
-                  <p>Showing 1-9 of 10 results</p>
+                  <p>
+                    Showing 1-{this.state.totalPages} of {this.state.totalPages}{" "}
+                    results
+                  </p>
                 </div>
                 <div className="category__sort">
                   <ButtonDropdown
