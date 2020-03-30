@@ -1,7 +1,6 @@
 image: node:8.15.1
 stages:
   - build
-  - staging
   - production
 deploy-to-development:
   type: build
