@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const url = process.env.REACT_APP_BASE_URL;
-console.log(url)
+console.log(url);
 const userId = localStorage.getItem("id");
 
 // Default base url
@@ -55,6 +55,16 @@ export const liveStockGetAllPage = page => {
   return axios({
     method: "GET",
     url: "livestocks/getall?page=" + page
+  });
+};
+
+/**
+ * Get livestock by category
+ */
+export const liveStockGetCategory = category => {
+  return axios({
+    method: "GET",
+    url: "livestocks/getall?kind=" + category + "&admin=true"
   });
 };
 

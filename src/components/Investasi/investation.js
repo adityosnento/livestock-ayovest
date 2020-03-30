@@ -8,7 +8,7 @@ import {
   DropdownItem
 } from "reactstrap";
 import CardComponent from "../home/CardComponent";
-import { liveStockGetAll } from "../../utils/api";
+import { liveStockGetAll, liveStockGetCategory } from "../../utils/api";
 import { toast, ToastContainer } from "react-toastify";
 
 class Investation extends React.Component {
@@ -43,6 +43,38 @@ class Investation extends React.Component {
     });
   };
 
+  handleFilterBy = e => {
+    const category = e.target.value;
+
+    if (category !== "") {
+      liveStockGetCategory(category)
+        .then(res => {
+          this.setState({
+            livestocks: res.data.data.docs
+          });
+          toast.dismiss();
+          toast.info("Showing " + category);
+        })
+        .catch(err => {
+          toast.dismiss();
+          toast.error(err.message);
+        });
+    } else {
+      liveStockGetAll()
+        .then(res => {
+          this.setState({
+            livestocks: res.data.data.docs
+          });
+          toast.dismiss();
+          toast.info("Showing All kinds");
+        })
+        .catch(err => {
+          toast.dismiss();
+          toast.error(err.message);
+        });
+    }
+  };
+
   render() {
     return (
       <div>
@@ -71,23 +103,48 @@ class Investation extends React.Component {
             <div className="category__left">
               <h4>Filter By Category</h4>
               <div className="category__filter">
-                <input type="radio" name="sort-by" />
+                <input
+                  type="radio"
+                  name="sort-by"
+                  value={null}
+                  onChange={this.handleFilterBy}
+                />
                 <p>All</p>
               </div>
               <div className="category__filter">
-                <input type="radio" name="sort-by" />
+                <input
+                  type="radio"
+                  name="sort-by"
+                  value="cow"
+                  onChange={this.handleFilterBy}
+                />
                 <p>Cow</p>
               </div>
               <div className="category__filter">
-                <input type="radio" name="sort-by" />
+                <input
+                  type="radio"
+                  name="sort-by"
+                  value="chicken"
+                  onChange={this.handleFilterBy}
+                />
                 <p>Chicken</p>
               </div>
               <div className="category__filter">
-                <input type="radio" name="sort-by" />
+                <input
+                  type="radio"
+                  name="sort-by"
+                  value="goat"
+                  onChange={this.handleFilterBy}
+                />
                 <p>Goat</p>
               </div>
               <div className="category__filter">
-                <input type="radio" name="sort-by" />
+                <input
+                  type="radio"
+                  name="sort-by"
+                  value="duck"
+                  onChange={this.handleFilterBy}
+                />
                 <p>Duck</p>
               </div>
             </div>
