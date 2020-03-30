@@ -3,8 +3,9 @@ import DetailComponent from "../components/detail/DetailComponent";
 import { Container, Row, Col } from "reactstrap";
 import DetailCarousel from "../components/detail/DetailCarousel";
 import TabComponent from "../components/detail/TabComponent";
-import ButtonLink from "../components/home/ButtonLink";
+// import ButtonLink from "../components/home/ButtonLink";
 import CardComponent from "../components/home/CardComponent";
+// import ImagesComponent from "../components/detail/ImagesComponent";
 import { livestockGetOne } from "../utils/api";
 import "./Detail.scss";
 
@@ -16,6 +17,7 @@ export default class Detail extends Component {
     this.state = {
       livestock: []
     };
+
     livestockGetOne(this.id).then(res => {
       const livestock = res.data.data;
       this.setState({
@@ -58,6 +60,8 @@ export default class Detail extends Component {
                   expectedReturn={this.state.livestock.expectedReturn}
                   sharingPeriod={this.state.livestock.sharingPeriod}
                   description={this.state.livestock.description}
+                  totalUnit={this.state.livestock.totalUnit}
+                profitContractPeriod={this.state.livestock.profitContractPeriod}
                 />
               </Col>
             </Row>

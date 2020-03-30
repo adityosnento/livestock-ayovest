@@ -14,7 +14,7 @@ import "../asset/style.css";
 import "./topbar.scss";
 
 const TopBar = props => {
-  const [isOpen, setIsOpen, isModalVisble, setIsModalVisible] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
 

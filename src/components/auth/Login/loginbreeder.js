@@ -44,12 +44,12 @@ class ModalComponent extends Component {
     });
   };
 
-  handleSigninSubmit = () => {
-    const data = {
-      email: this.state.SigninEmail,
-      password: this.state.SigninPassword
-    }
-  }
+  // handleSigninSubmit = () => {
+  //   const data = {
+  //     email: this.state.SigninEmail,
+  //     password: this.state.SigninPassword
+  //   }
+  // }
 
   render() {
     return (

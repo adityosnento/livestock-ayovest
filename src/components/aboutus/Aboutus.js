@@ -9,8 +9,8 @@ export default class Aboutus extends Component {
         return (
             <div>
                 <Topcontent/>
-                <Infographic/>
                 <Ourteam/>
+                <Infographic/>
                 <Testimony/>
             </div>
         )

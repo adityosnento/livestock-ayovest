@@ -19,7 +19,6 @@ import {
 import { toast, ToastContainer } from "react-toastify";
 import { logout } from "../utils/functions/page-behaviour";
 import './ModalComponent.scss'
-import Loader from "react-loader-spinner";
 
 class ModalComponent extends Component {
   constructor(props) {
@@ -338,19 +337,17 @@ class ModalComponent extends Component {
             <div className="btn__flex">
             {!this.state.signUp ? (
               <div>
-              <Button color="primary" onClick={this.handleSigninSubmit}>
+              <Button color="primary" onClick={this.handleSigninSubmit} id="sign_btn">
                 Sign In
               </Button>
-              <Button
-                color="danger"
-                style={{ borderRadius: "50%" }}
-                onClick={this.logingoogle}
-                title="Signin with Google"
-              >
-                <i className="fa fa-google"></i>
-              </Button>
               </div>
-            ): false}
+            ): 
+            <div>
+            <Button color="primary" onClick={this.handleSignUpSubmit} id="sign_btn">
+              Sign Up
+            </Button>
+            </div>
+            }
             <Button color="link" onClick={this.showSignUp} id="change_btn">
               Not a member ? please {this.state.signUp && "Sign In"}
               {!this.state.signUp && "Sign Up"}

@@ -1,15 +1,15 @@
 import React from "react";
-import { Col, Row, Button, Form, FormGroup, Label, Input } from "reactstrap";
+import { Col, Row, Button, FormGroup, Label, Input } from "reactstrap";
 import "../../components/PersonalDetail/persoaldetail.scss";
 import { profileCurrentUser, updateUserDataInvestor } from "../../utils/api";
-import { toast, ToastContainer } from "react-toastify";
-import Swal from "sweetalert2";
-import withReactContent from "sweetalert2-react-content";
+import { toast} from "react-toastify";
+// import Swal from "sweetalert2";
+// import withReactContent from "sweetalert2-react-content";
 import { Breadcrumb, BreadcrumbItem } from 'reactstrap';
-import { TabContent, TabPane, Nav, NavItem, NavLink, Card } from "reactstrap";
+import { TabContent, TabPane, Nav, NavItem, NavLink} from "reactstrap";
 import classnames from "classnames";
 
-const MySwal = withReactContent(Swal);
+// const MySwal = withReactContent(Swal);
 
 class PersonalDetail extends React.Component {
   constructor(props) {
@@ -20,9 +20,9 @@ class PersonalDetail extends React.Component {
       uploaded_profile_picture: "",
       fullname: "",
       identity_number: "",
-      phone_number: null,
+      phone_number: "",
       country: "",
-      province: "",
+      provice: "",
       city: "",
       zipcode: null,
       address: ""
@@ -38,13 +38,6 @@ class PersonalDetail extends React.Component {
     toast.info("Updating data");
     updateUserDataInvestor(this.state)
       .then(res => {
-        toast.dismiss();
-
-        MySwal.fire(
-          "Success",
-          "updated user data for: " + this.state.fullname,
-          "success"
-        );
         console.log(res);
       })
       .catch(err => {
@@ -66,12 +59,12 @@ class PersonalDetail extends React.Component {
         profile_picture: res.data.data.profile_picture,
         fullname: res.data.data.fullname,
         phone_number: res.data.data.phone_number,
+        uploaded_profile_picture: res.data.data.profile_picture,
         country: res.data.data.country,
         province: res.data.data.province,
         city: res.data.data.city,
         zipcode: res.data.data.postal_code,
         address: res.data.data.address,
-        uploaded_profile_picture: res.data.data.profile_picture
       });
     });
   }
@@ -90,28 +83,18 @@ class PersonalDetail extends React.Component {
       });
     }
   }
-
-  handleProfilePicture = e => {
-    const file = e.target.files;
+  
+    handleImageChange = e => {
+    const uploaded_profile_picture = URL.createObjectURL(e.target.files[0]);
+    const profile_picture = e.target.files[0];
 
     this.setState({
-      uploaded_profile_picture: file[0],
-      profile_picture: URL.createObjectURL(file[0])
+      uploaded_profile_picture,
+      profile_picture
     });
   };
 
-  clearData = () => {
-    this.setState({
-      fullname: "",
-      identity_number: "",
-      phone_number: null,
-      country: "",
-      province: "",
-      city: "",
-      zipcode: null,
-      address: ""
-    });
-  };
+
 
   render() {
     return (

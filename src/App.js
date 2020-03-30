@@ -19,11 +19,12 @@ import LiveeStock from "./pages/LiveeStock";
 import Profile from "./pages/Profile";
 import Contactsus from "./pages/ContactUs"
 import "react-toastify/dist/ReactToastify.min.css";
-
+// import Breeders from "./pages/Breeders";
 
 
 function App() {
   return (
+    // <Provider store={store}>
     <div className="App">
       <TopBar />
       <Router>
@@ -44,6 +45,7 @@ function App() {
       </Router>
       <FooterComponent />
     </div>
+    // </Provider>
   );
 }
 

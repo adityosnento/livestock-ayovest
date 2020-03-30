@@ -30,8 +30,9 @@ h4 {
   .identity {
     margin-bottom: 0px;
     border-top: 2px solid rgb(233, 231, 231);
+    display: block;
 
-    p{
+    p {
       padding-top: 10px;
       margin-bottom: 0px;
     }
@@ -47,7 +48,7 @@ h4 {
     input {
       border-radius: 10px;
       border-color: 2px solid red;
-      padding:5px 10px;
+      padding: 5px 10px;
       margin: 0px 20px;
       width: 20%;
     }
@@ -60,11 +61,10 @@ h4 {
       align-items: center;
     }
   }
-  
 }
 
-
-.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+.nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-link.active {
   color: #495057;
   border: none;
   border-bottom: 3px solid #7fcaa7;
@@ -74,8 +74,10 @@ h4 {
 }
 
 .btn-invest {
+  display: block;
   text-align: left;
   margin-top: 20px;
+  cursor: pointer;
 
     a {
       position: relative;
@@ -92,17 +94,17 @@ h4 {
     padding: 10px 30px;
     letter-spacing: 1px;
     border-radius: 5px;
+  }
 
     &:hover{
       opacity: 0.6;
-      background-color: #4da974;
       border-color: white;
       color: white;
       text-decoration: none;
     }
     
-    }
 }
 
-
-
+.control-button {
+  cursor: pointer;
+}

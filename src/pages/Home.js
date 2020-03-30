@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import AboutComponent from "../components/home/AboutComponent";
-import InvestmentComponent from "../components/home/InvestmentComponent";
+// import AboutComponent from "../components/home/AboutComponent";
+// import InvestmentComponent from "../components/home/InvestmentComponent";
 import CardComponent from "../components/home/CardComponent";
 import ButtonLink from "../components/home/ButtonLink";
 import InvestasiTerpopler from "../components/InvestasiTerpopler";

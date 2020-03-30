@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { investorSignUp, investorLogin, loginwithgoogle } from "../../../utils/api";
-import { toast, ToastContainer } from "react-toastify";
+import { investorSignUp} from "../../../utils/api";
+import { toast} from "react-toastify";
 import { FormGroup, Label, Input, Form} from "reactstrap";
 
 

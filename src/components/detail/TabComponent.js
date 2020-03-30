@@ -10,8 +10,7 @@ import {
   Col
 } from "reactstrap";
 import classnames from "classnames";
-import ButtonLink from "../../components/home/ButtonLink";
-
+// import ButtonLink from "../../components/home/ButtonLink";
 import "./tabcomponent.scss";
 
 const TabComponent = props => {
@@ -68,6 +67,8 @@ const TabComponent = props => {
                   <p>Contract Period : {props.contractPeriod} years</p>
                   <p>Expected return : {props.expectedReturn} </p>
                   <p>Sharing Period : {props.sharingPeriod}</p>
+                  <p>Stok : {props.totalUnit}</p>
+                  <p>Periode Kontrak : {props.profitContractPeriod}</p>
                 </div>
               </Card>
             </Col>

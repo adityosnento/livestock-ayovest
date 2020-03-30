@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Container, Row, Col, Card, CardBody, CardFooter } from "reactstrap";
-import ButtonLink from "../home/ButtonLink";
 
 import "./cardcomponent.scss";
 import { liveStockGetAll } from "../../utils/api";
@@ -12,11 +11,12 @@ export default class CardComponent extends Component {
 
     this.state = {
       livestocks: [],
-      totalPages:1
+      totalPages: 1
     };
 
     liveStockGetAll()
       .then(res => {
+        console.log(res);
         this.setState({
           livestocks: res.data.data.docs,
           totalPages: res.data.data.totalPages
@@ -41,7 +41,7 @@ export default class CardComponent extends Component {
           md="4"
           className="card-item"
         >
-          <ToastContainer/>
+          <ToastContainer />
           <Card className="card-item-single">
             <img src={data.image} alt="sapi" />
             <CardBody>
