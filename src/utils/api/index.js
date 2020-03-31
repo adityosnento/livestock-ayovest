@@ -162,3 +162,11 @@ export const paymentsGetOne = investmentId => {
     url: "payments?investmentId=" + investmentId
   });
 };
+
+export const paymentsCreate = data => {
+  return axios({
+    method: "POST",
+    data: data,
+    url: "payments"
+  });
+};

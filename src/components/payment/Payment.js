@@ -2,6 +2,11 @@ import React from "react";
 import { Button } from "reactstrap";
 import "../payment/Payment.scss";
 import { toast, ToastContainer } from "react-toastify";
+import {
+  investmentsGetOne,
+  livestockGetOne,
+  paymentsCreate
+} from "../../utils/api";
 
 class FormPayments extends React.Component {
   constructor(props) {
@@ -11,11 +16,22 @@ class FormPayments extends React.Component {
       payment_photo: null,
       payment_photo_url: null,
       fullname: "",
-      id: this.props.paymentId
+      livestockId: this.props.livestockId,
+      investmentId: this.props.investmentId,
+      unit: this.props.unit,
+      livestock: []
     };
   }
 
-  componentDidMount() {}
+  componentDidMount() {
+    livestockGetOne(this.state.livestockId).then(res => {
+      const livestock = res.data.data;
+
+      this.setState({
+        livestock
+      });
+    });
+  }
 
   handleImageChange = e => {
     const payment_photo = e.target.files[0];
@@ -28,12 +44,25 @@ class FormPayments extends React.Component {
   };
 
   payNow = () => {
+    toast.info("Uploading data");
+    let form_data = new FormData();
+
+    form_data.append("image", this.state.payment_photo);
+    form_data.append("investmentId", this.state.investmentId);
+
     if (this.state.payment_photo) {
       toast.dismiss();
-      toast.success("Successfully paid!");
-      setTimeout(() => {
-        window.location.href = "/";
-      }, 1000);
+      paymentsCreate(form_data)
+        .then(res => {
+          console.log(res);
+          toast.success("Successfully paid!");
+          setTimeout(() => {
+            window.location.href = "/";
+          }, 1000);
+        })
+        .catch(err => {
+          toast.error(err.message);
+        });
     } else {
       toast.dismiss();
       toast.error("Please upload your payment receipt!");
@@ -61,10 +90,10 @@ class FormPayments extends React.Component {
               <p>Total Lot</p>
             </div>
             <div className="payment__value">
-              <p>: 10 years</p>
-              <p>: 20% - 30%</p>
-              <p>: After 4 years</p>
-              <p>: 10 Lot</p>
+              <p>: {this.state.livestock.contractPeriod} years</p>
+              <p>: {this.state.livestock.roi}%</p>
+              <p>: After {this.state.livestock.sharingPeriod} years</p>
+              <p>: {this.state.unit} Lot</p>
             </div>
           </div>
           <div className="total__payment">
@@ -72,7 +101,7 @@ class FormPayments extends React.Component {
               <h4>Total Payment</h4>
             </div>
             <div className="payment__value">
-              <h4>$450</h4>
+              <h4>${this.state.unit * this.state.livestock.priceUnit}</h4>
             </div>
           </div>
         </div>
@@ -108,7 +137,9 @@ class FormPayments extends React.Component {
             </div>
           </div>
           <div className="btn-payment">
-            <Button onClick={() => this.payNow()}>Pay for $450</Button>
+            <Button onClick={() => this.payNow()}>
+              Pay for ${this.state.unit * this.state.livestock.priceUnit}
+            </Button>
           </div>
         </div>
       </div>
