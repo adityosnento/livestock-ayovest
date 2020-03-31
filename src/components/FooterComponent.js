@@ -10,7 +10,7 @@ export default class FooterComponent extends Component {
         <Row className="footer">
           <Col xs="12" md="4">
             <span>Ayovest</span>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <p>Monggovest exists as a collaboration medium for a common vision. We believe that the opportunity to contribute to the nation belongs to everyone.</p>
             <i class="fa fa-google"></i>
             <i class="fa fa-twitter"></i>
             <i class="fa fa-youtube"></i>

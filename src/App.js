@@ -11,6 +11,7 @@ import Breeder from './pages/Breeder'
 import PaymentDetail from './pages/Paymentresume'
 import InvestationList from './pages/Investation'
 import Aboutus from './pages/Aboutus'
+import Help from './pages/Help'
 
 import Registerbreeder from './pages/RegisterBreeder'
 import Loginbreeder from './pages/LoginBreeder'
@@ -41,6 +42,7 @@ function App() {
           <Route path="/investationlist" component={InvestationList}/>
           <Route path="/contactus" component={Contactsus}/>
           <Route path="/aboutus" component={Aboutus}/>
+          <Route path="/help" component={Help}/>
         </Switch>
       </Router>
       <FooterComponent />

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const url = process.env.REACT_APP_BASE_URL;
+const url = "https://ayo-vest.herokuapp.com/api/v1/";
 console.log(url)
 const userId = localStorage.getItem("id");
 
@@ -35,6 +35,16 @@ export const investorLogin = data => {
     method: "POST",
     data: data,
     url: "investors/auth"
+  });
+};
+
+/**
+ * Get all livestocks
+ */
+export const liveStockGetCategory = category => {
+  return axios({
+    method: "GET",
+    url: "livestocks/getall?kind=" + category + "&admin=true"
   });
 };
 
