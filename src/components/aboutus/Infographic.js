@@ -8,40 +8,31 @@ export default class Infographic extends Component {
         <div className="container__data2">
           <div className="container__data__content">
             <div className="flex__title">
-              <h1>01</h1>
-              <img src={require("../../asset/image/money.svg")} alt="logo" />
+              <img src={require("../../asset/Service/money.svg")} alt="logo" />
+              <div className="container__data__content__padding">
+              <h1>12-30%</h1>
+              <p>AVERAGE OF SHARING</p>
             </div>
-            <div className="container__stepinvest__content__padding">
-              <h1>INSTRUMENT INVESTASI</h1>
-              <p>
-                Hasil bersih adalah hasil keuntungan produksi komoditas sejenis
-              </p>
             </div>
           </div>
 
           <div className="container__data__content">
             <div className="flex__title">
-              <h1>02</h1>
-              <img src={require("../../asset/image/bank.svg")} alt="logo" />
+              <img src={require("../../asset/Service/challenge.svg")} alt="logo" />
+              <div className="container__data__content__padding">
+              <h1>90.38%</h1>
+              <p>LEVEL OF SUCCESS</p>
             </div>
-            <div className="container__data__content__padding">
-              <h1>PAYMENT</h1>
-              <p>
-                Hasil bersih adalah hasil keuntungan produksi komoditas sejenis
-              </p>
             </div>
           </div>
 
           <div className="container__data__content">
             <div className="flex__title">
-              <h1>03</h1>
-              <img src={require("../../asset/image/smartfarm.svg")} alt="logo" />
+              <img src={require("../../asset/Service/accumulation.svg")} alt="logo" />
+              <div className="container__data__content__padding">
+              <h1>SGD 3M</h1>
+              <p>Total Oustanding Loans</p>
             </div>
-            <div className="container__data__content__padding">
-              <h1>CAPITAL TO BREEDER</h1>
-              <p>
-                Hasil bersih adalah hasil keuntungan produksi komoditas sejenis
-              </p>
             </div>
           </div>
         </div>

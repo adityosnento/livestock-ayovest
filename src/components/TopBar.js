@@ -40,6 +40,9 @@ const TopBar = props => {
             <NavItem>
               <NavLink href="/contactus">CONTACT</NavLink>
             </NavItem>
+            <NavItem>
+              <NavLink href="/help">HELP</NavLink>
+            </NavItem>
           </Nav>
           <ModalComponent buttonLabel="SIGN IN" />
         </Collapse>
