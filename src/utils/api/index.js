@@ -133,6 +133,16 @@ export const investmentsGetAll = () => {
 };
 
 /**
+ * Get one investments
+ */
+export const investmentsGetOne = id => {
+  return axios({
+    method: "GET",
+    url: "investments/getone"
+  });
+};
+
+/**
  * Create investment
  */
 export const investmentCreate = data => {
@@ -140,5 +150,23 @@ export const investmentCreate = data => {
     method: "POST",
     url: "investments",
     data: data
+  });
+};
+
+/**
+ * Get all my payments
+ */
+export const paymentsGetOne = investmentId => {
+  return axios({
+    method: "GET",
+    url: "payments?investmentId=" + investmentId
+  });
+};
+
+export const paymentsCreate = data => {
+  return axios({
+    method: "POST",
+    data: data,
+    url: "payments"
   });
 };

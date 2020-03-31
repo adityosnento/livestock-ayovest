@@ -4,7 +4,8 @@ import "../../components/PersonalDetail/persoaldetail.scss";
 import {
   profileCurrentUser,
   updateUserDataInvestor,
-  investmentsGetAll
+  investmentsGetAll,
+  paymentsGetOne
 } from "../../utils/api";
 import { TabContent, TabPane, Nav, NavItem, NavLink } from "reactstrap";
 import { Breadcrumb, BreadcrumbItem } from "reactstrap";
@@ -42,9 +43,11 @@ class PersonalDetail extends React.Component {
     toast.info("Updating data");
     updateUserDataInvestor(this.state)
       .then(res => {
+        toast.dismiss();
         toast.success("Data Updated");
       })
       .catch(err => {
+        toast.dismiss();
         toast.error("Data Not Updated");
       });
   };
@@ -56,7 +59,7 @@ class PersonalDetail extends React.Component {
     });
   };
 
-  componentWillMount(props) {
+  componentDidMount(props) {
     profileCurrentUser().then(res => {
       this.setState({
         profile_picture: res.data.data.profile_picture,
@@ -110,13 +113,13 @@ class PersonalDetail extends React.Component {
       <div>
         {/* HEADER */}
 
-        <div class="parallax-container">
-          <div class="material-parallax">
+        <div className="parallax-container">
+          <div className="material-parallax">
             <img src={require("../../asset/image/invest.webp")} alt="logo" />
           </div>
-          <div class="breadcrumbs-custom-body parallax-content context-dark">
-            <div class="container">
-              <h2 class="breadcrumbs-custom-title">PROFILE DETAIL</h2>
+          <div className="breadcrumbs-custom-body parallax-content context-dark">
+            <div className="container">
+              <h2 className="breadcrumbs-custom-title">PROFILE DETAIL</h2>
             </div>
           </div>
         </div>
@@ -175,13 +178,16 @@ class PersonalDetail extends React.Component {
                     <div className="container__photos">
                       <h4>Update Photo Profile</h4>
                       <form action="/action_page.php">
-                        <img src={this.state.profile_picture} alt="logo" />
+                        <img
+                          src={this.state.uploaded_profile_picture}
+                          alt="logo"
+                        />
                         <input
                           type="file"
                           id="myFile"
                           name="filename"
                           className="input__photo"
-                          onChange={e => this.handleProfilePicture(e)}
+                          onChange={e => this.handleImageChange(e)}
                         />
                       </form>
                     </div>
@@ -314,15 +320,23 @@ class PersonalDetail extends React.Component {
             </Col>
           </Row>
         </div>
-        <div>
+        {/* <div>
           <Row>
             <Col>
-              <Button onClick={() => this.userData()} color="success" block>
+              <Button
+                onClick={() => this.userData()}
+                color="success"
+                block={true}
+              >
                 <i className="fa fa-paper-plane"></i> &nbsp; Submit
               </Button>
             </Col>
             <Col>
-              <Button onClick={() => this.clearData()} color="danger" block>
+              <Button
+                onClick={() => this.clearData()}
+                color="danger"
+                block={true}
+              >
                 <i className="fa fa-times"></i> &nbsp; Clear
               </Button>
             </Col>
@@ -330,13 +344,13 @@ class PersonalDetail extends React.Component {
               <Button title="Refresh page">
                 <i
                   className="fa fa-refresh"
-                  block
+                  block={true}
                   onClick={() => window.location.reload(false)}
                 ></i>
               </Button>
             </Col>
           </Row>
-        </div>
+        </div> */}
       </div>
     );
   }

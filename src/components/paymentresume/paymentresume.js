@@ -77,13 +77,17 @@ export default class paymentresume extends Component {
     };
     toast.info("Creating investment");
 
-    console.log(data);
     investmentCreate(data)
       .then(res => {
         toast.success("Created investment");
         const investmentId = res.data.data.data._id;
-
-        window.location.href = "/payment/" + investmentId;
+        window.location.href =
+          "/payment/" +
+          investmentId +
+          "/" +
+          this.props.livestockId +
+          "/" +
+          this.state.unit;
       })
       .catch(err => {
         toast.dismiss();

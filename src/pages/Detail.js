@@ -3,7 +3,6 @@ import DetailComponent from "../components/detail/DetailComponent";
 import { Container, Row, Col } from "reactstrap";
 import DetailCarousel from "../components/detail/DetailCarousel";
 import TabComponent from "../components/detail/TabComponent";
-// import ButtonLink from "../components/home/ButtonLink";
 import CardComponent from "../components/home/CardComponent";
 // import ImagesComponent from "../components/detail/ImagesComponent";
 import { livestockGetOne, liveStockGetAll } from "../utils/api";

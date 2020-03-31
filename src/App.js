@@ -32,7 +32,10 @@ function App() {
           <Route path="/detail/:id" component={Detail} />
           <Route path="/livestock" component={LiveeStock} />
           <Route path="/profile/:id" component={Profile} />
-          <Route path="/payment/:id" component={Payment} />
+          <Route
+            path="/payment/:investmentId/:livestockId/:lot"
+            component={Payment}
+          />
           <Route path="/breeder" component={Breeder} />
           <Route path="/loginbreeder" component={Loginbreeder} />
           <Route path="/registerbreeder" component={Registerbreeder} />
