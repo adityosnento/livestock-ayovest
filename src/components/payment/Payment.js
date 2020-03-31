@@ -12,19 +12,11 @@ class FormPayments extends React.Component {
       payment_photo: null,
       payment_photo_url: null,
       fullname: "",
-      id: this.props.livestockId
+      id: this.props.paymentId
     };
   }
 
-  componentWillMount() {
-    profileCurrentUser().then(res => {
-      const fullname = res.data.data.fullname;
-
-      this.setState({
-        fullname
-      });
-    });
-  }
+  componentDidMount() {}
 
   handleImageChange = e => {
     const payment_photo = e.target.files[0];

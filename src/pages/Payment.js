@@ -14,7 +14,7 @@ export default class Payment extends Component {
   render() {
     return (
       <div>
-        <Paymethod userId={this.state.id} />
+        <Paymethod paymentId={this.state.id} />
       </div>
     );
   }
