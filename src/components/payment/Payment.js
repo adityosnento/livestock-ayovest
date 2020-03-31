@@ -1,7 +1,6 @@
 import React from "react";
 import { Button } from "reactstrap";
 import "../payment/Payment.scss";
-import { profileCurrentUser } from "../../utils/api";
 import { toast, ToastContainer } from "react-toastify";
 
 class FormPayments extends React.Component {

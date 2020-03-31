@@ -4,7 +4,8 @@ import "../../components/PersonalDetail/persoaldetail.scss";
 import {
   profileCurrentUser,
   updateUserDataInvestor,
-  investmentsGetAll
+  investmentsGetAll,
+  paymentsGetOne
 } from "../../utils/api";
 import { TabContent, TabPane, Nav, NavItem, NavLink } from "reactstrap";
 import { Breadcrumb, BreadcrumbItem } from "reactstrap";
@@ -58,7 +59,7 @@ class PersonalDetail extends React.Component {
     });
   };
 
-  componentWillMount(props) {
+  componentDidMount(props) {
     profileCurrentUser().then(res => {
       this.setState({
         profile_picture: res.data.data.profile_picture,
