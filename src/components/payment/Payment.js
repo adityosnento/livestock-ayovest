@@ -89,6 +89,7 @@ class FormPayments extends React.Component {
               <p>Time Period</p>
               <p>Total Lot</p>
             </div>
+
             <div className="payment__value">
               <p>: {this.state.livestock.contractPeriod} years</p>
               <p>: {this.state.livestock.roi}%</p>
