@@ -2,11 +2,11 @@ import React from "react";
 import { Button } from "reactstrap";
 import "../payment/Payment.scss";
 import { toast, ToastContainer } from "react-toastify";
-import {
-  investmentsGetOne,
-  livestockGetOne,
-  paymentsCreate
-} from "../../utils/api";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+import { livestockGetOne, paymentsCreate } from "../../utils/api";
+
+const MySwal = withReactContent(Swal);
 
 class FormPayments extends React.Component {
   constructor(props) {
@@ -48,14 +48,13 @@ class FormPayments extends React.Component {
     let form_data = new FormData();
 
     form_data.append("image", this.state.payment_photo);
-    form_data.append("investmentId", this.state.investmentId);
 
     if (this.state.payment_photo) {
-      toast.dismiss();
-      paymentsCreate(form_data)
+      paymentsCreate(form_data, this.state.investmentId)
         .then(res => {
-          console.log(res);
+          toast.dismiss();
           toast.success("Successfully paid!");
+          this.paymentSuccess();
           setTimeout(() => {
             window.location.href = "/";
           }, 1000);
@@ -67,6 +66,10 @@ class FormPayments extends React.Component {
       toast.dismiss();
       toast.error("Please upload your payment receipt!");
     }
+  };
+
+  paymentSuccess = () => {
+    MySwal.fire("Success", "Payment Successful", "success");
   };
 
   render() {

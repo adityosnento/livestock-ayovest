@@ -163,10 +163,10 @@ export const paymentsGetOne = investmentId => {
   });
 };
 
-export const paymentsCreate = data => {
+export const paymentsCreate = (data, id) => {
   return axios({
     method: "POST",
     data: data,
-    url: "payments"
+    url: "payments?investmentId=" + id
   });
 };
