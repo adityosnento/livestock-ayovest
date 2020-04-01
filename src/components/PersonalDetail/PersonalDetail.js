@@ -4,7 +4,8 @@ import "../../components/PersonalDetail/persoaldetail.scss";
 import {
   profileCurrentUser,
   updateUserDataInvestor,
-  investmentsGetAll
+  investmentsGetAll,
+  paymentsGetOne
 } from "../../utils/api";
 import { TabContent, TabPane, Nav, NavItem, NavLink } from "reactstrap";
 import { Breadcrumb, BreadcrumbItem } from "reactstrap";
@@ -29,7 +30,8 @@ class PersonalDetail extends React.Component {
       provice: "",
       city: "",
       zipcode: null,
-      address: ""
+      address: "",
+      investments: []
     };
 
     this.toggle = this.toggle.bind(this);
@@ -42,9 +44,11 @@ class PersonalDetail extends React.Component {
     toast.info("Updating data");
     updateUserDataInvestor(this.state)
       .then(res => {
+        toast.dismiss();
         toast.success("Data Updated");
       })
       .catch(err => {
+        toast.dismiss();
         toast.error("Data Not Updated");
       });
   };
@@ -56,7 +60,7 @@ class PersonalDetail extends React.Component {
     });
   };
 
-  componentWillMount(props) {
+  componentDidMount(props) {
     profileCurrentUser().then(res => {
       this.setState({
         profile_picture: res.data.data.profile_picture,
@@ -73,10 +77,14 @@ class PersonalDetail extends React.Component {
 
     investmentsGetAll()
       .then(res => {
-        console.log(res.data.data);
+        const investments = res.data.data;
+
+        this.setState({
+          investments
+        });
       })
       .catch(err => {
-        toast.error("failed to get investment data");
+        toast.error(err.message);
       });
   }
 
@@ -110,13 +118,13 @@ class PersonalDetail extends React.Component {
       <div>
         {/* HEADER */}
 
-        <div class="parallax-container">
-          <div class="material-parallax">
+        <div className="parallax-container">
+          <div className="material-parallax">
             <img src={require("../../asset/image/invest.webp")} alt="logo" />
           </div>
-          <div class="breadcrumbs-custom-body parallax-content context-dark">
-            <div class="container">
-              <h2 class="breadcrumbs-custom-title">PROFILE DETAIL</h2>
+          <div className="breadcrumbs-custom-body parallax-content context-dark">
+            <div className="container">
+              <h2 className="breadcrumbs-custom-title">PROFILE DETAIL</h2>
             </div>
           </div>
         </div>
@@ -175,13 +183,16 @@ class PersonalDetail extends React.Component {
                     <div className="container__photos">
                       <h4>Update Photo Profile</h4>
                       <form action="/action_page.php">
-                        <img src={this.state.profile_picture} alt="logo" />
+                        <img
+                          src={this.state.uploaded_profile_picture}
+                          alt="logo"
+                        />
                         <input
                           type="file"
                           id="myFile"
                           name="filename"
                           className="input__photo"
-                          onChange={e => this.handleProfilePicture(e)}
+                          onChange={e => this.handleImageChange(e)}
                         />
                       </form>
                     </div>
@@ -298,42 +309,23 @@ class PersonalDetail extends React.Component {
                       <div>Payment Amount</div>
                       <div>Payment Status</div>
                     </div>
-                    <div className="investmentstatus__content">
-                      <div>Boear Goat</div>
-                      <div>$360</div>
-                      <div className="invest_payoff">Paid off</div>
-                    </div>
-                    <div className="investmentstatus__content">
-                      <div>Boear Goat</div>
-                      <div>$860</div>
-                      <div className="invest_payoffs">Not paid</div>
-                    </div>
+
+                    {this.state.investments &&
+                      this.state.investments.map(invest => (
+                        <div className="investmentstatus__content">
+                          <div>{invest.livestockName}</div>
+                          <div>${invest.totalPriceUnit}</div>
+                          {invest.paidStatus && (
+                            <div className="invest_payoff">Paid off</div>
+                          )}
+                          {!invest.paidStatus && (
+                            <div className="invest_payoffs">Not Paid</div>
+                          )}
+                        </div>
+                      ))}
                   </TabPane>
                 </TabContent>
               </div>
-            </Col>
-          </Row>
-        </div>
-        <div>
-          <Row>
-            <Col>
-              <Button onClick={() => this.userData()} color="success" block>
-                <i className="fa fa-paper-plane"></i> &nbsp; Submit
-              </Button>
-            </Col>
-            <Col>
-              <Button onClick={() => this.clearData()} color="danger" block>
-                <i className="fa fa-times"></i> &nbsp; Clear
-              </Button>
-            </Col>
-            <Col md="1">
-              <Button title="Refresh page">
-                <i
-                  className="fa fa-refresh"
-                  block
-                  onClick={() => window.location.reload(false)}
-                ></i>
-              </Button>
             </Col>
           </Row>
         </div>
