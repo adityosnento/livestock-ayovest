@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const url = process.env.REACT_APP_BASE_URL;
-console.log(url)
+console.log(url);
 const userId = localStorage.getItem("id");
 
 // Default base url
@@ -44,7 +44,7 @@ export const investorLogin = data => {
 export const liveStockGetAll = () => {
   return axios({
     method: "GET",
-    url: "livestocks/getall"
+    url: "livestocks/getall?admin=true"
   });
 };
 
@@ -55,6 +55,16 @@ export const liveStockGetAllPage = page => {
   return axios({
     method: "GET",
     url: "livestocks/getall?page=" + page
+  });
+};
+
+/**
+ * Get livestock by category
+ */
+export const liveStockGetCategory = category => {
+  return axios({
+    method: "GET",
+    url: "livestocks/getall?kind=" + category + "&admin=true"
   });
 };
 
@@ -119,5 +129,44 @@ export const investmentsGetAll = () => {
   return axios({
     method: "GET",
     url: "investments/getall"
+  });
+};
+
+/**
+ * Get one investments
+ */
+export const investmentsGetOne = id => {
+  return axios({
+    method: "GET",
+    url: "investments/getone"
+  });
+};
+
+/**
+ * Create investment
+ */
+export const investmentCreate = data => {
+  return axios({
+    method: "POST",
+    url: "investments",
+    data: data
+  });
+};
+
+/**
+ * Get all my payments
+ */
+export const paymentsGetOne = investmentId => {
+  return axios({
+    method: "GET",
+    url: "payments?investmentId=" + investmentId
+  });
+};
+
+export const paymentsCreate = (data, id) => {
+  return axios({
+    method: "POST",
+    data: data,
+    url: "payments?investmentId=" + id
   });
 };

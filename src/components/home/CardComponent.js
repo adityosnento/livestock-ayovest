@@ -10,22 +10,16 @@ export default class CardComponent extends Component {
     super(props);
 
     this.state = {
-      livestocks: [],
+      livestocks: this.props.livestocks,
       totalPages: 1
     };
-
-    liveStockGetAll()
-      .then(res => {
-        console.log(res);
-        this.setState({
-          livestocks: res.data.data.docs,
-          totalPages: res.data.data.totalPages
-        });
-      })
-      .catch(err => {
-        toast.error("Failed to get livestocks data");
-      });
   }
+
+  componentWillReceiveProps = props => {
+    this.setState({
+      livestocks: props.livestocks
+    });
+  };
 
   cardClicked = id => {
     window.location.href = "/detail/" + id;

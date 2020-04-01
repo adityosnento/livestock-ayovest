@@ -97,11 +97,13 @@ const TabComponent = props => {
           </Row>
         </TabPane>
       </TabContent>
-      <div className="btn-invest">
-        <a href="/paymentresume" title="Invest Now">
-          Start to Invest
-        </a>
-      </div>
+      {localStorage.getItem("token") && (
+        <div className="btn-invest">
+          <a href={`/paymentresume/${props.livestockId}`} title="Invest Now">
+            Start to Invest
+          </a>
+        </div>
+      )}
     </div>
   );
 };
