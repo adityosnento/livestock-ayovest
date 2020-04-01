@@ -62,7 +62,7 @@ export default class Help extends Component {
                    <img src={require("../../asset/auth/database.svg")} alt="logo" />
                    </div>
                    <div className="database__content">
-                   <h4>Can I offer my commodities put in the database monggovest?</h4>
+                   <h4>Can I offer my commodities put in the database AYOvest?</h4>
                    <p>All commodity data available on our platform must go through a verification process. You can offer your commodity to be verified, by contacting us in the Contact Us section.</p>
                    </div>
                    </div>
