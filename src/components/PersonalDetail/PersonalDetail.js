@@ -30,7 +30,8 @@ class PersonalDetail extends React.Component {
       provice: "",
       city: "",
       zipcode: null,
-      address: ""
+      address: "",
+      investments: []
     };
 
     this.toggle = this.toggle.bind(this);
@@ -76,10 +77,14 @@ class PersonalDetail extends React.Component {
 
     investmentsGetAll()
       .then(res => {
-        console.log(res.data.data);
+        const investments = res.data.data;
+
+        this.setState({
+          investments
+        });
       })
       .catch(err => {
-        toast.error("failed to get investment data");
+        toast.error(err.message);
       });
   }
 
@@ -304,7 +309,21 @@ class PersonalDetail extends React.Component {
                       <div>Payment Amount</div>
                       <div>Payment Status</div>
                     </div>
-                    <div className="investmentstatus__content">
+
+                    {this.state.investments &&
+                      this.state.investments.map(invest => (
+                        <div className="investmentstatus__content">
+                          <div>{invest.livestockName}</div>
+                          <div>${invest.totalPriceUnit}</div>
+                          {invest.paidStatus && (
+                            <div className="invest_payoff">Paid off</div>
+                          )}
+                          {!invest.paidStatus && (
+                            <div className="invest_payoffs">Not Paid</div>
+                          )}
+                        </div>
+                      ))}
+                    {/* <div className="investmentstatus__content">
                       <div>Boear Goat</div>
                       <div>$360</div>
                       <div className="invest_payoff">Paid off</div>
@@ -313,7 +332,7 @@ class PersonalDetail extends React.Component {
                       <div>Boear Goat</div>
                       <div>$860</div>
                       <div className="invest_payoffs">Not paid</div>
-                    </div>
+                    </div> */}
                   </TabPane>
                 </TabContent>
               </div>
