@@ -323,53 +323,12 @@ class PersonalDetail extends React.Component {
                           )}
                         </div>
                       ))}
-                    {/* <div className="investmentstatus__content">
-                      <div>Boear Goat</div>
-                      <div>$360</div>
-                      <div className="invest_payoff">Paid off</div>
-                    </div>
-                    <div className="investmentstatus__content">
-                      <div>Boear Goat</div>
-                      <div>$860</div>
-                      <div className="invest_payoffs">Not paid</div>
-                    </div> */}
                   </TabPane>
                 </TabContent>
               </div>
             </Col>
           </Row>
         </div>
-        {/* <div>
-          <Row>
-            <Col>
-              <Button
-                onClick={() => this.userData()}
-                color="success"
-                block={true}
-              >
-                <i className="fa fa-paper-plane"></i> &nbsp; Submit
-              </Button>
-            </Col>
-            <Col>
-              <Button
-                onClick={() => this.clearData()}
-                color="danger"
-                block={true}
-              >
-                <i className="fa fa-times"></i> &nbsp; Clear
-              </Button>
-            </Col>
-            <Col md="1">
-              <Button title="Refresh page">
-                <i
-                  className="fa fa-refresh"
-                  block={true}
-                  onClick={() => window.location.reload(false)}
-                ></i>
-              </Button>
-            </Col>
-          </Row>
-        </div> */}
       </div>
     );
   }
