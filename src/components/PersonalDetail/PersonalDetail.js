@@ -310,19 +310,21 @@ class PersonalDetail extends React.Component {
                       <div>Payment Status</div>
                     </div>
 
-                    {this.state.investments &&
-                      this.state.investments.map(invest => (
-                        <div className="investmentstatus__content">
-                          <div>{invest.livestockName}</div>
-                          <div>${invest.totalPriceUnit}</div>
-                          {invest.paidStatus && (
-                            <div className="invest_payoff">Paid off</div>
-                          )}
-                          {!invest.paidStatus && (
-                            <div className="invest_payoffs">Not Paid</div>
-                          )}
-                        </div>
-                      ))}
+                    <div className="investmentcontainer">
+                      {this.state.investments &&
+                        this.state.investments.map(invest => (
+                          <div className="investmentstatus__content">
+                            <div>{invest.livestockName}</div>
+                            <div>${invest.totalPriceUnit}</div>
+                            {invest.paidStatus && (
+                              <div className="invest_payoff">Paid off</div>
+                            )}
+                            {!invest.paidStatus && (
+                              <div className="invest_payoffs">Not Paid</div>
+                            )}
+                          </div>
+                        ))}
+                    </div>
                   </TabPane>
                 </TabContent>
               </div>
