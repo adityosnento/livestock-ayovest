@@ -229,7 +229,7 @@ class PersonalDetail extends React.Component {
                               <Label for="exampleCountry">Country</Label>
                               <Input
                                 type="text"
-                                name="text"
+                                name="country"
                                 id="Country"
                                 placeholder="Indonesia"
                                 onChange={e => this.handleFormChange(e)}
@@ -242,7 +242,7 @@ class PersonalDetail extends React.Component {
                               <Label for="Province">Province</Label>
                               <Input
                                 type="text"
-                                name="text"
+                                name="province"
                                 id="Province"
                                 placeholder="Jekadaahh"
                                 onChange={e => this.handleFormChange(e)}
@@ -257,7 +257,7 @@ class PersonalDetail extends React.Component {
                               <Label for="City">City</Label>
                               <Input
                                 type="text"
-                                name="text"
+                                name="city"
                                 id="City"
                                 placeholder="Jekadahh Timur"
                                 onChange={e => this.handleFormChange(e)}
@@ -270,7 +270,7 @@ class PersonalDetail extends React.Component {
                               <Label for="">Zipcode</Label>
                               <Input
                                 type="text"
-                                name="text"
+                                name="postal_code"
                                 id="zipcode"
                                 placeholder="96113"
                                 onChange={e => this.handleFormChange(e)}
@@ -285,11 +285,11 @@ class PersonalDetail extends React.Component {
                               <Label for="Address">Address</Label>
                               <Input
                                 type="text"
-                                name="text"
+                                name="address"
                                 id="City"
                                 placeholder="Layangan Putus Street"
                                 onChange={e => this.handleFormChange(e)}
-                                defaultValue={this.state.Address}
+                                defaultValue={this.state.address}
                               />
                             </FormGroup>
                             <Button onClick={() => this.userData()}>
@@ -312,13 +312,15 @@ class PersonalDetail extends React.Component {
 
                     {this.state.investments &&
                       this.state.investments.map(invest => (
-                        <div className="investmentstatus__content">
+                        <div
+                          key={invest._id}
+                          className="investmentstatus__content"
+                        >
                           <div>{invest.livestockName}</div>
                           <div>${invest.totalPriceUnit}</div>
-                          {invest.paidStatus && (
+                          {invest.paidStatus ? (
                             <div className="invest_payoff">Paid off</div>
-                          )}
-                          {!invest.paidStatus && (
+                          ) : (
                             <div className="invest_payoffs">Not Paid</div>
                           )}
                         </div>
