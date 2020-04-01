@@ -19,6 +19,7 @@ const TabComponent = props => {
   const toggle = tab => {
     if (activeTab !== tab) setActiveTab(tab);
   };
+  
 
   return (
     <div className="fully__container">
@@ -68,7 +69,6 @@ const TabComponent = props => {
                   <p>Expected return : {props.expectedReturn} </p>
                   <p>Sharing Period : {props.sharingPeriod}</p>
                   <p>Stock : {props.totalUnit}</p>
-                  <p>Contract Period : {props.contractPeriod} years</p>
                 </div>
               </Card>
             </Col>
@@ -98,8 +98,9 @@ const TabComponent = props => {
         </TabPane>
       </TabContent>
       <div className="btn-invest">
-      <a href="/paymentresume" title="Invest Now">
-        Start to Invest</a>
+        <a href={`/paymentresume/${props.livestockId}`} title="Invest Now">
+          Start to Invest
+        </a>
       </div>
     </div>
   );

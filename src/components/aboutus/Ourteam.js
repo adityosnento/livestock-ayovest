@@ -26,7 +26,7 @@ export default class MultipleItems extends Component {
           </div>
           </div>
           <div className="container-card">
-          <img src={require("../../asset/Member/3.jpg")} alt="logo" />
+          <img src={require("../../asset/Member/2.jpg")} alt="logo" />
           <h4>ADITYO S. NENTO</h4>
           <p>Frontend Developer</p>
           <div className="logo__center">
@@ -66,7 +66,7 @@ export default class MultipleItems extends Component {
           </div>
           </div>
           <div className="container-card">
-          <img src={require("../../asset/Member/3.jpg")} alt="logo" />
+          <img src={require("../../asset/Member/2.jpg")} alt="logo" />
           <h4>ADITYO S. NENTO</h4>
           <p>Frontend Developer</p>
           <div className="logo__center">

@@ -7,9 +7,10 @@
 }
 
 .footer {
-  background: black;
+  background:#40893D;
   padding: 1rem;
-  color: #ffffff;
+  color: white;
+  border-top: 1px solid transparent;
   
 
   span {
@@ -117,5 +118,27 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border-top: 2px solid white;
+  border-top: 2px solid black;
 }
+
+.logos {
+  text-align: center;
+  margin-top: 5px;
+
+h4 {
+  font-weight: 600;
+}
+
+  img {
+    margin-top: 10px;
+  }
+
+  #apple {
+    width: 38%;
+  }
+}
+
+.sosmed {
+  text-align: center;
+}
+

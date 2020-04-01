@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const url = "https://ayo-vest.herokuapp.com/api/v1/";
-console.log(url)
+console.log(url);
 const userId = localStorage.getItem("id");
 
 // Default base url
@@ -41,20 +41,10 @@ export const investorLogin = data => {
 /**
  * Get all livestocks
  */
-export const liveStockGetCategory = category => {
-  return axios({
-    method: "GET",
-    url: "livestocks/getall?kind=" + category + "&admin=true"
-  });
-};
-
-/**
- * Get all livestocks
- */
 export const liveStockGetAll = () => {
   return axios({
     method: "GET",
-    url: "livestocks/getall"
+    url: "livestocks/getall?admin=true"
   });
 };
 
@@ -65,6 +55,16 @@ export const liveStockGetAllPage = page => {
   return axios({
     method: "GET",
     url: "livestocks/getall?page=" + page
+  });
+};
+
+/**
+ * Get livestock by category
+ */
+export const liveStockGetCategory = category => {
+  return axios({
+    method: "GET",
+    url: "livestocks/getall?kind=" + category + "&admin=true"
   });
 };
 
@@ -121,3 +121,50 @@ export const investorRecoverPassword = data => {
     url: "investors/recover"
   });
 };
+
+/**
+ * Get all investments
+ */
+export const investmentsGetAll = () => {
+  return axios({
+    method: "GET",
+    url: "investments/getall"
+  });
+};
+
+/**
+ * Create investment
+ */
+export const investmentCreate = data => {
+  return axios({
+    method: "POST",
+    url: "investments",
+    data: data
+  });
+};
+
+export const investmentsGetOne = id => {
+  return axios({
+    method: "GET",
+    url: "investments/getone"
+  });
+};
+
+/**
+ * Get all my payments
+ */
+export const paymentsGetOne = investmentId => {
+  return axios({
+    method: "GET",
+    url: "payments?investmentId=" + investmentId
+  });
+};
+
+export const paymentsCreate = (data,id) => {
+  return axios({
+    method: "POST",
+    data: data,
+    url: "payments?investmentId=" + id
+  });
+};
+
