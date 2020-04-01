@@ -43,8 +43,6 @@ export default class paymentresume extends Component {
     const price = this.state.livestock.priceUnit;
     const totalPayment = parseInt(unit) * parseInt(price);
 
-    console.log(price);
-
     if (unit <= total) {
       this.setState({
         unit,
@@ -135,7 +133,7 @@ export default class paymentresume extends Component {
               <img
                 className="grafik"
                 src={this.state.livestock.image}
-                alt="grafik"
+                alt="livestock"
               />
               <p>{this.state.livestock.name}</p>
             </div>

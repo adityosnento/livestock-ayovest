@@ -30,7 +30,8 @@ class PersonalDetail extends React.Component {
       provice: "",
       city: "",
       zipcode: null,
-      address: ""
+      address: "",
+      investments: []
     };
 
     this.toggle = this.toggle.bind(this);
@@ -76,10 +77,14 @@ class PersonalDetail extends React.Component {
 
     investmentsGetAll()
       .then(res => {
-        console.log(res.data.data);
+        const investments = res.data.data;
+
+        this.setState({
+          investments
+        });
       })
       .catch(err => {
-        toast.error("failed to get investment data");
+        toast.error(err.message);
       });
   }
 
@@ -304,53 +309,26 @@ class PersonalDetail extends React.Component {
                       <div>Payment Amount</div>
                       <div>Payment Status</div>
                     </div>
-                    <div className="investmentstatus__content">
-                      <div>Boear Goat</div>
-                      <div>$360</div>
-                      <div className="invest_payoff">Paid off</div>
-                    </div>
-                    <div className="investmentstatus__content">
-                      <div>Boear Goat</div>
-                      <div>$860</div>
-                      <div className="invest_payoffs">Not paid</div>
-                    </div>
+
+                    {this.state.investments &&
+                      this.state.investments.map(invest => (
+                        <div className="investmentstatus__content">
+                          <div>{invest.livestockName}</div>
+                          <div>${invest.totalPriceUnit}</div>
+                          {invest.paidStatus && (
+                            <div className="invest_payoff">Paid off</div>
+                          )}
+                          {!invest.paidStatus && (
+                            <div className="invest_payoffs">Not Paid</div>
+                          )}
+                        </div>
+                      ))}
                   </TabPane>
                 </TabContent>
               </div>
             </Col>
           </Row>
         </div>
-        {/* <div>
-          <Row>
-            <Col>
-              <Button
-                onClick={() => this.userData()}
-                color="success"
-                block={true}
-              >
-                <i className="fa fa-paper-plane"></i> &nbsp; Submit
-              </Button>
-            </Col>
-            <Col>
-              <Button
-                onClick={() => this.clearData()}
-                color="danger"
-                block={true}
-              >
-                <i className="fa fa-times"></i> &nbsp; Clear
-              </Button>
-            </Col>
-            <Col md="1">
-              <Button title="Refresh page">
-                <i
-                  className="fa fa-refresh"
-                  block={true}
-                  onClick={() => window.location.reload(false)}
-                ></i>
-              </Button>
-            </Col>
-          </Row>
-        </div> */}
       </div>
     );
   }
