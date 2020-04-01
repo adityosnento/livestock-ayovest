@@ -315,10 +315,9 @@ class PersonalDetail extends React.Component {
                         <div className="investmentstatus__content">
                           <div>{invest.livestockName}</div>
                           <div>${invest.totalPriceUnit}</div>
-                          {invest.paidStatus && (
+                          {invest.paidStatus ? (
                             <div className="invest_payoff">Paid off</div>
-                          )}
-                          {!invest.paidStatus && (
+                          ) : (
                             <div className="invest_payoffs">Not Paid</div>
                           )}
                         </div>
