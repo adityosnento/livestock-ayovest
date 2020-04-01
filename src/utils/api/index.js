@@ -160,11 +160,10 @@ export const paymentsGetOne = investmentId => {
   });
 };
 
-export const paymentsCreate = (data,id) => {
+export const paymentsCreate = (data, id) => {
   return axios({
     method: "POST",
     data: data,
     url: "payments?investmentId=" + id
   });
 };
-

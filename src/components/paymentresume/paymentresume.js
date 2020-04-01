@@ -31,7 +31,6 @@ export default class paymentresume extends Component {
     const price = this.state.livestock.priceUnit;
     const totalPayment = parseInt(val) * parseInt(price);
 
-
     this.setState({
       unit: val,
       totalPayment
@@ -81,7 +80,7 @@ export default class paymentresume extends Component {
     };
     toast.info("Creating investment");
 
-    investmentCreate(data)  
+    investmentCreate(data)
       .then(res => {
         toast.success("Created investment");
         const investmentId = res.data.data.data._id;
@@ -92,15 +91,12 @@ export default class paymentresume extends Component {
           this.props.livestockId +
           "/" +
           this.state.unit;
-          
       })
       .catch(err => {
         toast.dismiss();
         toast.error(err.message);
       });
   };
-
-  
   render() {
     return (
       <div>
@@ -140,7 +136,7 @@ export default class paymentresume extends Component {
               <img
                 className="grafik"
                 src={this.state.livestock.image}
-                alt="grafik"
+                alt="livestock"
               />
               <p>{this.state.livestock.name}</p>
             </div>

@@ -19,8 +19,7 @@ export default class Testimony extends Component {
             <div className="container-testimony">
             <i class="fa fa-quote-left"></i>
               <h3>
-                We're loving it. Nice work on your farm. Farm is both attractive
-                and highly adaptable. Farm is great
+              "I STRONGLY recommend breeder to EVERYONE interested in running a successful online business!"
               </h3>
               <div className="container__person">
                 <div className="img__testimonial">
@@ -57,8 +56,7 @@ export default class Testimony extends Component {
             <div className="container-testimony">
             <i class="fa fa-quote-left"></i>
               <h3>
-                We're loving it. Nice work on your farm. Farm is both attractive
-                and highly adaptable. Farm is great
+              I love this investation! For years, I hated investation because I was drinking the store-bought stuff, but this tastes wonderful and I’m addicted!
               </h3>
               <div className="container__person">
                 <div className="img__testimonial">

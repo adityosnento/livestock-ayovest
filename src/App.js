@@ -11,8 +11,8 @@ import Breeder from "./pages/Breeder";
 import PaymentDetail from "./pages/Paymentresume";
 import InvestationList from "./pages/Investation";
 import Aboutus from "./pages/Aboutus";
+import Help from "./pages/Help";
 
-import Help from './pages/Help'
 import Registerbreeder from "./pages/RegisterBreeder";
 import Loginbreeder from "./pages/LoginBreeder";
 import Detail from "./pages/Detail";
@@ -33,7 +33,10 @@ function App() {
           <Route path="/detail/:id" component={Detail} />
           <Route path="/livestock" component={LiveeStock} />
           <Route path="/profile/:id" component={Profile} />
-          <Route path="/payment/:investmentId/:livestockId/:lot" component={Payment} />
+          <Route
+            path="/payment/:investmentId/:livestockId/:lot"
+            component={Payment}
+          />
           <Route path="/breeder" component={Breeder} />
           <Route path="/loginbreeder" component={Loginbreeder} />
           <Route path="/registerbreeder" component={Registerbreeder} />

@@ -4,7 +4,8 @@ import "../../components/PersonalDetail/persoaldetail.scss";
 import {
   profileCurrentUser,
   updateUserDataInvestor,
-  investmentsGetAll
+  investmentsGetAll,
+  paymentsGetOne
 } from "../../utils/api";
 import { TabContent, TabPane, Nav, NavItem, NavLink } from "reactstrap";
 import { Breadcrumb, BreadcrumbItem } from "reactstrap";
@@ -27,7 +28,8 @@ class PersonalDetail extends React.Component {
       provice: "",
       city: "",
       zipcode: null,
-      address: ""
+      address: "",
+      investments: []
     };
 
     this.toggle = this.toggle.bind(this);
@@ -56,7 +58,7 @@ class PersonalDetail extends React.Component {
     });
   };
 
-  componentWillMount(props) {
+  componentDidMount(props) {
     profileCurrentUser().then(res => {
       this.setState({
         profile_picture: res.data.data.profile_picture,
@@ -72,16 +74,16 @@ class PersonalDetail extends React.Component {
     });
 
     investmentsGetAll()
-    .then(res => {
-      const investments = res.data.data;
+      .then(res => {
+        const investments = res.data.data;
 
-      this.setState({
-        investments
+        this.setState({
+          investments
+        });
+      })
+      .catch(err => {
+        toast.error(err.message);
       });
-    })
-    .catch(err => {
-      toast.error(err.message);
-    });
   }
 
   handleFormChange = e => {
@@ -291,7 +293,6 @@ class PersonalDetail extends React.Component {
                             <Button onClick={() => this.userData()}>
                               Submit
                             </Button>
-                       
                           </Col>
                         </Row>
                       </div>

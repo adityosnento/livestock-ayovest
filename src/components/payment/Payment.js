@@ -77,6 +77,12 @@ class FormPayments extends React.Component {
       <div className="container__payment">
         <ToastContainer />
         <div className="container__left">
+          {/* <img src={require("../../asset/Payment/payment.svg")}
+          alt="logo" />
+          <div className="container__content">
+          <h5>Payment Method</h5>
+          <p>Whether you are an enterpreneur, businessman, employment, or someone with an interest in farm industry.</p>
+          </div> */}
           <h6>INVOICE</h6>
           <h1>BOER GOAT</h1>
           <div className="payment__flex">

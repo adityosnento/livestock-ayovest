@@ -16,7 +16,7 @@ export default class Help extends Component {
                    </div>
                    <div className="help__content">
                    <h4>What is AYOvest?</h4>
-                   <p>AYOvest provides an opportunity for you to collaborate in the world of animal husbandry. Monggovest helps farmers who have difficulty finding money. Likewise, we can help those of you who want to allocate funds while providing real social impact. The medium we offer becomes a bridge of cooperation for a vision of escalating livestock production.</p>
+                   <p>We are company that helps you to invest in Livestock Industry. We believe that investing in this industry is very encouraging for both of you and the breeder. The more you invest you also participating in GoGreen because of the flow that require breeder and farmer around to be participated and making the world greener</p>
                    </div>
                    
                    </div>

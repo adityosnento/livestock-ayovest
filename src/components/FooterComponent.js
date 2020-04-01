@@ -11,7 +11,7 @@ export default class FooterComponent extends Component {
           <Col xs="12" md="4">
             <span>Ayovest</span>
             <p>
-            Monggovest exists as a collaborative medium for a common vision. We believe the opportunity to contribute to the nation belongs to everyone.
+            Ayovest exists as a collaborative medium for a common vision. We believe the opportunity to contribute to the nation belongs to everyone.
             </p>
           </Col>
           <Col xs="12" md="2">
