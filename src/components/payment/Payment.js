@@ -1,8 +1,12 @@
 import React from "react";
 import { Button } from "reactstrap";
 import "../payment/Payment.scss";
-import { profileCurrentUser } from "../../utils/api";
-import { Breadcrumb, BreadcrumbItem } from 'reactstrap';
+import { toast, ToastContainer } from "react-toastify";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+import { livestockGetOne, paymentsCreate } from "../../utils/api";
+
+const MySwal = withReactContent(Swal);
 
 class FormPayments extends React.Component {
   constructor(props) {
@@ -12,16 +16,19 @@ class FormPayments extends React.Component {
       payment_photo: null,
       payment_photo_url: null,
       fullname: "",
-      id: this.props.userId
+      livestockId: this.props.livestockId,
+      investmentId: this.props.investmentId,
+      unit: this.props.unit,
+      livestock: []
     };
   }
 
-  componentWillMount() {
-    profileCurrentUser().then(res => {
-      const fullname = res.data.data.fullname;
+  componentDidMount() {
+    livestockGetOne(this.state.livestockId).then(res => {
+      const livestock = res.data.data;
 
       this.setState({
-        fullname
+        livestock
       });
     });
   }
@@ -36,28 +43,46 @@ class FormPayments extends React.Component {
     });
   };
 
+  payNow = () => {
+    toast.info("Uploading data");
+    let form_data = new FormData();
+
+    form_data.append("image", this.state.payment_photo);
+
+    if (this.state.payment_photo) {
+      paymentsCreate(form_data, this.state.investmentId)
+        .then(res => {
+          toast.dismiss();
+          toast.success("Successfully paid!");
+          this.paymentSuccess();
+          setTimeout(() => {
+            window.location.href = "/";
+          }, 1000);
+        })
+        .catch(err => {
+          toast.error(err.message);
+        });
+    } else {
+      toast.dismiss();
+      toast.error("Please upload your payment receipt!");
+    }
+  };
+
+  paymentSuccess = () => {
+    MySwal.fire("Success", "Payment Successful", "success");
+  };
+
   render() {
     return (
-      <div className="container__bills">
-      <div className="parallax-container">
-          <div className="material-parallax">
-            <img src={require("../../asset/image/invest.webp")} alt="logo" />
-          </div>
-          <div className="breadcrumbs-custom-body parallax-content context-dark">
-            <div className="container">
-              <h2 className="breadcrumbs-custom-title">PROFILE DETAIL</h2>
-            </div>
-          </div>
-        </div>
-        <div className="breadcrumb_payment">
-        <Breadcrumb>
-        <BreadcrumbItem><a href="/">Home</a></BreadcrumbItem>
-        <BreadcrumbItem><a href="/paymentresume">Payment</a></BreadcrumbItem>
-        <BreadcrumbItem active>Checkout</BreadcrumbItem>
-      </Breadcrumb>
-      </div>
       <div className="container__payment">
+        <ToastContainer />
         <div className="container__left">
+          {/* <img src={require("../../asset/Payment/payment.svg")}
+          alt="logo" />
+          <div className="container__content">
+          <h5>Payment Method</h5>
+          <p>Whether you are an enterpreneur, businessman, employment, or someone with an interest in farm industry.</p>
+          </div> */}
           <h6>INVOICE</h6>
           <h1>BOER GOAT</h1>
           <div className="payment__flex">
@@ -67,19 +92,20 @@ class FormPayments extends React.Component {
               <p>Time Period</p>
               <p>Total Lot</p>
             </div>
+
             <div className="payment__value">
-              <p>: 10 years</p>
-              <p>: 20% - 30%</p>
-              <p>: After 4 years</p>
-              <p>: 10 Lot</p>
+              <p>: {this.state.livestock.contractPeriod} years</p>
+              <p>: {this.state.livestock.roi}%</p>
+              <p>: After {this.state.livestock.sharingPeriod} years</p>
+              <p>: {this.state.unit} Lot</p>
             </div>
           </div>
           <div className="total__payment">
             <div className="payment__history">
-              <h4>Total Payment</h4>
+              <h4>TOTAL PAYMENT</h4>
             </div>
             <div className="payment__value">
-              <h4>$3200</h4>
+              <h4>${this.state.unit * this.state.livestock.priceUnit}</h4>
             </div>
           </div>
         </div>
@@ -115,13 +141,14 @@ class FormPayments extends React.Component {
             </div>
           </div>
           <div className="btn-payment">
-            <Button>Pay for $3200</Button>
+            <Button onClick={() => this.payNow()}>
+              Pay for ${this.state.unit * this.state.livestock.priceUnit}
+            </Button>
           </div>
         </div>
       </div>
-      </div>
     );
-  };
-};
+  }
+}
 
 export default FormPayments;

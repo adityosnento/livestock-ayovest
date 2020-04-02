@@ -1,5 +1,38 @@
 .container__help {
 
+    @-webkit-keyframes fadeInUp {
+        from {
+          opacity: 0;
+          -webkit-transform: translate3d(0, 100%, 0);
+          transform: translate3d(0, 100%, 0);
+        }
+      
+        to {
+          opacity: 1;
+          -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+        }
+      }
+      
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          -webkit-transform: translate3d(0, 100%, 0);
+          transform: translate3d(0, 100%, 0);
+        }
+      
+        to {
+          opacity: 1;
+          -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+        }
+      }
+      
+      .fadeInUp {
+        -webkit-animation-name: fadeInUp;
+        animation-name: fadeInUp;
+      }
+
     .containerhelp__title {
         padding: 150px; 
         text-align: center;
@@ -8,18 +41,39 @@
       }
 
     .whats__monggovest {
-        padding: 30px 75px 30px 150px;
+        padding: 30px 75px 100px 150px;
+        display: flex;
+        width: 100%;
 
-        h4 {
-            background-color: #3A7D38;
-            color: white;
-            padding: 10px;
-            width: 30%;
+        .img-content {
+            width: 70%;
+            display: flex;
+            align-items: center;
+            img {
+                width:100%;
+            }
+        }
+        
+        .help__content {
+            padding-left: 100px;
+            display: flex;
+            flex-direction: column;
+            h4 {
+                color: black;
+                width: 100%;
+                border-radius: 10px;
+                font-size: 40px;
+            }
+
+            p {
+                line-height: 30px;
+            }
         }
     }
     
     .how__monggovest {
-        padding: 0px 75px 30px 150px;
+        padding: 0px 75px 100px 150px;
+        width: 100%;
 
         h4 {
             background-color: #3A7D38;
@@ -27,57 +81,152 @@
             padding: 10px;
             width: 30%;
             border-radius: 4px;
+        }
+
+        p {
+            line-height: 30px;
         }
     }
 
       
     .steps__monggovest {
-        padding: 0px 75px 30px 150px;
+        padding: 0px 75px 100px 150px;
+        width: 100%;
+        display: flex;
 
+       .steps__content {
+         width: 100%;
         h4 {
-            background-color: #3A7D38;
-            color: white;
-            padding: 10px;
-            width: 40%;
-            border-radius: 4px;
+            color: black;
+            width: 100%;
+            border-radius: 10px;
+            font-size: 40px;
+            margin-bottom:10px;
         }
+       
+        p {
+            line-height: 30px;
+        }
+       }
+
+       .img-steps {
+           text-align: center;
+           display: flex;
+           justify-content: center;
+           text-align: center;
+           img {
+               width: 70%;
+           }
+       }
+      
     }
 
     .whats__Lots {
-        padding: 0px 75px 30px 150px;
+        padding: 0px 75px 100px 150px;
+        width: 100%;
+        display: flex;
 
-        h4 {
-            background-color: #3A7D38;
-            color: white;
-            padding: 10px;
-            width: 20%;
-            border-radius: 4px;
+
+        .img-lots {
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            text-align: center;
+           img {
+            width: 70%;
+           }
         }
+        
+        .lots__content {
+            width: 100%;
+            padding-left: 100px;
+            display: flex;
+            flex-direction: column;
+            h4 {
+                color: black;
+                width: 100%;
+                border-radius: 10px;
+                font-size: 40px;
+            }
+
+            p {
+                line-height: 30px;
+            }
+          }
+       
     }
 
-    .whats__sharing {
-        padding: 0px 75px 30px 150px;
+    .whats__profit {
+        padding: 0px 75px 100px 60px;
+        width: 100%;
+        display: flex;
 
-        h4 {
-            background-color: #3A7D38;
-            color: white;
-            padding: 10px;
-            width: 40%;
-            border-radius: 4px;
+        .img-profit {
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            text-align: center;
+           img {
+            width: 80%;
+           }
         }
+        
+        .profit__content {
+            width: 100%;
+            padding-left: 100px;
+            display: flex;
+            flex-direction: column;
+            h4 {
+                color: black;
+                width: 100%;
+                border-radius: 10px;
+                font-size: 40px;
+            }
+
+            p {
+                line-height: 30px;
+            }
+          }
+       
     }
 
-    .whats__offer {
-        padding: 0px 75px 30px 150px;
+    .whats__database {
+        padding: 0px 75px 30px 60px;
+        width: 100%;
+        display: flex;
 
-        h4 {
-            background-color: #3A7D38;
-            color: white;
-            padding: 10px;
-            width: 60%;
-            border-radius: 4px;
+        .img-database {
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            text-align: center;
+           img {
+            width: 80%;
+           }
         }
+        
+        .database__content {
+            width: 100%;
+            padding-left: 100px;
+            display: flex;
+            flex-direction: column;
+            h4 {
+                color: black;
+                width: 100%;
+                border-radius: 10px;
+                font-size: 40px;
+            }
+
+            p {
+                line-height: 30px;
+            }
+          }
+       
     }
+
+   
+
+    
 
 }
 

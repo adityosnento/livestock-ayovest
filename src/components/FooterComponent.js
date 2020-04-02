@@ -10,32 +10,36 @@ export default class FooterComponent extends Component {
         <Row className="footer">
           <Col xs="12" md="4">
             <span>Ayovest</span>
-            <p>Monggovest exists as a collaboration medium for a common vision. We believe that the opportunity to contribute to the nation belongs to everyone.</p>
-            <i class="fa fa-google"></i>
-            <i class="fa fa-twitter"></i>
-            <i class="fa fa-youtube"></i>
-            <i class="fa fa-instagram"></i>
+            <p>
+            Ayovest exists as a collaborative medium for a common vision. We believe the opportunity to contribute to the nation belongs to everyone.
+            </p>
           </Col>
           <Col xs="12" md="2">
             <ul className="footer-important">
               <h5>Important Links</h5>
-              <li>Investasi</li>
-              <li>Cara Kerja</li>
-              <li>Tentang Kami</li>
+              <li>Investation</li>
+              <li>About Us</li>
             </ul>
           </Col>
           <Col xs="12" md="2">
             <ul className="footer-link">
               <h5>Useful Links</h5>
-              <li>Bantuan</li>
-              <li>Hubungi Kami</li>
+              <li>Contact Us</li>
+              <li>Helps</li>
             </ul>
           </Col>
           <Col xs="12" md="4">
-            <h4 style={{ textAlign: "center" }}>Subscribe Now</h4>
-            <p>
-              Lorem ipsum dolor sit ame consecte adipisicing elit, sed do eiusm
-            </p>
+            <div className="logos">
+            <h4 style={{ textAlign: "center" }}>We Are Available </h4>
+            <img src={require("../asset/auth/playstore.png")} alt="logo" />
+            <img src={require("../asset/auth/apple.png")} alt="logo" id="apple"/>
+            </div>
+            <div className="sosmed">
+            <i className="fa fa-google"></i>
+            <i className="fa fa-twitter"></i>
+            <i className="fa fa-youtube"></i>
+            <i className="fa fa-instagram"></i>
+            </div>
           </Col>
         </Row>
         <Row>

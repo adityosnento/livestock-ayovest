@@ -1,0 +1,45 @@
+.container__mobileapp {
+    padding: 150px 0px 0px 100px;
+    display: flex;
+
+    .container__img {
+        width: 50%;
+        img {
+            width: 70%;
+        }
+    }
+
+    .container__contant {
+        padding: 50px 100px 50px 0px;
+        width: 50%;
+
+        h1{
+            text-align: left;
+            font-weight: 900;
+        }
+
+        p {
+            margin-top: 20px;
+            line-height: 30px;
+        }
+
+        .container__badge {
+            padding-top: 50px;
+            text-align: left;
+            display: flex;
+            align-items: center;
+       
+            img {
+       
+        padding-right: 10px;
+        width: 40%;
+        cursor: pointer;
+       }
+
+       #applebadge {
+           width: 43%;
+           padding-left: 10px;
+       }
+        }
+    }
+}

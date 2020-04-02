@@ -18,14 +18,18 @@
     color: white;
     background-color: #4BA057;
     border-radius: 5px;
+    -webkit-transition: all 0.3s ease-out 0s;
+    transition: all 0.3s ease-out 0s;
   }
 }
 
 .navbar-brand {
   text-align: center;
+  margin: 0;
+  padding: 0;
 
   img {
-    width: 50%;
+    width: 55%;
   }
 }
 
@@ -39,6 +43,8 @@
     background-color: #fe8264 ;
     border-color: #fe8264;
     padding: 10px 30px;
+    -webkit-transition: all 0.3s ease-out 0s;
+    transition: all 0.3s ease-out 0s;
   }
 
   &:active {

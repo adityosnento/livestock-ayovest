@@ -4,14 +4,7 @@ import "../../components/payment/Payments.scss";
 export default class paymentresume extends Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      id: this.props.userId
-    };
-  }
-
-  componentDidMount() {
-    console.log("state", this.state);
+    this.state = [];
   }
   render() {
     return (

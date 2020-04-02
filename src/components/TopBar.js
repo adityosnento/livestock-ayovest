@@ -22,7 +22,7 @@ const TopBar = props => {
     <div>
       <Navbar className="navbar-color" dark expand="md" fixed="top">
         <NavbarBrand href="/">
-          <img  src={require("../../src/asset/image/logo.png")}
+          <img  src={require("../../src/asset/auth/ayovest.png")}
             alt="logo"/>
         </NavbarBrand>
         <NavbarToggler onClick={toggle} />

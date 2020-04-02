@@ -8,7 +8,7 @@ import {
   DropdownItem
 } from "reactstrap";
 import CardComponent from "../home/CardComponent";
-import { liveStockGetAll, liveStockGetCategory } from "../../utils/api/index";
+import { liveStockGetAll, liveStockGetCategory } from "../../utils/api";
 import { toast, ToastContainer } from "react-toastify";
 
 class Investation extends React.Component {
