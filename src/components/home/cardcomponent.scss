@@ -16,11 +16,14 @@
 
   &:hover {
     opacity: 0.7;
+    -webkit-transition: all 0.3s ease-out 0s;
+    transition: all 0.3s ease-out 0s;
   }
 }
 
 .card-body {
   height: 20vh;
+  
 
   p {
     color: black;

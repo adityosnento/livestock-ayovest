@@ -56,7 +56,7 @@ export default class Testimony extends Component {
             <div className="container-testimony">
             <i class="fa fa-quote-left"></i>
               <h3>
-              I love this investation! For years, I hated investation because I was drinking the store-bought stuff, but this tastes wonderful and I’m addicted!
+              I love this investation! For years, I hated investation because I was drinking the store-bought stuff
               </h3>
               <div className="container__person">
                 <div className="img__testimonial">

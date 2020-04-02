@@ -94,12 +94,22 @@ h4 {
     padding: 10px 30px;
     letter-spacing: 1px;
     border-radius: 5px;
-  }
+
 
   &:hover {
-    opacity: 0.6;
-    border-color: white;
-    color: white;
+    color: #ffffff;
+    cursor: pointer;
+    text-decoration: underline;
+    -webkit-transition: all 0.3s ease-out 0s;
+  transition: all 0.3s ease-out 0s;
+  color: white;
+  text-decoration: none;
+  background-color: green;
+}
+  }
+
+
+  &:link{
     text-decoration: none;
   }
 }

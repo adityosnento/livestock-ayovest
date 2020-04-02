@@ -19,14 +19,13 @@ export default class FooterComponent extends Component {
               <h5>Important Links</h5>
               <li>Investation</li>
               <li>About Us</li>
-              <li>Bantuan</li>
             </ul>
           </Col>
           <Col xs="12" md="2">
             <ul className="footer-link">
               <h5>Useful Links</h5>
-             
-              <li>Hubungi Kami</li>
+              <li>Contact Us</li>
+              <li>Helps</li>
             </ul>
           </Col>
           <Col xs="12" md="4">

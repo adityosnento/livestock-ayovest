@@ -5,12 +5,12 @@ export default class Help extends Component {
     render() {
         return (
             <div className="container__help">
-                <div className="container__top">
+                <div className="container__top animated fadeInUp">
                 <h2>Hello is there anything we can help you with?</h2>
                 <p>In dairy investing, quality assurance is an integral part of the quality strategy. As we care about our clients, we control the quality of our products on all stages of its production.</p>
             </div>
                <div>
-                   <div className="whats__monggovest">
+                   <div className="whats__monggovest animated fadeInLeft">
                    <div className="img-content">
                    <img src={require("../../asset/auth/ayovest.png")} alt="logo" />
                    </div>
@@ -20,7 +20,7 @@ export default class Help extends Component {
                    </div>
                    
                    </div>
-                   <div className="steps__monggovest">
+                   <div className="steps__monggovest animated fadeInRight">
                    <div className="steps__content">
                    <h4>What are the steps to collaborating?</h4>
                    <ul>

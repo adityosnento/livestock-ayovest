@@ -4,8 +4,7 @@ import "../../components/PersonalDetail/persoaldetail.scss";
 import {
   profileCurrentUser,
   updateUserDataInvestor,
-  investmentsGetAll,
-  paymentsGetOne
+  investmentsGetAll
 } from "../../utils/api";
 import { TabContent, TabPane, Nav, NavItem, NavLink } from "reactstrap";
 import { Breadcrumb, BreadcrumbItem } from "reactstrap";
@@ -227,7 +226,7 @@ class PersonalDetail extends React.Component {
                               <Label for="exampleCountry">Country</Label>
                               <Input
                                 type="text"
-                                name="text"
+                                name="country"
                                 id="Country"
                                 placeholder="Indonesia"
                                 onChange={e => this.handleFormChange(e)}
@@ -240,7 +239,7 @@ class PersonalDetail extends React.Component {
                               <Label for="Province">Province</Label>
                               <Input
                                 type="text"
-                                name="text"
+                                name="province"
                                 id="Province"
                                 placeholder="Jekadaahh"
                                 onChange={e => this.handleFormChange(e)}
@@ -255,7 +254,7 @@ class PersonalDetail extends React.Component {
                               <Label for="City">City</Label>
                               <Input
                                 type="text"
-                                name="text"
+                                name="city"
                                 id="City"
                                 placeholder="Jekadahh Timur"
                                 onChange={e => this.handleFormChange(e)}
@@ -268,7 +267,7 @@ class PersonalDetail extends React.Component {
                               <Label for="">Zipcode</Label>
                               <Input
                                 type="text"
-                                name="text"
+                                name="postal_code"
                                 id="zipcode"
                                 placeholder="96113"
                                 onChange={e => this.handleFormChange(e)}
@@ -283,11 +282,11 @@ class PersonalDetail extends React.Component {
                               <Label for="Address">Address</Label>
                               <Input
                                 type="text"
-                                name="text"
+                                name="address"
                                 id="City"
                                 placeholder="Layangan Putus Street"
                                 onChange={e => this.handleFormChange(e)}
-                                defaultValue={this.state.Address}
+                                defaultValue={this.state.address}
                               />
                             </FormGroup>
                             <Button onClick={() => this.userData()}>
@@ -311,8 +310,13 @@ class PersonalDetail extends React.Component {
                     <div className="investmentstory__container">
                     {this.state.investments &&
                       this.state.investments.map(invest => (
-                        <div className="investmentstatus__content">
-                          <img src={invest.livestockId.image} alt="halo" />
+                        // <div className="investmentstatus__content">
+                        //   <img src={invest.livestockId.image} alt="halo" />
+                        <div
+                          key={invest._id}
+                          className="investmentstatus__content"
+                        >
+                          <img src={invest.livestockId.image} alt="gambar"/>
                           <div>{invest.livestockName}</div>
                           <div>${invest.totalPriceUnit}</div>
                           {invest.paidStatus && (

@@ -4,8 +4,8 @@ import '../Slider/Slider.scss'
 export default function Slider() {
     return (
         <div>
-            <div className="container__photo">
-                <div className="slide__left">
+            <div className="container__photo animated fadeInUp ">
+                <div className="slide__left ">
                 <img src={require("../../../asset/image/Rectangle.png")}
                   alt="logo" />
                 <h1>Better Investment get sales and profit</h1>

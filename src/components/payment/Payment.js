@@ -102,7 +102,7 @@ class FormPayments extends React.Component {
           </div>
           <div className="total__payment">
             <div className="payment__history">
-              <h4>Total Payment</h4>
+              <h4>TOTAL PAYMENT</h4>
             </div>
             <div className="payment__value">
               <h4>${this.state.unit * this.state.livestock.priceUnit}</h4>
