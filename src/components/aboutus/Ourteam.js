@@ -37,7 +37,7 @@ export default class MultipleItems extends Component {
           </div>
           <div className="container-card">
           <img src={require("../../asset/Member/2.png")} alt="logo" />
-          <h4>VICKY HERMAWAN</h4>
+          <h4>Vicky Hermawan</h4>
           <p>React Native Developer</p>
           <div className="logo__center">
           <i class="fa fa-facebook-f"></i>
@@ -57,7 +57,7 @@ export default class MultipleItems extends Component {
           </div>
           <div className="container-card">
           <img src={require("../../asset/Member/4.png")} alt="logo" />
-          <h4>Filbert</h4>
+          <h4>Firbert Oktariko</h4>
           <p>Backend Developer</p>
           <div className="logo__center">
           <i class="fa fa-facebook-f"></i>

@@ -87,7 +87,7 @@ class Investation extends React.Component {
           </div>
           <div class="breadcrumbs-custom-body parallax-content context-dark">
             <div class="container">
-              <h2 class="breadcrumbs-custom-title">INVESTATION LIST</h2>
+              <h2 class="breadcrumbs-custom-title">LIVESTOCKS LIST</h2>
             </div>
           </div>
         </div>

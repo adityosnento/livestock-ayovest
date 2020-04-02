@@ -24,12 +24,12 @@ export default class Testimony extends Component {
               <div className="container__person">
                 <div className="img__testimonial">
                   <img
-                    src={require("../../asset/image/user1.jpeg")}
+                    src={require("../../asset/Member/5.jpg")}
                     alt="logo"
                   />
                 </div>
                 <div className="paragraph__description">
-                  <p id="title__position">WILLIAM ENDOK</p>
+                  <p id="title__position">RENATA SOE</p>
                   <p>Client</p>
                 </div>
               </div>
@@ -43,7 +43,7 @@ export default class Testimony extends Component {
               <div className="container__person">
                 <div className="img__testimonial">
                   <img
-                    src={require("../../asset/image/user1.jpeg")}
+                    src={require("../../asset/Member/2.jpg")}
                     alt="logo"
                   />
                 </div>
@@ -61,12 +61,12 @@ export default class Testimony extends Component {
               <div className="container__person">
                 <div className="img__testimonial">
                   <img
-                    src={require("../../asset/image/user1.jpeg")}
+                    src={require("../../asset/Member/1.jpg")}
                     alt="logo"
                   />
                 </div>
                 <div className="paragraph__description">
-                  <p id="title__position">WILLIAM ENDOK</p>
+                  <p id="title__position">JONG SUK</p>
                   <p>Client</p>
                 </div>
               </div>
@@ -80,12 +80,12 @@ export default class Testimony extends Component {
               <div className="container__person">
                 <div className="img__testimonial">
                   <img
-                    src={require("../../asset/image/user1.jpeg")}
+                    src={require("../../asset/Member/4.jpg")}
                     alt="logo"
                   />
                 </div>
                 <div className="paragraph__description">
-                  <p id="title__position">WILLIAM ENDOK</p>
+                  <p id="title__position">KINTANT SIENAK</p>
                   <p>Client</p>
                 </div>
               </div>

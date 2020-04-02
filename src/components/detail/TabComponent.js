@@ -26,7 +26,7 @@ const TabComponent = props => {
       <h1>{props.name}</h1>
       <div className="price__star">
         <div className="price">
-          <h4>${props.priceUnit}</h4>
+          <h4>SGD {props.priceUnit}</h4>
         </div>
         <div className="star">
           <i className="fa fa-star"></i>

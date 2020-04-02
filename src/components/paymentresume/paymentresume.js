@@ -179,7 +179,7 @@ export default class paymentresume extends Component {
           <div className="container__submit">
             <div className="total__payment">
               <p>
-                TOTAL PAYMENT :<span> ${this.state.totalPayment}</span>
+                TOTAL PAYMENT : <span>SGD {this.state.totalPayment}</span>
               </p>
             </div>
             <div className="total__button">

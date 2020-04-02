@@ -12,7 +12,7 @@ export default class Stepinvest2 extends Component {
               <img src={require("../../asset/image/money.svg")} alt="logo" />
             </div>
             <div className="container__stepinvest__content__padding">
-              <h1>INSTRUMENT INVESTASI</h1>
+              <h1>INSTRUMENT INVESTATION</h1>
               <p>
               Choose instruments to be invested based on categories, such as goats, cows, or chickens
               </p>
