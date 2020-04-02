@@ -8,7 +8,7 @@ import Sliders from "../components/home/Slider/Slider";
 import WhyUs from "../components/home/WhyUs";
 import StepInvests2 from "../components/home/Stepinvest(2)";
 import Mobileapp from "../components/home/Mobileapp";
-import Ads from "../components/home/Ads"
+// import Ads from "../components/home/Ads"
 import { liveStockGetAll } from "../utils/api";
 import { toast, ToastContainer } from "react-toastify";
 
@@ -43,7 +43,7 @@ export default class Home extends Component {
         <WhyUs />
         <StepInvests2 />
         <Mobileapp/>
-        <Ads/>
+        {/* <Ads/> */}
         <InvestasiTerpopler />
         <CardComponent livestocks={this.state.livestocks} />
         <ButtonLink title="Find More" />
