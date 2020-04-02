@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Paymethod from "../components/payment/Payment";
-import { livestockGetOne } from "../utils/api";
+
 
 export default class Payment extends Component {
   constructor(props) {

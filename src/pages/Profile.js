@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import PersonalDetail from "../components/PersonalDetail/PersonalDetail";
-import { investmentsGetAll } from "../utils/api";
-import { toast, ToastContainer } from "react-toastify";
+
 
 export default class Profile extends Component {
   constructor(props) {
@@ -16,7 +15,6 @@ export default class Profile extends Component {
   render() {
     return (
       <div>
-        <ToastContainer />
         <PersonalDetail />
       </div>
     );

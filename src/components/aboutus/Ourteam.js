@@ -12,7 +12,7 @@ export default class MultipleItems extends Component {
       slidesToScroll: 3
     };
     return (
-      <div className="ourteam-card">
+      <div className="ourteam-card animated fadeIn">
         <h2> OUR TEAM MEMBER </h2>
         <Slider {...settings}>
           <div className="container-card">
